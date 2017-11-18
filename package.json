@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "dependencies": {
+    "jasmine-ajax": "^3.3.1",
+    "jasmine-core": "^2.8.0",
+    "jasmine-jquery": "^2.1.1",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-ajax": "^0.1.13",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "less": "^2.7.3",
+    "less-plugin-clean-css": "^1.5.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "typescript": "^2.6.1",
+    "uglify-js": "^3.1.9"
+  }
+}
