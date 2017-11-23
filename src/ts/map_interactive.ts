@@ -77,6 +77,11 @@ function addEvent(id: string): void {
 }
 
 jQuery(function () {
+
+    // this check is for unit testing
+    if (typeof wd_config === 'undefined') return;
+    if (!wd_config || $.isEmptyObject(wd_config)) return;
+
     addEvent('wd_1');
     addEvent('wd_2');
     addEvent('wd_3');

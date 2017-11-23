@@ -2,6 +2,16 @@
 
 describe('OBS class test suite', function() {
 
+    beforeEach(function () {
+
+        jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
+
+        loadFixtures('published-languages-fixture.html');
+
+        // verify the fixture loaded successfully
+        expect(jQuery('#jasmine-fixtures')).toBeTruthy();
+    });
+
     it('Test OBS constructor', function() {
 
         var obs = new OBS('test');
@@ -27,6 +37,22 @@ describe('OBS class test suite', function() {
             expect(loadResult).toEqual('Successfully loaded catalog data.');
             expect(obs.languages.length).toBeGreaterThan(0);
             expect(obs.languages[0].obs_resource.identifier).toEqual('obs');
+
+            done();
+        });
+    });
+
+    it('Test OBS.buildDiv()', function(done) {
+
+        var obs = new OBS('/base/test/data/catalog.json', function(loadResult) {
+
+            expect(loadResult).toEqual('Successfully loaded catalog data.');
+
+            obs.buildDiv();
+
+            var html = $('body');
+
+            console.log(html);
 
             done();
         });

@@ -1,0 +1,1019 @@
+'Successfully loaded catalog data.'
+{0:
+<body>
+<!-- The scripts need to be in the body DOM element, as some test running frameworks need the body
+     to have already been created so they can insert their magic into it. For example, if loaded
+     before body, Angular Scenario test framework fails to find the body and crashes and burns in
+     an epic manner. -->
+<script src="context.js"></script>
+<script type="text/javascript">
+    // Configure our Karma and set up bindings
+    window.__karma__.config = {
+        "args": ["--grep="],
+        "useIframe": true,
+        "runInParent": false,
+        "captureConsole": true,
+        "clearContext": true
+    };
+
+    window.__karma__.setupContext(window);
+
+    // All served files with the latest timestamps
+    window.__karma__.files = {
+        '/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js': '73bc53d3671677e6a093fc74e4f9bcde57e5f7ad',
+        '/base/node_modules/karma-jasmine/lib/boot.js': '945a38bf4e45ad2770eb94868231905a04a0bd3e',
+        '/base/node_modules/karma-jasmine/lib/adapter.js': '7a813cc290d592e664331c573a1a796192cdd1ad',
+        '/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js': '7dc9b8495b938e044e4055cc611fe9ebfaea1480',
+        '/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js': '0fed45ad7a48ace869bc725ca474ad86a1ef1562',
+        '/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js': '0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0',
+        '/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js': '0a7ece2a54c2edfae6199f22b74840bf66cd6c56',
+        '/base/output/js/map_interactive.js': '27956448d42d62e13ea2f2f7d0720823fdb4ce56',
+        '/base/output/js/obs.js': '73f69a417e43a9b3ce30b8c79ce379dd3b12e2de',
+        '/base/output/js/strings.js': '663119413b32dfe288dafbcaa96077ce9079fc3e',
+        '/base/test/fixtures/published-languages-fixture.html': '91c0f5d9e0758cc4f26ef6fa2eacf7919046f6bf',
+        '/base/test/data/catalog.json': 'beee91a00a9d7d85353965cd9b7522a79f97d90c',
+        '/base/test/js/obs_tests.js': '7f429351fd581e600096c9e26e19d2ff93a40779'
+    };
+
+</script>
+<!-- Dynamically replaced with <script> tags -->
+<script type="text/javascript"
+        src="/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?73bc53d3671677e6a093fc74e4f9bcde57e5f7ad"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine/lib/boot.js?945a38bf4e45ad2770eb94868231905a04a0bd3e"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine/lib/adapter.js?7a813cc290d592e664331c573a1a796192cdd1ad"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js?7dc9b8495b938e044e4055cc611fe9ebfaea1480"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js?0fed45ad7a48ace869bc725ca474ad86a1ef1562"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js?0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js?0a7ece2a54c2edfae6199f22b74840bf66cd6c56"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/output/js/map_interactive.js?27956448d42d62e13ea2f2f7d0720823fdb4ce56"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/output/js/obs.js?73f69a417e43a9b3ce30b8c79ce379dd3b12e2de"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/output/js/strings.js?663119413b32dfe288dafbcaa96077ce9079fc3e"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/test/js/obs_tests.js?7f429351fd581e600096c9e26e19d2ff93a40779"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    window.__karma__.loaded();
+</script>
+
+
+<div id="jasmine-fixtures">
+    <script type="text/javascript">
+        var wd_config = {};
+    </script>
+    <div id="published-languages">
+        <div><h2><strong>+ hi (हिन्दी, हिंदी)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/hi/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ gu (ગુજરાતી)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/gu/obs/v3.2.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/gu/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ sgj (Surgujia)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/sgj/obs/v4.2/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/sgj/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ ne (नेपाली)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/ne/obs/v3.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/ne/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ fr (français (French))</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/fr/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/fr/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ en (English)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/en/obs/v4/obs.zip">application/zip; type=book content=text/markdown
+                    conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf">application/pdf</a></li>
+                <li><a href="https://cdn.door43.org/en/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ es (Spanish)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/es/obs/v3.2.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/es/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ pt-br (Brazilian Português)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/pt-br/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ ha ((Hausa) هَوُسَ)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/ha/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/ha/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ ru (Русский)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/ru/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/ru/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ es-419 (Español Latin America)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/es-419/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/es-419/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ tl (Tagalog)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/tl/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ tdj (Tajio)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/tdj/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/tdj/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ bn (বাংলা)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/bn/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/bn/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ lpx (Lopit)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/lpx/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/lpx/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ ceb (Cebuano)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/ceb/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ gaj-x-ymnk (Gadsup Yomunka)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ tpi (Tok Pisin)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/tpi/obs/v4.2/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ pa (ਪੰਜਾਬੀ, پنجابی‎)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/pa/obs/v4.2/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ vi (Tiếng Việt)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/vi/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/vi/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ ur (اردو)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/ur/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/ur/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ gof (Gofa)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/gof/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/gof/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ or (ଓଡ଼ିଆ)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/or/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/or/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ mr (मराठी)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/mr/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/mr/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ hmr (Hmar)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/hmr/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/hmr/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ hu (magyar)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/hu/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/hu/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ hr (hrvatski jezik)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/hr/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/hr/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ fa (فارسی)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/fa/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/fa/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ am (አማርኛ)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/am/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/am/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+        <div><h2><strong>+ tr (Türkçe)</strong></h2>
+            <p><strong><em>Text</em></strong></p>
+            <ul>
+                <li><a href="https://cdn.door43.org/tr/obs/v4.1/obs.zip">application/zip; type=book
+                    content=text/markdown conformsto=rc0.2</a></li>
+                <li><a href="https://cdn.door43.org/tr/obs/v3/media/html/obs.html">text/html</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>, length: 1, prevObject: {0: <!DOCTYPE html><!--
+This is the execution context.
+Loaded within the iframe.
+Reloaded before every execution run.
+-->
+<html>
+<head>&#10; <title></title>&#10;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">&#10;
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">&#10;
+</head>&#10;<body>&#10;  <!-- The scripts need to be in the body DOM element, as some test running frameworks need the body
+       to have already been created so they can insert their magic into it. For example, if loaded
+       before body, Angular Scenario test framework fails to find the body and crashes and burns in
+       an epic manner. -->&#10;
+<script src="context.js"></script>&#10;
+<script type="text/javascript">         // Configure our Karma and set up bindings&#10;    window.__karma__.config = {"args":["--grep="],"useIframe":true,"runInParent":false,"captureConsole":true,"clearContext":true};&#10;&#10;    window.__karma__.setupContext(window);&#10;&#10;    // All served files with the latest timestamps&#10;    window.__karma__.files = {&#10;  '/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js': '73bc53d3671677e6a093fc74e4f9bcde57e5f7ad',&#10;  '/base/node_modules/karma-jasmine/lib/boot.js': '945a38bf4e45ad2770eb94868231905a04a0bd3e',&#10;  '/base/node_modules/karma-jasmine/lib/adapter.js': '7a813cc290d592e664331c573a1a796192cdd1ad',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js': '7dc9b8495b938e044e4055cc611fe9ebfaea1480',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js': '0fed45ad7a48ace869bc725ca474ad86a1ef1562',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js': '0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js': '0a7ece2a54c2edfae6199f22b74840bf66cd6c56',&#10;  '/base/output/js/map_interactive.js': '27956448d42d62e13ea2f2f7d0720823fdb4ce56',&#10;  '/base/output/js/obs.js': '73f69a417e43a9b3ce30b8c79ce379dd3b12e2de',&#10;  '/base/output/js/strings.js': '663119413b32dfe288dafbcaa96077ce9079fc3e',&#10;  '/base/test/fixtures/published-languages-fixture.html': '91c0f5d9e0758cc4f26ef6fa2eacf7919046f6bf',&#10;  '/base/test/data/catalog.json': 'beee91a00a9d7d85353965cd9b7522a79f97d90c',&#10;  '/base/test/js/obs_tests.js': '7f429351fd581e600096c9e26e19d2ff93a40779'&#10;};&#10;&#10;  </script>&#10;
+<!-- Dynamically replaced with <script> tags -->&#10;
+<script type="text/javascript"
+        src="/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?73bc53d3671677e6a093fc74e4f9bcde57e5f7ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine/lib/boot.js?945a38bf4e45ad2770eb94868231905a04a0bd3e"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine/lib/adapter.js?7a813cc290d592e664331c573a1a796192cdd1ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js?7dc9b8495b938e044e4055cc611fe9ebfaea1480"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js?0fed45ad7a48ace869bc725ca474ad86a1ef1562"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js?0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js?0a7ece2a54c2edfae6199f22b74840bf66cd6c56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/map_interactive.js?27956448d42d62e13ea2f2f7d0720823fdb4ce56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/output/js/obs.js?73f69a417e43a9b3ce30b8c79ce379dd3b12e2de"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/strings.js?663119413b32dfe288dafbcaa96077ce9079fc3e"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/test/js/obs_tests.js?7f429351fd581e600096c9e26e19d2ff93a40779"
+                                                      crossorigin="anonymous"></script>&#10;
+<script type="text/javascript">         window.__karma__.loaded();
+&#10;  </script>&#10;&#10;&#10;<div id="jasmine-fixtures">
+    <script type="text/javascript">         var wd_config = {};
+    &#10;</script>&#10;<div id="published-languages">
+    <div><h2><strong>+ hi (&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;, &#2361;&#2367;&#2306;&#2342;&#2368;)</strong>
+    </h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gu (&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;)</strong></h2>&#10;<p><strong><em>Text</em></strong>
+    </p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gu/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ sgj (Surgujia)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/sgj/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/sgj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ne (&#2344;&#2375;&#2346;&#2366;&#2354;&#2368;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ne/obs/v3.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ne/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fr (fran&ccedil;ais (French))</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ en (English)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/en/obs/v4/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf">application/pdf</a></li>
+        <li><a href="https://cdn.door43.org/en/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es (Spanish)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pt-br (Brazilian Portugu&ecirc;s)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ha ((Hausa) &#1607;&#1614;&#1608;&#1615;&#1587;&#1614;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ha/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ha/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ru (&Rcy;&ucy;&scy;&scy;&kcy;&icy;&jcy;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ru/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ru/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es-419 (Espa&ntilde;ol Latin America)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es-419/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es-419/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tl (Tagalog)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tl/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tdj (Tajio)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tdj/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tdj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ bn (&#2476;&#2494;&#2434;&#2482;&#2494;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/bn/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/bn/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ lpx (Lopit)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/lpx/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/lpx/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ceb (Cebuano)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ceb/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gaj-x-ymnk (Gadsup Yomunka)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip">application/zip; type=book
+            content=text/markdown conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tpi (Tok Pisin)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tpi/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pa (&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;,
+        &#1662;&#1606;&#1580;&#1575;&#1576;&#1740;&lrm;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pa/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ vi (Ti&#7871;ng Vi&#7879;t)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/vi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/vi/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ur (&#1575;&#1585;&#1583;&#1608;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ur/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ur/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gof (Gofa)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gof/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gof/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ or (&#2835;&#2849;&#2876;&#2879;&#2822;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/or/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/or/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ mr (&#2350;&#2352;&#2366;&#2336;&#2368;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/mr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/mr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hmr (Hmar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hmr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hmr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hu (magyar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hu/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hr (hrvatski jezik)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fa (&#1601;&#1575;&#1585;&#1587;&#1740;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fa/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fa/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ am (&#4768;&#4635;&#4653;&#4763;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/am/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/am/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tr (T&uuml;rk&ccedil;e)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+</div>&#10;
+</div>
+</body>
+</html>, context: <!DOCTYPE html><!--
+This is the execution context.
+Loaded within the iframe.
+Reloaded before every execution run.
+-->
+<html>
+<head>&#10; <title></title>&#10;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">&#10;
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">&#10;
+</head>&#10;<body>&#10;  <!-- The scripts need to be in the body DOM element, as some test running frameworks need the body
+       to have already been created so they can insert their magic into it. For example, if loaded
+       before body, Angular Scenario test framework fails to find the body and crashes and burns in
+       an epic manner. -->&#10;
+<script src="context.js"></script>&#10;
+<script type="text/javascript">         // Configure our Karma and set up bindings&#10;    window.__karma__.config = {"args":["--grep="],"useIframe":true,"runInParent":false,"captureConsole":true,"clearContext":true};&#10;&#10;    window.__karma__.setupContext(window);&#10;&#10;    // All served files with the latest timestamps&#10;    window.__karma__.files = {&#10;  '/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js': '73bc53d3671677e6a093fc74e4f9bcde57e5f7ad',&#10;  '/base/node_modules/karma-jasmine/lib/boot.js': '945a38bf4e45ad2770eb94868231905a04a0bd3e',&#10;  '/base/node_modules/karma-jasmine/lib/adapter.js': '7a813cc290d592e664331c573a1a796192cdd1ad',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js': '7dc9b8495b938e044e4055cc611fe9ebfaea1480',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js': '0fed45ad7a48ace869bc725ca474ad86a1ef1562',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js': '0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js': '0a7ece2a54c2edfae6199f22b74840bf66cd6c56',&#10;  '/base/output/js/map_interactive.js': '27956448d42d62e13ea2f2f7d0720823fdb4ce56',&#10;  '/base/output/js/obs.js': '73f69a417e43a9b3ce30b8c79ce379dd3b12e2de',&#10;  '/base/output/js/strings.js': '663119413b32dfe288dafbcaa96077ce9079fc3e',&#10;  '/base/test/fixtures/published-languages-fixture.html': '91c0f5d9e0758cc4f26ef6fa2eacf7919046f6bf',&#10;  '/base/test/data/catalog.json': 'beee91a00a9d7d85353965cd9b7522a79f97d90c',&#10;  '/base/test/js/obs_tests.js': '7f429351fd581e600096c9e26e19d2ff93a40779'&#10;};&#10;&#10;  </script>&#10;
+<!-- Dynamically replaced with <script> tags -->&#10;
+<script type="text/javascript"
+        src="/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?73bc53d3671677e6a093fc74e4f9bcde57e5f7ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine/lib/boot.js?945a38bf4e45ad2770eb94868231905a04a0bd3e"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine/lib/adapter.js?7a813cc290d592e664331c573a1a796192cdd1ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js?7dc9b8495b938e044e4055cc611fe9ebfaea1480"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js?0fed45ad7a48ace869bc725ca474ad86a1ef1562"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js?0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js?0a7ece2a54c2edfae6199f22b74840bf66cd6c56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/map_interactive.js?27956448d42d62e13ea2f2f7d0720823fdb4ce56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/output/js/obs.js?73f69a417e43a9b3ce30b8c79ce379dd3b12e2de"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/strings.js?663119413b32dfe288dafbcaa96077ce9079fc3e"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/test/js/obs_tests.js?7f429351fd581e600096c9e26e19d2ff93a40779"
+                                                      crossorigin="anonymous"></script>&#10;
+<script type="text/javascript">         window.__karma__.loaded();
+&#10;  </script>&#10;&#10;&#10;<div id="jasmine-fixtures">
+    <script type="text/javascript">         var wd_config = {};
+    &#10;</script>&#10;<div id="published-languages">
+    <div><h2><strong>+ hi (&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;, &#2361;&#2367;&#2306;&#2342;&#2368;)</strong>
+    </h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gu (&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;)</strong></h2>&#10;<p><strong><em>Text</em></strong>
+    </p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gu/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ sgj (Surgujia)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/sgj/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/sgj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ne (&#2344;&#2375;&#2346;&#2366;&#2354;&#2368;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ne/obs/v3.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ne/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fr (fran&ccedil;ais (French))</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ en (English)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/en/obs/v4/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf">application/pdf</a></li>
+        <li><a href="https://cdn.door43.org/en/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es (Spanish)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pt-br (Brazilian Portugu&ecirc;s)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ha ((Hausa) &#1607;&#1614;&#1608;&#1615;&#1587;&#1614;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ha/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ha/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ru (&Rcy;&ucy;&scy;&scy;&kcy;&icy;&jcy;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ru/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ru/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es-419 (Espa&ntilde;ol Latin America)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es-419/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es-419/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tl (Tagalog)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tl/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tdj (Tajio)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tdj/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tdj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ bn (&#2476;&#2494;&#2434;&#2482;&#2494;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/bn/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/bn/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ lpx (Lopit)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/lpx/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/lpx/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ceb (Cebuano)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ceb/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gaj-x-ymnk (Gadsup Yomunka)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip">application/zip; type=book
+            content=text/markdown conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tpi (Tok Pisin)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tpi/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pa (&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;,
+        &#1662;&#1606;&#1580;&#1575;&#1576;&#1740;&lrm;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pa/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ vi (Ti&#7871;ng Vi&#7879;t)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/vi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/vi/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ur (&#1575;&#1585;&#1583;&#1608;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ur/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ur/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gof (Gofa)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gof/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gof/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ or (&#2835;&#2849;&#2876;&#2879;&#2822;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/or/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/or/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ mr (&#2350;&#2352;&#2366;&#2336;&#2368;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/mr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/mr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hmr (Hmar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hmr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hmr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hu (magyar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hu/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hr (hrvatski jezik)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fa (&#1601;&#1575;&#1585;&#1587;&#1740;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fa/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fa/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ am (&#4768;&#4635;&#4653;&#4763;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/am/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/am/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tr (T&uuml;rk&ccedil;e)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+</div>&#10;
+</div>
+</body>
+</html>, length: 1}, context: <!DOCTYPE html><!--
+This is the execution context.
+Loaded within the iframe.
+Reloaded before every execution run.
+-->
+<html>
+<head>&#10; <title></title>&#10;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">&#10;
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">&#10;
+</head>&#10;<body>&#10;  <!-- The scripts need to be in the body DOM element, as some test running frameworks need the body
+       to have already been created so they can insert their magic into it. For example, if loaded
+       before body, Angular Scenario test framework fails to find the body and crashes and burns in
+       an epic manner. -->&#10;
+<script src="context.js"></script>&#10;
+<script type="text/javascript">         // Configure our Karma and set up bindings&#10;    window.__karma__.config = {"args":["--grep="],"useIframe":true,"runInParent":false,"captureConsole":true,"clearContext":true};&#10;&#10;    window.__karma__.setupContext(window);&#10;&#10;    // All served files with the latest timestamps&#10;    window.__karma__.files = {&#10;  '/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js': '73bc53d3671677e6a093fc74e4f9bcde57e5f7ad',&#10;  '/base/node_modules/karma-jasmine/lib/boot.js': '945a38bf4e45ad2770eb94868231905a04a0bd3e',&#10;  '/base/node_modules/karma-jasmine/lib/adapter.js': '7a813cc290d592e664331c573a1a796192cdd1ad',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js': '7dc9b8495b938e044e4055cc611fe9ebfaea1480',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js': '0fed45ad7a48ace869bc725ca474ad86a1ef1562',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js': '0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0',&#10;  '/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js': '0a7ece2a54c2edfae6199f22b74840bf66cd6c56',&#10;  '/base/output/js/map_interactive.js': '27956448d42d62e13ea2f2f7d0720823fdb4ce56',&#10;  '/base/output/js/obs.js': '73f69a417e43a9b3ce30b8c79ce379dd3b12e2de',&#10;  '/base/output/js/strings.js': '663119413b32dfe288dafbcaa96077ce9079fc3e',&#10;  '/base/test/fixtures/published-languages-fixture.html': '91c0f5d9e0758cc4f26ef6fa2eacf7919046f6bf',&#10;  '/base/test/data/catalog.json': 'beee91a00a9d7d85353965cd9b7522a79f97d90c',&#10;  '/base/test/js/obs_tests.js': '7f429351fd581e600096c9e26e19d2ff93a40779'&#10;};&#10;&#10;  </script>&#10;
+<!-- Dynamically replaced with <script> tags -->&#10;
+<script type="text/javascript"
+        src="/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?73bc53d3671677e6a093fc74e4f9bcde57e5f7ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine/lib/boot.js?945a38bf4e45ad2770eb94868231905a04a0bd3e"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine/lib/adapter.js?7a813cc290d592e664331c573a1a796192cdd1ad"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/saveCurrentJquery.js?7dc9b8495b938e044e4055cc611fe9ebfaea1480"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jqueryForJasmineJqueryPlugin.js?0fed45ad7a48ace869bc725ca474ad86a1ef1562"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/node_modules/karma-jasmine-jquery/lib/setJqueryForJasminJqueryPlugin.js?0d7808eefd8f21b9b4ae2a6c00cb46f643fc14a0"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript"
+        src="/base/node_modules/karma-jasmine-jquery/lib/jasmine-jquery.js?0a7ece2a54c2edfae6199f22b74840bf66cd6c56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/map_interactive.js?27956448d42d62e13ea2f2f7d0720823fdb4ce56"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/output/js/obs.js?73f69a417e43a9b3ce30b8c79ce379dd3b12e2de"
+                                                      crossorigin="anonymous"></script>&#10;<script
+        type="text/javascript" src="/base/output/js/strings.js?663119413b32dfe288dafbcaa96077ce9079fc3e"
+        crossorigin="anonymous"></script>&#10;<script type="text/javascript"
+                                                      src="/base/test/js/obs_tests.js?7f429351fd581e600096c9e26e19d2ff93a40779"
+                                                      crossorigin="anonymous"></script>&#10;
+<script type="text/javascript">         window.__karma__.loaded();
+&#10;  </script>&#10;&#10;&#10;<div id="jasmine-fixtures">
+    <script type="text/javascript">         var wd_config = {};
+    &#10;</script>&#10;<div id="published-languages">
+    <div><h2><strong>+ hi (&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;, &#2361;&#2367;&#2306;&#2342;&#2368;)</strong>
+    </h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gu (&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;)</strong></h2>&#10;<p><strong><em>Text</em></strong>
+    </p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gu/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ sgj (Surgujia)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/sgj/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/sgj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ne (&#2344;&#2375;&#2346;&#2366;&#2354;&#2368;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ne/obs/v3.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ne/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fr (fran&ccedil;ais (French))</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ en (English)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/en/obs/v4/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf">application/pdf</a></li>
+        <li><a href="https://cdn.door43.org/en/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es (Spanish)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es/obs/v3.2.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pt-br (Brazilian Portugu&ecirc;s)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/pt-br/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ha ((Hausa) &#1607;&#1614;&#1608;&#1615;&#1587;&#1614;)</strong></h2>&#10;<p>
+        <strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ha/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ha/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ru (&Rcy;&ucy;&scy;&scy;&kcy;&icy;&jcy;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ru/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ru/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ es-419 (Espa&ntilde;ol Latin America)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/es-419/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/es-419/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tl (Tagalog)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tl/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tdj (Tajio)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tdj/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tdj/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ bn (&#2476;&#2494;&#2434;&#2482;&#2494;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/bn/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/bn/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ lpx (Lopit)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/lpx/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/lpx/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ceb (Cebuano)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ceb/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gaj-x-ymnk (Gadsup Yomunka)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip">application/zip; type=book
+            content=text/markdown conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gaj-x-ymnk/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tpi (Tok Pisin)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tpi/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ pa (&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;,
+        &#1662;&#1606;&#1580;&#1575;&#1576;&#1740;&lrm;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/pa/obs/v4.2/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ vi (Ti&#7871;ng Vi&#7879;t)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/vi/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/vi/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ ur (&#1575;&#1585;&#1583;&#1608;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/ur/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/ur/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ gof (Gofa)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/gof/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/gof/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ or (&#2835;&#2849;&#2876;&#2879;&#2822;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/or/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/or/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ mr (&#2350;&#2352;&#2366;&#2336;&#2368;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/mr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/mr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hmr (Hmar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hmr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hmr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hu (magyar)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hu/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hu/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ hr (hrvatski jezik)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/hr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/hr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ fa (&#1601;&#1575;&#1585;&#1587;&#1740;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/fa/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/fa/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ am (&#4768;&#4635;&#4653;&#4763;)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/am/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/am/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+    <div><h2><strong>+ tr (T&uuml;rk&ccedil;e)</strong></h2>&#10;<p><strong><em>Text</em></strong></p>&#10;<ul>
+        <li><a href="https://cdn.door43.org/tr/obs/v4.1/obs.zip">application/zip; type=book content=text/markdown
+            conformsto=rc0.2</a></li>
+        <li><a href="https://cdn.door43.org/tr/obs/v3/media/html/obs.html">text/html</a></li>
+    </ul>
+    </div>
+</div>&#10;
+</div>
+</body>
+</html>, selector: 'body'}
