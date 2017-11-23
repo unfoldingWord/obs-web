@@ -1,9 +1,29 @@
 /// <reference path="d/jquery.d.ts" />
 
+interface Catalog {
+
+    catalogs: any[];
+    languages: Language[];
+}
+
+interface Language {
+
+    title: string;
+    identifier: string;
+    resources: Resource[];
+    obs_resource: Resource;
+}
+
+interface Resource {
+
+    identifier: string;
+}
+
 class OBS {
 
     testString: string;
     loadResult: string;
+    languages: Language[];
 
     /**
      * Class constructor
@@ -20,40 +40,60 @@ class OBS {
         }
 
         // load the url now
+        let me = this;
         $.ajax({
             url: url,
             dataType: 'json'
-        }).done(function(data) {
+        }).done(function(data: Catalog) {
 
             if (!('languages' in data)) {
-                this.loadResult = 'Error loading catalog - "Languages" element not found.';
+                me.loadResult = 'Error loading catalog - "Languages" element not found.';
             }
             else {
-                this.loadResult = 'Successfully loaded catalog data.';
+                me.loadResult = 'Successfully loaded catalog data.';
+
+                me.extractOBS(data);
             }
 
-            console.log(this.loadResult);
+            console.log(me.loadResult);
 
             if (typeof callback !== 'undefined')
-                callback(this.loadResult);
+                callback(me.loadResult);
 
         }).fail(function(jqXHR, textStatus, errorThrown) {
 
-            this.loadResult = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
+            me.loadResult = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
 
-            console.log(this.loadResult);
+            console.log(me.loadResult);
 
             if (typeof callback !== 'undefined')
-                callback(this.loadResult);
+                callback(me.loadResult);
         });
 
     }
 
     /**
-     * Extracts the OBS records from the catalog
+     * Extracts the languages with OBS resources from the catalog
      * @param data The catalog from https://api.door43.org/v3/catalog.json
      */
-    extractOBS(data: any): void {
+    extractOBS(data: Catalog): void {
 
+        // get languages that have OBS resources
+        this.languages = data.languages.filter(function(lang: Language) {
+            let found = lang.resources.filter(function(res: Resource) {
+                return res.identifier === 'obs';
+            });
+
+            return found.length > 0;
+        });
+
+        // identify the OBS resources
+        for (let i = 0; i < this.languages.length; i++) {
+            let found = this.languages[i].resources.filter(function(res: Resource) {
+                return res.identifier === 'obs';
+            });
+
+            this.languages[i].obs_resource = found[0];
+        }
     }
 }

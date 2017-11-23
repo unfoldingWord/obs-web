@@ -22,9 +22,11 @@ describe('OBS class test suite', function() {
 
     it('Test constructor with good path', function(done) {
 
-        new OBS('/base/test/data/catalog.json', function(loadResult) {
+        var obs = new OBS('/base/test/data/catalog.json', function(loadResult) {
 
             expect(loadResult).toEqual('Successfully loaded catalog data.');
+            expect(obs.languages.length).toBeGreaterThan(0);
+            expect(obs.languages[0].obs_resource.identifier).toEqual('obs');
 
             done();
         });
