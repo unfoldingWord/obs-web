@@ -29,7 +29,8 @@ module.exports = function (config) {
 
         // list of files to exclude
         exclude: [
-            'output/js/*.min.js'
+            'output/js/*.min.js',
+            'output/js/obs-start.js'
         ],
 
 

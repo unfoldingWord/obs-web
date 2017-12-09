@@ -25,17 +25,22 @@ interface Project {
 interface Format {
     format: string;
     modified: string;
+    quality: string;
     size: number;
     url: string;
 }
-declare const lang_h2 = "<h2><strong>+ {0} ({1})</strong></h2>\n";
-declare const res_type_desc = "<p><strong><em>{0}</em></strong></p>\n";
-declare const res_li = "<li><a href=\"{0}\">{1}</a></li>\n";
 declare class OBS {
+    lang_h2: string;
+    res_type_desc: string;
+    static res_li: string;
+    static res_ul: string;
     testString: string;
     loadResult: string;
     languages: Language[];
     constructor(url: string, callback?: Function);
     extractOBS(data: Catalog): void;
     buildDiv(): void;
+    private static getDescription(fmt);
+    private static getSize(file_size);
+    private static getList(res_type);
 }
