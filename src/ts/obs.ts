@@ -80,7 +80,6 @@ class OBS {
         // this is for unit testing
         if (url === 'test') {
             this.testString = 'Test success.';
-            console.log(this.loadResult);
             return;
         }
 

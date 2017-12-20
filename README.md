@@ -38,3 +38,5 @@ See http://openchannelmedia.org/ for an example
 [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
 
 [https://api.door43.org/v3/catalog.json](https://api.door43.org/v3/catalog.json)
+
+https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv

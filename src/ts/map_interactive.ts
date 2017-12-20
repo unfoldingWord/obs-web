@@ -35,11 +35,10 @@ function addEvent(id: string): void {
             });
             _Textobj.on('touchend', function () {
                 jQuery('#' + id).css({'fill': wd_config[id]['upcolor']});
-                if (wd_config[id]['target'] == '_blank') {
-                    window.open(wd_config[id]['url']);
-                } else if (wd_config[id]['target'] == '_self') {
-                    window.parent.location.href = wd_config[id]['url'];
-                }
+
+                // todo: put correct action here
+                selectRegion(wd_config[id]['region']);
+
                 jQuery('#map-tip-wd').hide();
             })
         }
@@ -58,11 +57,10 @@ function addEvent(id: string): void {
         }
         _Textobj.mouseup(function () {
             jQuery('#' + id).css({'fill': wd_config[id]['overcolor']});
-            if (wd_config[id]['target'] == '_blank') {
-                window.open(wd_config[id]['url']);
-            } else if (wd_config[id]['target'] == '_self') {
-                window.parent.location.href = wd_config[id]['url'];
-            }
+
+            // todo: put correct action here
+            selectRegion(wd_config[id]['region']);
+
         });
         _Textobj.mousemove(function (e) {
             let x = e.pageX + 10, y = e.pageY + 15;
@@ -76,16 +74,73 @@ function addEvent(id: string): void {
     }
 }
 
-jQuery(function () {
+function selectRegion(region_name): void {
+    alert('Selected ' + region_name);
+}
 
-    // this check is for unit testing
-    if (typeof wd_config === 'undefined') return;
-    if (!wd_config || $.isEmptyObject(wd_config)) return;
-
-    addEvent('wd_1');
-    addEvent('wd_2');
-    addEvent('wd_3');
-    addEvent('wd_4');
-    addEvent('wd_5');
-    addEvent('wd_6');
-});
+wd_config = {
+    'default': {
+        'bordercolor': '#6b8b9e',
+        'namescolor': '#383838'
+    },
+    'wd_1': {
+        'hover': 'Africa',
+        'region': 'africa',
+        'target': '_self',
+        'upcolor': '#dd9933',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_af'
+    },
+    'wd_2': {
+        'hover': 'Asia',
+        'region': 'asia',
+        'target': '_self',
+        'upcolor': '#e0f3ff',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_as'
+    },
+    'wd_3': {
+        'hover': 'Europe',
+        'region': 'europe',
+        'target': '_self',
+        'upcolor': '#8224e3',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_eu'
+    },
+    'wd_4': {
+        'hover': 'North America',
+        'region': 'north-america',
+        'target': '_self',
+        'upcolor': '#45892a',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_na'
+    },
+    'wd_5': {
+        'hover': 'Oceania',
+        'region': 'oceania',
+        'target': '_self',
+        'upcolor': '#81d742',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_oc'
+    },
+    'wd_6': {
+        'hover': 'South America',
+        'region': 'south-america',
+        'target': '_self',
+        'upcolor': '#dd3333',
+        'overcolor': '#8fbee8',
+        'downcolor': '#477cb2',
+        'enable': true,
+        'iso': 'iso_sa'
+    }
+};

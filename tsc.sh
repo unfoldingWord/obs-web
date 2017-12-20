@@ -11,6 +11,7 @@ printf "compiling typescript files... "
 "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/strings.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
 "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/obs.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
 "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/obs-start.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
+"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/lang-names.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
 "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/map_interactive.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
 
 
@@ -18,6 +19,7 @@ printf "uglifying... "
 "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/strings.js" -o "${thisDir}/output/js/strings.min.js" --compress --mangle
 "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/obs.js" -o "${thisDir}/output/js/obs.min.js" --compress --mangle
 "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/obs-start.js" -o "${thisDir}/output/js/obs-start.min.js" --compress --mangle
+"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/lang-names.js" -o "${thisDir}/output/js/lang-names.min.js" --compress --mangle
 "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js//map_interactive.js" -o "${thisDir}/output/js//map_interactive.min.js" --compress --mangle
 
 
