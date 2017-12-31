@@ -6,6 +6,7 @@ interface String {
     startsWith(prefix: string): boolean;
     toInt(): number;
     toFloat(): number;
+    getHostName(): string;
 }
 
 /**
@@ -61,4 +62,25 @@ String.prototype.toInt = function() {
 String.prototype.toFloat = function() {
     const s: string = this;
     return parseFloat(s);
+};
+
+String.prototype.getHostName = function() {
+
+    let hostname: string;
+
+    // find and remove protocol
+    if (this.indexOf("://") > -1) {
+        hostname = this.split('/')[2];
+    }
+    else {
+        hostname = this.split('/')[0];
+    }
+
+    // find and remove port number
+    hostname = hostname.split(':')[0];
+
+    // find and remove "?"
+    hostname = hostname.split('?')[0];
+
+    return hostname;
 };

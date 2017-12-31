@@ -4,4 +4,5 @@ interface String {
     startsWith(prefix: string): boolean;
     toInt(): number;
     toFloat(): number;
+    getHostName(): string;
 }

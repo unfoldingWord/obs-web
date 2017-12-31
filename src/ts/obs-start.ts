@@ -24,6 +24,7 @@ function appendStyle(): void {
     document.getElementsByTagName("head")[0].appendChild(lnk);
 }
 
+// noinspection JSUnusedGlobalSymbols
 function appendMap(): void {
 
     let url = 'https://s3-us-west-2.amazonaws.com/cdn.unfoldingword.org/obs/js/map.html';

@@ -29,6 +29,12 @@ interface Format {
     size: number;
     url: string;
 }
+declare class ResourceTypes {
+    text: Format[];
+    audio: Format[];
+    video: Format[];
+    other: Format[];
+}
 declare class OBS {
     lang_h2: string;
     res_type_desc: string;
@@ -40,6 +46,7 @@ declare class OBS {
     constructor(url: string, callback?: Function);
     extractOBS(data: Catalog): void;
     buildDiv(): void;
+    static getResources(lang: Language): ResourceTypes;
     private static getDescription(fmt);
     private static getSize(file_size);
     private static getList(res_type);

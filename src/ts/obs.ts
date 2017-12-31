@@ -40,6 +40,13 @@ interface Format {
     url: string;
 }
 
+class ResourceTypes {
+
+    text: Format[] = [];
+    audio: Format[] = [];
+    video: Format[] = [];
+    other: Format[] = [];
+}
 
 class OBS {
 
@@ -155,46 +162,31 @@ class OBS {
 
             let $div = $('<div></div>');
             let lang: Language = this.languages[i];
-            $div.append(this.lang_h2.format(lang.identifier, lang.title));
-
-            let res_types = {'text': [], 'audio': [], 'video': []};
 
             if (!lang.obs_resource) continue;
 
-            let res: Resource = lang.obs_resource;
-            for (let j = 0; j < res.projects.length; j++) {
+            $div.append(this.lang_h2.format(lang.identifier, lang.title));
 
-                let proj: Project = res.projects[j];
-                for (let k = 0; k < proj.formats.length; k++) {
+            let res_types = OBS.getResources(lang);
 
-                    let fmt: Format = proj.formats[k];
-
-                    if (fmt.format.indexOf('audio') > -1) {
-                        res_types['audio'].push(fmt);
-                    }
-                    else if (fmt.format.indexOf('video') > -1) {
-                        res_types['video'].push(fmt);
-                    }
-                    else {
-                        res_types['text'].push(fmt);
-                    }
-                }
-            }
-
-
-            if (res_types['text'].length > 0) {
+            if (res_types.text.length > 0) {
                 $div.append(this.res_type_desc.format('Text'));
-                $div.append(OBS.getList(res_types['text']));
+                $div.append(OBS.getList(res_types.text));
             }
 
-            if (res_types['audio'].length > 0) {
+            if (res_types.audio.length > 0) {
                 $div.append(this.res_type_desc.format('Audio'));
-                $div.append(OBS.getList(res_types['audio']));
+                $div.append(OBS.getList(res_types.audio));
             }
 
-            if (res_types['video'].length > 0) {
+            if (res_types.video.length > 0) {
                 $div.append(this.res_type_desc.format('Video'));
-                $div.append(OBS.getList(res_types['video']));
+                $div.append(OBS.getList(res_types.video));
+            }
+
+            if (res_types.other.length > 0) {
+                $div.append(this.res_type_desc.format('Other'));
+                $div.append(OBS.getList(res_types.other));
             }
 
             $container.append($div);
@@ -204,6 +196,50 @@ class OBS {
         let $h2 = $container.find('h2');
         $h2.css('cursor','pointer');
         $h2.click(function() {$(this).nextUntil('h2').slideToggle();});
+    }
+
+    static getResources(lang: Language): ResourceTypes {
+
+        let res_types = new ResourceTypes();
+
+        let res: Resource = lang.obs_resource;
+        for (let j = 0; j < res.projects.length; j++) {
+
+            let proj: Project = res.projects[j];
+            for (let k = 0; k < proj.formats.length; k++) {
+
+                let fmt: Format = proj.formats[k];
+
+                if (fmt.format.indexOf('audio') > -1) {
+                    res_types.audio.push(fmt);
+                }
+                else if (fmt.format.indexOf('video') > -1) {
+                    res_types.video.push(fmt);
+                }
+                else if (!fmt.format) {
+
+                    // check for youtube link
+                    if (fmt.url.indexOf('youtube') > -1) {
+                        fmt.format = 'youtube';
+                    }
+                    // check for bloom link
+                    else if (fmt.url.indexOf('bloom') > -1) {
+                        fmt.format = 'bloom';
+                    }
+                    // just use the host name
+                    else {
+                        fmt.format = fmt.url.getHostName();
+                    }
+
+                    res_types.other.push(fmt);
+                }
+                else {
+                    res_types.text.push(fmt);
+                }
+            }
+        }
+
+        return res_types;
     }
 
     /**
@@ -217,7 +253,15 @@ class OBS {
         let size_string = OBS.getSize(fmt.size);
 
         if (format_string.indexOf('application/pdf') > -1) {
-            return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF (' + size_string + ')';
+            return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
+        }
+
+        if (format_string.indexOf('youtube') > -1) {
+            return '<i class="fa fa-youtube" aria-hidden="true"></i>&ensp;YouTube';
+        }
+
+        if (format_string.indexOf('bloom') > -1) {
+            return '<i class="fa fa-book" aria-hidden="true"></i>&ensp;Bloom Shell Book';
         }
 
         let is_zipped = format_string.indexOf('application/zip') > -1;
@@ -238,19 +282,34 @@ class OBS {
         else if (format_string.indexOf('video/mp4') > -1) {
             return_val = '<i class="fa fa-file-video-o" aria-hidden="true"></i>&ensp;MP4';
         }
+        else {
+            return_val = '<i class="fa fa-file-o" aria-hidden="true"></i>&ensp;' + format_string;
+        }
 
         if (fmt.quality) {
-            return_val += ' &ndash; ' + fmt.quality;
+            return_val += '&nbsp;&ndash;&nbsp;' + fmt.quality;
         }
 
         if (is_zipped) {
-            return return_val + ' (' + size_string + ' zipped)';
+            if (size_string) {
+                return return_val + '&nbsp;<span style="color: #606060">(' + size_string + '&nbsp;zipped)</span>';
+            }
+
+            return return_val + '&nbsp;<span style="color: #606060">(zipped)</span>';
         }
 
-        return return_val + ' (' + size_string + ')';
+        if (size_string) {
+            return return_val + '&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
+        }
+
+        return return_val;
     }
 
     private static getSize(file_size: number): string {
+
+        if (file_size === 0) {
+            return '';
+        }
 
         if (file_size < 1000) {
             return file_size.toLocaleString() + ' Bytes';
