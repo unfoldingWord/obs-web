@@ -1,0 +1,97 @@
+#mapwrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 0;
+  background-color: transparent;
+  min-width: 220px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#text-abb {
+  font-size: 16px;
+  font-weight: bold;
+}
+#text-abb text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#map_base svg {
+  max-height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.map-tip-wd {
+  font: 14px/16px Trebuchet MS, Helvetica, Arial, sans-serif;
+  display: none;
+  padding: 3px;
+  border: 1px solid #EBECED;
+  color: #edeef0;
+  z-index: 1000;
+  float: left;
+  position: absolute;
+  /*gradient color*/
+  background: rgb(73, 73, 73);
+  background: -moz-linear-gradient(top, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(73, 73, 73, 1)), color-stop(100%, rgba(101, 101, 101, 1)));
+  background: -webkit-linear-gradient(top, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
+  background: -o-linear-gradient(top, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
+  background: linear-gradient(to bottom, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
+  word-break: keep-all;
+  /*white-space: nowrap;*/
+  box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:2px 3px 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow:2px 3px 6px rgba(0, 0, 0, 0.5);
+}
+.map-tip-wd p {
+  margin: 0!important;
+  color: #edeef0!important;
+}
+.map-tip-wd img {
+  float: left;
+  padding: 3px;
+}
+@media screen and (max-width: 320px){
+  #map_base svg {
+    height:180px;
+  }
+  .map-tip-wd {
+    max-width: 40%;
+  }
+  .map-tip-wd img {
+    max-width: 95%;
+  }
+}
+@media screen and (max-width: 400px) and (min-width: 321px) {
+  #map_base svg {
+    height:200px;
+  }
+}
+@media screen and (max-width: 480px) and (min-width: 401px) {
+  #map_base svg {
+    height:230px;
+  }
+}
+@media screen and (max-width: 568px) and (min-width: 481px) {
+  #map_base svg {
+    height:290px;
+  }
+}
+@media screen and (max-width: 685px) and (min-width: 569px) {
+  #map_base svg {
+    height:340px;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 686px) {
+  #map_base svg {
+    height:420px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #map_base svg {
+    height:470px;
+  }
+}
