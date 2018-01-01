@@ -28,6 +28,10 @@ interface Format {
     quality: string;
     size: number;
     url: string;
+    chapters: Chapter[];
+}
+interface Chapter extends Format {
+    identifier: string;
 }
 declare class ResourceTypes {
     text: Format[];
@@ -36,10 +40,13 @@ declare class ResourceTypes {
     other: Format[];
 }
 declare class OBS {
-    lang_h2: string;
-    res_type_desc: string;
+    static lang_h2: string;
+    static chapters_h2: string;
+    static res_type_desc: string;
     static res_li: string;
     static res_ul: string;
+    static description: string;
+    static size_span: string;
     testString: string;
     loadResult: string;
     languages: Language[];

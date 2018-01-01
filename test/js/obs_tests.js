@@ -105,4 +105,20 @@ describe('OBS class test suite', function() {
             done();
         });
     });
+
+    it('Test audio chapters', function(done) {
+
+        var obs = new OBS('/base/test/data/catalog.json', function() {
+
+            var english = obs.languages.filter(function(lang) { return lang.identifier === 'en'; });
+            var resources = OBS.getResources(english[0]);
+            expect(resources.audio.length).toBeGreaterThan(0);
+
+            var mp3 = resources.audio[0];
+            expect(mp3).toHaveProp('chapters');
+            expect(mp3.chapters[0].identifier).toEqual('01');
+
+            done();
+        });
+    });
 });

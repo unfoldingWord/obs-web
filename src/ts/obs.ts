@@ -38,6 +38,12 @@ interface Format {
     quality: string;
     size: number;
     url: string;
+    chapters: Chapter[];
+}
+
+interface Chapter extends Format {
+
+    identifier: string;
 }
 
 class ResourceTypes {
@@ -55,13 +61,15 @@ class OBS {
      * {1} = Localized language name
      * @type {string}
      */
-    lang_h2: string = '<h2><strong>+ {0} ({1})</strong></h2>\n';
+    static lang_h2: string = '<h2 class="language-h2"><strong>+ {0} ({1})</strong></h2>\n';
+
+    static chapters_h2: string = '<h2 class="chapters-h2" style="display: inline-block; font-size: 1em; margin: 0">&ensp;<i class="fa fa-plus" aria-hidden="true" style="font-size: 1em"></i>&ensp;</h2>';
 
     /**
      * {0} = Resource type name (Text, Audio, Video)
      * @type {string}
      */
-    res_type_desc: string = '<p style="display: none"><strong><em>{0}</em></strong></p>\n';
+    static res_type_desc: string = '<p style="display: none"><strong><em>{0}</em></strong></p>\n';
 
     /**
      * {0} = Resource URL
@@ -72,6 +80,18 @@ class OBS {
 
     static res_ul: string = '<ul style="margin: 16px 0; display: none"></ul>';
 
+    /**
+     * {0} = font awesome class
+     * {1} = description
+     * @type {string}
+     */
+    static description: string = '<i class="fa {0}" aria-hidden="true"></i>&ensp;{1}';
+
+    /**
+     * {0} = size string, and zipped if applicable
+     * @type {string}
+     */
+    static size_span = '&nbsp;<span style="color: #606060">({0})</span>';
 
     testString: string;
     loadResult: string;
@@ -165,27 +185,27 @@ class OBS {
 
             if (!lang.obs_resource) continue;
 
-            $div.append(this.lang_h2.format(lang.identifier, lang.title));
+            $div.append(OBS.lang_h2.format(lang.identifier, lang.title));
 
             let res_types = OBS.getResources(lang);
 
             if (res_types.text.length > 0) {
-                $div.append(this.res_type_desc.format('Text'));
+                $div.append(OBS.res_type_desc.format('Text'));
                 $div.append(OBS.getList(res_types.text));
             }
 
             if (res_types.audio.length > 0) {
-                $div.append(this.res_type_desc.format('Audio'));
+                $div.append(OBS.res_type_desc.format('Audio'));
                 $div.append(OBS.getList(res_types.audio));
             }
 
             if (res_types.video.length > 0) {
-                $div.append(this.res_type_desc.format('Video'));
+                $div.append(OBS.res_type_desc.format('Video'));
                 $div.append(OBS.getList(res_types.video));
             }
 
             if (res_types.other.length > 0) {
-                $div.append(this.res_type_desc.format('Other'));
+                $div.append(OBS.res_type_desc.format('Other'));
                 $div.append(OBS.getList(res_types.other));
             }
 
@@ -209,6 +229,11 @@ class OBS {
             for (let k = 0; k < proj.formats.length; k++) {
 
                 let fmt: Format = proj.formats[k];
+
+                // sort chapters
+                if ('chapters' in fmt) {
+                    fmt.chapters.sort(function(a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
+                }
 
                 if (fmt.format.indexOf('audio') > -1) {
                     res_types.audio.push(fmt);
@@ -244,10 +269,10 @@ class OBS {
 
     /**
      * Gets a friendly description of the format
-     * @param {Format} fmt
+     * @param {Format|Chapter} fmt
      * @returns {string}
      */
-    private static getDescription(fmt: Format): string {
+    private static getDescription(fmt: Format | Chapter): string {
 
         let format_string = fmt.format;
         let size_string = OBS.getSize(fmt.size);
@@ -257,34 +282,47 @@ class OBS {
         }
 
         if (format_string.indexOf('youtube') > -1) {
-            return '<i class="fa fa-youtube" aria-hidden="true"></i>&ensp;YouTube';
+            return OBS.description.format('fa-youtube', 'YouTube');
         }
 
         if (format_string.indexOf('bloom') > -1) {
-            return '<i class="fa fa-book" aria-hidden="true"></i>&ensp;Bloom Shell Book';
+            return OBS.description.format('fa-book', 'Bloom Shell Book');
         }
 
         let is_zipped = format_string.indexOf('application/zip') > -1;
-        let return_val = '';
+        let fmt_description: string;
+        let fmt_class: string;
 
         if (format_string.indexOf('text/markdown') > -1) {
-            return_val = '<i class="fa fa-file-text-o" aria-hidden="true"></i>&ensp;Markdown';
+            fmt_description = 'Markdown';
+            fmt_class = 'fa-file-text-o';
         }
         else if (format_string.indexOf('text/html') > -1) {
-            return_val = '<i class="fa fa-globe" aria-hidden="true"></i>&ensp;HTML';
+            fmt_description = 'HTML';
+            fmt_class = 'fa-globe';
         }
         else if (format_string.indexOf('text/usfm') > -1) {
-            return_val = '<i class="fa fa-file-text" aria-hidden="true"></i>&ensp;USFM';
+            fmt_description = 'USFM';
+            fmt_class = 'fa-file-text';
         }
         else if (format_string.indexOf('audio/mp3') > -1) {
-            return_val = '<i class="fa fa-file-audio-o" aria-hidden="true"></i>&ensp;MP3';
+            fmt_description = 'MP3';
+            fmt_class = 'fa-file-audio-o';
         }
         else if (format_string.indexOf('video/mp4') > -1) {
-            return_val = '<i class="fa fa-file-video-o" aria-hidden="true"></i>&ensp;MP4';
+            fmt_description = 'MP4';
+            fmt_class = 'fa-file-video-o';
         }
         else {
-            return_val = '<i class="fa fa-file-o" aria-hidden="true"></i>&ensp;' + format_string;
+            fmt_description = format_string;
+            fmt_class = 'fa-file-o';
         }
+
+        if ('identifier' in fmt) {
+            fmt_description = 'Chapter ' + parseInt((<Chapter>fmt).identifier).toLocaleString()
+        }
+
+        let return_val = OBS.description.format(fmt_class, fmt_description);
 
         if (fmt.quality) {
             return_val += '&nbsp;&ndash;&nbsp;' + fmt.quality;
@@ -292,14 +330,14 @@ class OBS {
 
         if (is_zipped) {
             if (size_string) {
-                return return_val + '&nbsp;<span style="color: #606060">(' + size_string + '&nbsp;zipped)</span>';
+                return return_val + OBS.size_span.format(size_string + '&nbsp;zipped');
             }
 
-            return return_val + '&nbsp;<span style="color: #606060">(zipped)</span>';
+            return return_val + OBS.size_span.format('zipped');
         }
 
         if (size_string) {
-            return return_val + '&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
+            return return_val + OBS.size_span.format(size_string);
         }
 
         return return_val;
@@ -339,6 +377,22 @@ class OBS {
 
             let fmt: Format = res_type[n];
             let $li = $(OBS.res_li.format(fmt.url, OBS.getDescription(fmt)));
+
+            if (('chapters' in fmt) && (fmt.chapters.length > 0)) {
+                $li.append(OBS.chapters_h2);
+
+                let $chapter_ul: JQuery = $(OBS.res_ul);
+
+                for (let m = 0; m < fmt.chapters.length; m++) {
+
+                    let chap: Chapter = fmt.chapters[m];
+                    let $chap_li = $(OBS.res_li.format(chap.url, OBS.getDescription(chap)));
+                    $chapter_ul.append($chap_li);
+                }
+
+                $li.append($chapter_ul);
+            }
+
             $ul.append($li);
         }
 
