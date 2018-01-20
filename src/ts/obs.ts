@@ -251,6 +251,10 @@ class OBS {
                     else if (fmt.url.indexOf('bloom') > -1) {
                         fmt.format = 'bloom';
                     }
+                    // check for door43.org
+                    else if (fmt.url.indexOf('https://door43.org/u/Door43-Catalog') > -1) {
+                        fmt.format = 'door43';
+                    }
                     // just use the host name
                     else {
                         fmt.format = fmt.url.getHostName();
@@ -280,13 +284,14 @@ class OBS {
         if (format_string.indexOf('application/pdf') > -1) {
             return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
         }
-
-        if (format_string.indexOf('youtube') > -1) {
+        else if (format_string.indexOf('youtube') > -1) {
             return OBS.description.format('fa-youtube', 'YouTube');
         }
-
-        if (format_string.indexOf('bloom') > -1) {
+        else if (format_string.indexOf('bloom') > -1) {
             return OBS.description.format('fa-book', 'Bloom Shell Book');
+        }
+        else if (format_string.indexOf('door43') > -1) {
+            return OBS.description.format('fa-globe', 'Door43');
         }
 
         let is_zipped = format_string.indexOf('application/zip') > -1;
@@ -299,7 +304,7 @@ class OBS {
         }
         else if (format_string.indexOf('text/html') > -1) {
             fmt_description = 'HTML';
-            fmt_class = 'fa-globe';
+            fmt_class = 'fa-code';
         }
         else if (format_string.indexOf('text/usfm') > -1) {
             fmt_description = 'USFM';

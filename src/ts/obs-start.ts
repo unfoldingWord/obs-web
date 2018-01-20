@@ -8,12 +8,17 @@
 function appendStyle(): void {
 
     let styles = `
-#published-languages i { color: #1a1a1a; font-size: 19px; } 
+#published-languages i { color: #1a1a1a; font-size: 19px; width: 20px; } 
 `;
+
     let css = document.createElement('style');
     css.type = 'text/css';
-    if (css['styleSheet']) css['styleSheet']['cssText'] = styles;
-    else css.appendChild(document.createTextNode(styles));
+
+    if (css['styleSheet'])
+        css['styleSheet']['cssText'] = styles;
+    else
+        css.appendChild(document.createTextNode(styles));
+
     document.getElementsByTagName("head")[0].appendChild(css);
 
     let lnk: HTMLLinkElement = document.createElement('link');
