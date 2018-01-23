@@ -241,6 +241,10 @@ class OBS {
                 else if (fmt.format.indexOf('video') > -1) {
                     res_types.video.push(fmt);
                 }
+                else if (!fmt.format && (fmt.url.indexOf('https://door43.org/u/Door43-Catalog') > -1)) {
+                    fmt.format = 'door43';
+                    res_types.text.push(fmt);
+                }
                 else if (!fmt.format) {
 
                     // check for youtube link
@@ -250,10 +254,6 @@ class OBS {
                     // check for bloom link
                     else if (fmt.url.indexOf('bloom') > -1) {
                         fmt.format = 'bloom';
-                    }
-                    // check for door43.org
-                    else if (fmt.url.indexOf('https://door43.org/u/Door43-Catalog') > -1) {
-                        fmt.format = 'door43';
                     }
                     // just use the host name
                     else {
@@ -291,7 +291,7 @@ class OBS {
             return OBS.description.format('fa-book', 'Bloom Shell Book');
         }
         else if (format_string.indexOf('door43') > -1) {
-            return OBS.description.format('fa-globe', 'Door43');
+            return OBS.description.format('fa-globe', 'View on Door43.org');
         }
 
         let is_zipped = format_string.indexOf('application/zip') > -1;
@@ -303,8 +303,11 @@ class OBS {
             fmt_class = 'fa-file-text-o';
         }
         else if (format_string.indexOf('text/html') > -1) {
-            fmt_description = 'HTML';
-            fmt_class = 'fa-code';
+            // we are skipping this one for now
+            return null;
+
+            // fmt_description = 'HTML';
+            // fmt_class = 'fa-code';
         }
         else if (format_string.indexOf('text/usfm') > -1) {
             fmt_description = 'USFM';
@@ -381,7 +384,12 @@ class OBS {
         for (let n = 0; n < res_type.length; n++) {
 
             let fmt: Format = res_type[n];
-            let $li = $(OBS.res_li.format(fmt.url, OBS.getDescription(fmt)));
+
+            let description = OBS.getDescription(fmt);
+            if (description == null)
+                continue;
+
+            let $li = $(OBS.res_li.format(fmt.url, description));
 
             if (('chapters' in fmt) && (fmt.chapters.length > 0)) {
                 $li.append(OBS.chapters_h2);
@@ -391,7 +399,12 @@ class OBS {
                 for (let m = 0; m < fmt.chapters.length; m++) {
 
                     let chap: Chapter = fmt.chapters[m];
-                    let $chap_li = $(OBS.res_li.format(chap.url, OBS.getDescription(chap)));
+
+                    let chap_description = OBS.getDescription(chap);
+                    if (chap_description == null)
+                        continue;
+
+                    let $chap_li = $(OBS.res_li.format(chap.url, chap_description));
                     $chapter_ul.append($chap_li);
                 }
 
