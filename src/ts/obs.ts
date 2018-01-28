@@ -177,6 +177,7 @@ class OBS {
     buildDiv(): void {
 
         let $container = $('body').find('#published-languages');
+        $container.empty();
 
         for (let i = 0; i < this.languages.length; i++) {
 
