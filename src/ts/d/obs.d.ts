@@ -52,7 +52,7 @@ declare class OBS {
     languages: Language[];
     constructor(url: string, callback?: Function);
     extractOBS(data: Catalog): void;
-    buildDiv(): void;
+    buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
     private static getDescription(fmt);
     private static getSize(file_size);

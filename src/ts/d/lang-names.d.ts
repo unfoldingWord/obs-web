@@ -1,5 +1,6 @@
 /// <reference path="jquery.d.ts" />
 /// <reference path="strings.d.ts" />
+/// <reference path="region_data.d.ts" />
 interface LanguageData {
     lc: string;
     alt: string[];

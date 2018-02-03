@@ -61,7 +61,7 @@ class OBS {
      * {1} = Localized language name
      * @type {string}
      */
-    static lang_h2: string = '<h2 class="language-h2"><strong>+ {0} ({1})</strong></h2>\n';
+    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong>+ {0} ({1})</strong></h2>\n';
 
     static chapters_h2: string = '<h2 class="chapters-h2" style="display: inline-block; font-size: 1em; margin: 0">&ensp;<i class="fa fa-plus" aria-hidden="true" style="font-size: 1em"></i>&ensp;</h2>';
 
@@ -173,8 +173,9 @@ class OBS {
 
     /**
      * Builds the language accordion and inserts it into the page
+     * @param {Function} callback An optional callback function
      */
-    buildDiv(): void {
+    buildDiv(callback?: Function): void {
 
         let $container = $('body').find('#published-languages');
         $container.empty();
@@ -217,6 +218,9 @@ class OBS {
         let $h2 = $container.find('h2');
         $h2.css('cursor','pointer');
         $h2.click(function() {$(this).nextUntil('h2').slideToggle();});
+
+        if (typeof callback !== 'undefined')
+            callback();
     }
 
     static getResources(lang: Language): ResourceTypes {
