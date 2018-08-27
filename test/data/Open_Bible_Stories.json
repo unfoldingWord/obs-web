@@ -1,0 +1,4693 @@
+[
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "hi",
+    "direction": "ltr",
+    "title": "हिन्दी",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "BCS",
+            "Apostolic Faith Church (3 different congregations)",
+            "Delhi Indian Pentecostal Church (has Global Presence)",
+            "Delhi and beyond"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "BCS"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES",
+        "identifier": "obs",
+        "issued": "2015-11-10T00:00:00+00:00",
+        "modified": "2018-06-08T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:12:04+00:00",
+                "signature": "https://cdn.door43.org/hi/obs/v4.1/obs.zip.sig",
+                "size": 109540,
+                "url": "https://cdn.door43.org/hi/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:33:15+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/hi/obs-hi-v4_1.pdf.sig",
+                "size": 49724837,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/hi/obs-hi-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/hi_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "BCS",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.2.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "gu",
+    "direction": "ltr",
+    "title": "ગુજરાતી",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Cdr. Thomas Mathew, Managing Director, BCS",
+            "Pr. Wilson Jacob"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Anandiben I Parmar",
+          "Merlyn Easa",
+          "Mukund J Macwan",
+          "Roosevelt Christian"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Gujarati translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-11-28T00:00:00+00:00",
+        "modified": "2017-11-28T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:37+00:00",
+                "signature": "https://cdn.door43.org/gu/obs/v4.1/obs.zip.sig",
+                "size": 105636,
+                "url": "https://cdn.door43.org/gu/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:32:26+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/gu/obs-gu-v3_2_1.pdf.sig",
+                "size": 49697381,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/gu/obs-gu-v3_2_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/gu_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": null
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "gu/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "fr",
+    "category_labels": {
+      "bible-nt": "Bible: NT",
+      "bible-ot": "Bible: OT",
+      "ta": "translationAcademy"
+    },
+    "direction": "ltr",
+    "title": "Français (French)",
+    "versification_labels": {
+      "kjv": "King James Version",
+      "mt": "Masoretic Text (Hebrew Bible)"
+    },
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Pastor Ahoa N'dah Ferdinand",
+            "Apostle Akakpo Adote",
+            "Pastor Andre Thera",
+            "Josue Mouiche",
+            "Rev. Peter Tapoayi"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Augustin Gohoungo (Benin)",
+          "Ayawa Agbenouvor (Benin)",
+          "Ed Bussard (Chad)",
+          "Emmanuel Dossa Luc Dosso (Benin)",
+          "Fran Hoover (US)",
+          "Joel Abdou Davies (Niger)",
+          "Mabeline Lucrene Zohoun-Vgnon (Benin)",
+          "Matthieu Maiidaji Sidou (Niger)",
+          "Ousmane Ayouba (Niger)",
+          "Tounkara Maiyaldou (Niger)"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES",
+        "identifier": "obs",
+        "issued": "2018-06-27T00:00:00+00:00",
+        "modified": "2018-06-27T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:55:47+00:00",
+                "signature": "https://cdn.door43.org/fr/obs/v4.4/obs.zip.sig",
+                "size": 93125,
+                "url": "https://cdn.door43.org/fr/obs/v4.4/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:27:53+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/fr/obs-fr-v4_1.pdf.sig",
+                "size": 49671996,
+                "source_version": "4.4",
+                "url": "https://cdn.door43.org/obs/txt/1/fr/obs-fr-v4_1.pdf",
+                "version": "4.1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.4",
+                "url": "https://door43.org/u/Door43-Catalog/fr_obs/",
+                "version": "4.4"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.4"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "lus",
+    "direction": "ltr",
+    "title": "Mizo",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Pastor John of 1st Christian Church",
+            "Isaac Vobika Ralte, Field Secretary, NLMF",
+            "Lalremkung Pakhuongte",
+            "Mr. Royal Lalsangthang Pakhuongte",
+            "Rev. F. Lalduailova"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Isaac Vobika Ralte, Field Secretary, NLMF",
+          "Lalremkung Pakhuongte"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Lushai (Mizo) translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-11-27T00:00:00+00:00",
+        "modified": "2017-11-27T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:07:32+00:00",
+                "signature": "https://cdn.door43.org/lus/obs/v4.2/obs.zip.sig",
+                "size": 83520,
+                "url": "https://cdn.door43.org/lus/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/lus_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "lus/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "sgj",
+    "direction": "ltr",
+    "title": "Surgujia",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Manbodh Ram",
+          "Prem Singh"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Open Bible Stories",
+        "identifier": "obs",
+        "issued": "2015-09-24T00:00:00+00:00",
+        "modified": "2015-09-24T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:24:47+00:00",
+                "signature": "https://cdn.door43.org/sgj/obs/v4.2/obs.zip.sig",
+                "size": 101855,
+                "url": "https://cdn.door43.org/sgj/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:36:50+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/sgj/obs-sgj-v4_2.pdf.sig",
+                "size": 49684516,
+                "source_version": "4.2",
+                "url": "https://cdn.door43.org/obs/txt/1/sgj/obs-sgj-v4_2.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/sgj_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "ne",
+    "direction": "ltr",
+    "title": "नेपाली",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Shiva Hari Bhattarai",
+            "Rev. Dhan Thapa"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Hum Lamtari",
+          "Ramesh Khadka",
+          "Bidur Adhikari"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "2016-10-22T00:00:00+00:00",
+        "modified": "2016-10-24T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:56:24+00:00",
+                "signature": "https://cdn.door43.org/ne/obs/v3.1/obs.zip.sig",
+                "size": 105636,
+                "url": "https://cdn.door43.org/ne/obs/v3.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:34:27+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/ne/obs-ne-v3_1.pdf.sig",
+                "size": 49711031,
+                "source_version": "3.1",
+                "url": "https://cdn.door43.org/obs/txt/1/ne/obs-ne-v3_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "3.1",
+                "url": "https://door43.org/u/Door43-Catalog/ne_obs/",
+                "version": "3.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "3.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "tl",
+    "direction": "ltr",
+    "title": "Tagalog",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Jake Pawid",
+            "Norman Lipio",
+            "Joy Punghan",
+            "Rosa Tumapang",
+            "Dick Dinangwatan",
+            "Cristina Dingcog"
+          ],
+          "checking_level": "2"
+        },
+        "comment": "",
+        "contributor": [
+          "Anita Laya",
+          "Maripple Lopez",
+          "Rommel Flores",
+          "Armie Estales"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES",
+        "identifier": "obs",
+        "issued": "2016-07-27T00:00:00+00:00",
+        "modified": "2016-07-27T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:25+00:00",
+                "signature": "https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip.sig",
+                "size": 85800,
+                "url": "https://cdn.door43.org/tl/obs/v3.1.1.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:37:24+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/tl/obs-tl-v3_1_1_1.pdf.sig",
+                "size": 49774376,
+                "source_version": "3.1.1.1",
+                "url": "https://cdn.door43.org/obs/txt/1/tl/obs-tl-v3_1_1_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "3.1.1.1",
+                "url": "https://door43.org/u/Door43-Catalog/tl_obs/",
+                "version": "3.1.1.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.1.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "3.1.1.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "en",
+    "category_labels": {
+      "bible-nt": "Bible: NT",
+      "bible-ot": "Bible: OT",
+      "ta": "translationAcademy"
+    },
+    "direction": "ltr",
+    "title": "English",
+    "versification_labels": {
+      "kjv": "King James Version",
+      "mt": "Masoretic Text (Hebrew Bible)"
+    },
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Distant Shores Media",
+            "unfoldingWord"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Distant Shores Media",
+          "Door43 World Missions Community"
+        ],
+        "creator": "Distant Shores Media",
+        "description": "50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2015-08-26T00:00:00+00:00",
+        "modified": "2017-09-29T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-14T16:43:27+00:00",
+                "signature": "https://cdn.door43.org/en/obs/v4/obs.zip.sig",
+                "size": 83788,
+                "url": "https://cdn.door43.org/en/obs/v4/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:25:49+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf.sig",
+                "size": 49650332,
+                "source_version": "4",
+                "url": "https://cdn.door43.org/obs/txt/1/en/obs-en-v4.pdf",
+                "version": "1"
+              },
+              {
+                "chapters": [
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "48",
+                    "length": 277.774,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_48_64kbps.mp3.sig",
+                    "size": 2242038,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_48_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "35",
+                    "length": 193.768,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_35_64kbps.mp3.sig",
+                    "size": 1567286,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_35_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "13",
+                    "length": 259.886,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_13_64kbps.mp3.sig",
+                    "size": 2097149,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_13_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "30",
+                    "length": 133.448,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_30_64kbps.mp3.sig",
+                    "size": 1083639,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_30_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "37",
+                    "length": 192.182,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_37_64kbps.mp3.sig",
+                    "size": 1555177,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_37_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "46",
+                    "length": 240.438,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_46_64kbps.mp3.sig",
+                    "size": 1940016,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_46_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "16",
+                    "length": 373.35,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_16_64kbps.mp3.sig",
+                    "size": 3009983,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_16_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "21",
+                    "length": 274.394,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_21_64kbps.mp3.sig",
+                    "size": 2213900,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_21_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "27",
+                    "length": 162.308,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_27_64kbps.mp3.sig",
+                    "size": 1317677,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_27_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "20",
+                    "length": 249.408,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_20_64kbps.mp3.sig",
+                    "size": 2013155,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_20_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "18",
+                    "length": 204.428,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_18_64kbps.mp3.sig",
+                    "size": 1654063,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_18_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "33",
+                    "length": 132.46,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_33_64kbps.mp3.sig",
+                    "size": 1075735,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_33_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "11",
+                    "length": 111.556,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_11_64kbps.mp3.sig",
+                    "size": 907295,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_11_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "50",
+                    "length": 314.59,
+                    "modified": "2016-05-26T16:28:11+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_50_64kbps.mp3.sig",
+                    "size": 2536452,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_50_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "45",
+                    "length": 247.328,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_45_64kbps.mp3.sig",
+                    "size": 1997263,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_45_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "01",
+                    "length": 268.804,
+                    "modified": "2016-05-26T16:28:19+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_01_64kbps.mp3.sig",
+                    "size": 2171200,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_01_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "40",
+                    "length": 154.846,
+                    "modified": "2016-05-26T16:28:13+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_40_64kbps.mp3.sig",
+                    "size": 1256318,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_40_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "12",
+                    "length": 221.328,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_12_64kbps.mp3.sig",
+                    "size": 1788226,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_12_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "24",
+                    "length": 155.86,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_24_64kbps.mp3.sig",
+                    "size": 1262934,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_24_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "05",
+                    "length": 195.666,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_05_64kbps.mp3.sig",
+                    "size": 1581094,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_05_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "19",
+                    "length": 344.464,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_19_64kbps.mp3.sig",
+                    "size": 2775900,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_19_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "25",
+                    "length": 100.844,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_25_64kbps.mp3.sig",
+                    "size": 822347,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_25_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "32",
+                    "length": 224.526,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_32_64kbps.mp3.sig",
+                    "size": 1815466,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_32_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "36",
+                    "length": 105.784,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_36_64kbps.mp3.sig",
+                    "size": 862904,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_36_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "17",
+                    "length": 316.592,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_17_64kbps.mp3.sig",
+                    "size": 2551088,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_17_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "28",
+                    "length": 140.91,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_28_64kbps.mp3.sig",
+                    "size": 1146038,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_28_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "47",
+                    "length": 227.516,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_47_64kbps.mp3.sig",
+                    "size": 1838478,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_47_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "03",
+                    "length": 266.828,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_03_64kbps.mp3.sig",
+                    "size": 2151648,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_03_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "26",
+                    "length": 182.51,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_26_64kbps.mp3.sig",
+                    "size": 1481081,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_26_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "23",
+                    "length": 182.822,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_23_64kbps.mp3.sig",
+                    "size": 1479836,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_23_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "14",
+                    "length": 296.078,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_14_64kbps.mp3.sig",
+                    "size": 2386685,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_14_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "09",
+                    "length": 224.63,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_09_64kbps.mp3.sig",
+                    "size": 1815100,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_09_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "22",
+                    "length": 168.574,
+                    "modified": "2016-05-26T16:28:16+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_22_64kbps.mp3.sig",
+                    "size": 1363729,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_22_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "06",
+                    "length": 91.64,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_06_64kbps.mp3.sig",
+                    "size": 747506,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_06_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "15",
+                    "length": 244.13,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_15_64kbps.mp3.sig",
+                    "size": 1968685,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_15_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "31",
+                    "length": 117.536,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_31_64kbps.mp3.sig",
+                    "size": 955134,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_31_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "44",
+                    "length": 147.384,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_44_64kbps.mp3.sig",
+                    "size": 1195126,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_44_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "29",
+                    "length": 127.468,
+                    "modified": "2016-05-26T16:28:15+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_29_64kbps.mp3.sig",
+                    "size": 1037295,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_29_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "10",
+                    "length": 168.678,
+                    "modified": "2016-05-26T16:28:17+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_10_64kbps.mp3.sig",
+                    "size": 1366107,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_10_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "41",
+                    "length": 128.872,
+                    "modified": "2016-05-26T16:28:13+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_41_64kbps.mp3.sig",
+                    "size": 1048068,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_41_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "04",
+                    "length": 158.538,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_04_64kbps.mp3.sig",
+                    "size": 1283610,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_04_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "02",
+                    "length": 214.568,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_02_64kbps.mp3.sig",
+                    "size": 1731899,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_02_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "08",
+                    "length": 212.072,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_08_64kbps.mp3.sig",
+                    "size": 1714636,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_08_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "34",
+                    "length": 145.408,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_34_64kbps.mp3.sig",
+                    "size": 1179030,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_34_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "07",
+                    "length": 154.664,
+                    "modified": "2016-05-26T16:28:18+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_07_64kbps.mp3.sig",
+                    "size": 1253823,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_07_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "49",
+                    "length": 322.598,
+                    "modified": "2016-05-26T16:28:12+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_49_64kbps.mp3.sig",
+                    "size": 2600975,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_49_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "43",
+                    "length": 205.416,
+                    "modified": "2016-05-26T16:28:13+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_43_64kbps.mp3.sig",
+                    "size": 1661963,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_43_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "38",
+                    "length": 284.95,
+                    "modified": "2016-05-26T16:28:14+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_38_64kbps.mp3.sig",
+                    "size": 2299157,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_38_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "39",
+                    "length": 209.108,
+                    "modified": "2016-05-26T16:28:13+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_39_64kbps.mp3.sig",
+                    "size": 1688798,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_39_64kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "42",
+                    "length": 236.46,
+                    "modified": "2016-05-26T16:28:13+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_42_64kbps.mp3.sig",
+                    "size": 1907903,
+                    "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_42_64kbps.mp3"
+                  }
+                ],
+                "contributor": [
+                  "Narrator: Steve Lossing",
+                  "Checker: Brad Harrington",
+                  "Engineer: Brad Harrington"
+                ],
+                "format": "application/zip; content=audio/mp3",
+                "modified": "2016-06-03T21:19:52+00:00",
+                "quality": "64kbps",
+                "signature": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_64kbps.zip.sig",
+                "size": 81732032,
+                "source_version": "4",
+                "url": "https://cdn.door43.org/en/obs/v4/64kbps/en_obs_64kbps.zip",
+                "version": "1"
+              },
+              {
+                "chapters": [
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "48",
+                    "length": 277.816,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_48_32kbps.mp3.sig",
+                    "size": 1131184,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_48_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "35",
+                    "length": 193.81,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_35_32kbps.mp3.sig",
+                    "size": 792452,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_35_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "13",
+                    "length": 259.928,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_13_32kbps.mp3.sig",
+                    "size": 1057855,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_13_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "30",
+                    "length": 133.49,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_30_32kbps.mp3.sig",
+                    "size": 550062,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_30_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "37",
+                    "length": 192.224,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_37_32kbps.mp3.sig",
+                    "size": 786676,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_37_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "46",
+                    "length": 240.48,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_46_32kbps.mp3.sig",
+                    "size": 978485,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_46_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "16",
+                    "length": 373.392,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_16_32kbps.mp3.sig",
+                    "size": 1516845,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_16_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "21",
+                    "length": 274.436,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_21_32kbps.mp3.sig",
+                    "size": 1116572,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_21_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "27",
+                    "length": 162.35,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_27_32kbps.mp3.sig",
+                    "size": 668671,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_27_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "20",
+                    "length": 249.45,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_20_32kbps.mp3.sig",
+                    "size": 1015761,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_20_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "18",
+                    "length": 204.47,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_18_32kbps.mp3.sig",
+                    "size": 836590,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_18_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "33",
+                    "length": 132.502,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_33_32kbps.mp3.sig",
+                    "size": 546109,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_33_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "11",
+                    "length": 111.598,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_11_32kbps.mp3.sig",
+                    "size": 461280,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_11_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "50",
+                    "length": 314.632,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_50_32kbps.mp3.sig",
+                    "size": 1278350,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_50_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "45",
+                    "length": 247.37,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_45_32kbps.mp3.sig",
+                    "size": 1008190,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_45_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "01",
+                    "length": 268.846,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_01_32kbps.mp3.sig",
+                    "size": 1096246,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_01_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "40",
+                    "length": 154.888,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_40_32kbps.mp3.sig",
+                    "size": 637149,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_40_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "12",
+                    "length": 221.37,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_12_32kbps.mp3.sig",
+                    "size": 903158,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_12_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "24",
+                    "length": 155.902,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_24_32kbps.mp3.sig",
+                    "size": 639708,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_24_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "05",
+                    "length": 195.708,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_05_32kbps.mp3.sig",
+                    "size": 798650,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_05_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "19",
+                    "length": 344.506,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_19_32kbps.mp3.sig",
+                    "size": 1398308,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_19_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "25",
+                    "length": 100.886,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_25_32kbps.mp3.sig",
+                    "size": 419179,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_25_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "32",
+                    "length": 224.568,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_32_32kbps.mp3.sig",
+                    "size": 917618,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_32_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "36",
+                    "length": 105.826,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_36_32kbps.mp3.sig",
+                    "size": 439971,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_36_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "17",
+                    "length": 316.634,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_17_32kbps.mp3.sig",
+                    "size": 1284961,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_17_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "28",
+                    "length": 140.952,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_28_32kbps.mp3.sig",
+                    "size": 582618,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_28_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "47",
+                    "length": 227.558,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_47_32kbps.mp3.sig",
+                    "size": 928658,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_47_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "03",
+                    "length": 266.87,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_03_32kbps.mp3.sig",
+                    "size": 1084590,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_03_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "26",
+                    "length": 182.552,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_26_32kbps.mp3.sig",
+                    "size": 751262,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_26_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "23",
+                    "length": 182.864,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_23_32kbps.mp3.sig",
+                    "size": 748768,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_23_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "14",
+                    "length": 296.12,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_14_32kbps.mp3.sig",
+                    "size": 1202622,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_14_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "09",
+                    "length": 224.672,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_09_32kbps.mp3.sig",
+                    "size": 916831,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_09_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "22",
+                    "length": 168.616,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_22_32kbps.mp3.sig",
+                    "size": 689636,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_22_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "06",
+                    "length": 91.682,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_06_32kbps.mp3.sig",
+                    "size": 381148,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_06_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "15",
+                    "length": 244.172,
+                    "modified": "2016-05-26T16:27:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_15_32kbps.mp3.sig",
+                    "size": 992404,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_15_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "31",
+                    "length": 117.578,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_31_32kbps.mp3.sig",
+                    "size": 485198,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_31_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "44",
+                    "length": 147.426,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_44_32kbps.mp3.sig",
+                    "size": 605804,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_44_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "29",
+                    "length": 127.51,
+                    "modified": "2016-05-26T16:27:52+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_29_32kbps.mp3.sig",
+                    "size": 527637,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_29_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "10",
+                    "length": 168.72,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_10_32kbps.mp3.sig",
+                    "size": 691627,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_10_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "41",
+                    "length": 128.914,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_41_32kbps.mp3.sig",
+                    "size": 532788,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_41_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "04",
+                    "length": 158.58,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_04_32kbps.mp3.sig",
+                    "size": 649673,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_04_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "02",
+                    "length": 214.61,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_02_32kbps.mp3.sig",
+                    "size": 873859,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_02_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "08",
+                    "length": 212.114,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_08_32kbps.mp3.sig",
+                    "size": 866598,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_08_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "34",
+                    "length": 145.45,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_34_32kbps.mp3.sig",
+                    "size": 597617,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_34_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "07",
+                    "length": 154.706,
+                    "modified": "2016-05-26T16:27:54+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_07_32kbps.mp3.sig",
+                    "size": 635388,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_07_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "49",
+                    "length": 322.64,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_49_32kbps.mp3.sig",
+                    "size": 1310847,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_49_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "43",
+                    "length": 205.458,
+                    "modified": "2016-05-26T16:27:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_43_32kbps.mp3.sig",
+                    "size": 840538,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_43_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "38",
+                    "length": 284.992,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_38_32kbps.mp3.sig",
+                    "size": 1159606,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_38_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "39",
+                    "length": 209.15,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_39_32kbps.mp3.sig",
+                    "size": 852598,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_39_32kbps.mp3"
+                  },
+                  {
+                    "format": "audio/mp3",
+                    "identifier": "42",
+                    "length": 236.502,
+                    "modified": "2016-05-26T16:27:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_42_32kbps.mp3.sig",
+                    "size": 962290,
+                    "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_42_32kbps.mp3"
+                  }
+                ],
+                "contributor": [
+                  "Narrator: Steve Lossing",
+                  "Checker: Brad Harrington",
+                  "Engineer: Brad Harrington"
+                ],
+                "format": "application/zip; content=audio/mp3",
+                "modified": "2016-06-03T21:19:31+00:00",
+                "quality": "32kbps",
+                "signature": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_32kbps.zip.sig",
+                "size": 40456543,
+                "source_version": "4",
+                "url": "https://cdn.door43.org/en/obs/v4/32kbps/en_obs_32kbps.zip",
+                "version": "1"
+              },
+              {
+                "chapters": [
+                  {
+                    "format": "video/mp4",
+                    "identifier": "48",
+                    "length": 280.064,
+                    "modified": "2016-05-26T16:28:21+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_48_720p.mp4.sig",
+                    "size": 75252718,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_48_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "35",
+                    "length": 195.648,
+                    "modified": "2016-05-26T16:28:31+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_35_720p.mp4.sig",
+                    "size": 52628886,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_35_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "13",
+                    "length": 262.08,
+                    "modified": "2016-05-26T16:28:45+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_13_720p.mp4.sig",
+                    "size": 70879852,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_13_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "30",
+                    "length": 135.04,
+                    "modified": "2016-05-26T16:28:33+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_30_720p.mp4.sig",
+                    "size": 36589625,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_30_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "37",
+                    "length": 194.048,
+                    "modified": "2016-05-26T16:28:29+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_37_720p.mp4.sig",
+                    "size": 52016386,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_37_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "46",
+                    "length": 242.56,
+                    "modified": "2016-05-26T16:28:23+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_46_720p.mp4.sig",
+                    "size": 65424530,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_46_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "16",
+                    "length": 376.0853333333333,
+                    "modified": "2016-05-26T16:28:42+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_16_720p.mp4.sig",
+                    "size": 100594375,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_16_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "21",
+                    "length": 276.65066666666667,
+                    "modified": "2016-05-26T16:28:39+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_21_720p.mp4.sig",
+                    "size": 74121816,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_21_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "27",
+                    "length": 164.032,
+                    "modified": "2016-05-26T16:28:35+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_27_720p.mp4.sig",
+                    "size": 44550077,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_27_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "20",
+                    "length": 251.52,
+                    "modified": "2016-05-26T16:28:39+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_20_720p.mp4.sig",
+                    "size": 68056582,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_20_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "18",
+                    "length": 206.35733333333334,
+                    "modified": "2016-05-26T16:28:41+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_18_720p.mp4.sig",
+                    "size": 56019933,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_18_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "33",
+                    "length": 134.03733333333332,
+                    "modified": "2016-05-26T16:28:32+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_33_720p.mp4.sig",
+                    "size": 36239024,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_33_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "11",
+                    "length": 113.024,
+                    "modified": "2016-05-26T16:28:47+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_11_720p.mp4.sig",
+                    "size": 30679287,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_11_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "50",
+                    "length": 317.0346666666667,
+                    "modified": "2016-05-26T16:28:19+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_50_720p.mp4.sig",
+                    "size": 85575739,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_50_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "45",
+                    "length": 249.42933333333335,
+                    "modified": "2016-05-26T16:28:24+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_45_720p.mp4.sig",
+                    "size": 67188684,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_45_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "01",
+                    "length": 271.01866666666666,
+                    "modified": "2016-05-26T16:28:53+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_01_720p.mp4.sig",
+                    "size": 73119813,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_01_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "40",
+                    "length": 156.544,
+                    "modified": "2016-05-26T16:28:28+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_40_720p.mp4.sig",
+                    "size": 41948646,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_40_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "12",
+                    "length": 223.33866666666665,
+                    "modified": "2016-05-26T16:28:45+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_12_720p.mp4.sig",
+                    "size": 60021756,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_12_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "24",
+                    "length": 157.52533333333332,
+                    "modified": "2016-05-26T16:28:36+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_24_720p.mp4.sig",
+                    "size": 42748904,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_24_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "05",
+                    "length": 197.54666666666665,
+                    "modified": "2016-05-26T16:28:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_05_720p.mp4.sig",
+                    "size": 53421255,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_05_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "19",
+                    "length": 347.05066666666664,
+                    "modified": "2016-05-26T16:28:39+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_19_720p.mp4.sig",
+                    "size": 93855474,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_19_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "25",
+                    "length": 102.272,
+                    "modified": "2016-05-26T16:28:36+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_25_720p.mp4.sig",
+                    "size": 27689427,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_25_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "32",
+                    "length": 226.53866666666667,
+                    "modified": "2016-05-26T16:28:32+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_32_720p.mp4.sig",
+                    "size": 61282882,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_32_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "36",
+                    "length": 107.22133333333333,
+                    "modified": "2016-05-26T16:28:30+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_36_720p.mp4.sig",
+                    "size": 29038080,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_36_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "17",
+                    "length": 319.01866666666666,
+                    "modified": "2016-05-26T16:28:41+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_17_720p.mp4.sig",
+                    "size": 86255539,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_17_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "28",
+                    "length": 142.54933333333332,
+                    "modified": "2016-05-26T16:28:34+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_28_720p.mp4.sig",
+                    "size": 38634983,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_28_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "47",
+                    "length": 229.54666666666665,
+                    "modified": "2016-05-26T16:28:21+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_47_720p.mp4.sig",
+                    "size": 62030878,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_47_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "03",
+                    "length": 269.0133333333333,
+                    "modified": "2016-05-26T16:28:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_03_720p.mp4.sig",
+                    "size": 73007058,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_03_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "26",
+                    "length": 184.29866666666666,
+                    "modified": "2016-05-26T16:28:35+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_26_720p.mp4.sig",
+                    "size": 49608910,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_26_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "23",
+                    "length": 184.61866666666666,
+                    "modified": "2016-05-26T16:28:37+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_23_720p.mp4.sig",
+                    "size": 49896539,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_23_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "14",
+                    "length": 298.432,
+                    "modified": "2016-05-26T16:28:44+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_14_720p.mp4.sig",
+                    "size": 80296482,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_14_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "09",
+                    "length": 226.64533333333333,
+                    "modified": "2016-05-26T16:28:48+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_09_720p.mp4.sig",
+                    "size": 61297817,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_09_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "22",
+                    "length": 170.304,
+                    "modified": "2016-05-26T16:28:38+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_22_720p.mp4.sig",
+                    "size": 45929545,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_22_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "06",
+                    "length": 93.03466666666667,
+                    "modified": "2016-05-26T16:28:50+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_06_720p.mp4.sig",
+                    "size": 25131657,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_06_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "15",
+                    "length": 246.25066666666666,
+                    "modified": "2016-05-26T16:28:43+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_15_720p.mp4.sig",
+                    "size": 66412083,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_15_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "31",
+                    "length": 119.04,
+                    "modified": "2016-05-26T16:28:33+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_31_720p.mp4.sig",
+                    "size": 32252276,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_31_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "44",
+                    "length": 149.056,
+                    "modified": "2016-05-26T16:28:25+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_44_720p.mp4.sig",
+                    "size": 40306411,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_44_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "29",
+                    "length": 129.04533333333333,
+                    "modified": "2016-05-26T16:28:34+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_29_720p.mp4.sig",
+                    "size": 34951332,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_29_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "10",
+                    "length": 170.41066666666666,
+                    "modified": "2016-05-26T16:28:48+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_10_720p.mp4.sig",
+                    "size": 46081830,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_10_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "41",
+                    "length": 130.432,
+                    "modified": "2016-05-26T16:28:27+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_41_720p.mp4.sig",
+                    "size": 35059370,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_41_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "04",
+                    "length": 160.10666666666665,
+                    "modified": "2016-05-26T16:28:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_04_720p.mp4.sig",
+                    "size": 43156018,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_04_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "02",
+                    "length": 216.55466666666666,
+                    "modified": "2016-05-26T16:28:51+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_02_720p.mp4.sig",
+                    "size": 58458457,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_02_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "08",
+                    "length": 214.016,
+                    "modified": "2016-05-26T16:28:48+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_08_720p.mp4.sig",
+                    "size": 58156957,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_08_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "34",
+                    "length": 147.05066666666667,
+                    "modified": "2016-05-26T16:28:31+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_34_720p.mp4.sig",
+                    "size": 39707364,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_34_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "07",
+                    "length": 156.33066666666667,
+                    "modified": "2016-05-26T16:28:49+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_07_720p.mp4.sig",
+                    "size": 42275067,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_07_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "49",
+                    "length": 325.07733333333334,
+                    "modified": "2016-05-26T16:28:19+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_49_720p.mp4.sig",
+                    "size": 88180845,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_49_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "43",
+                    "length": 207.31733333333332,
+                    "modified": "2016-05-26T16:28:26+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_43_720p.mp4.sig",
+                    "size": 56092734,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_43_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "38",
+                    "length": 287.232,
+                    "modified": "2016-05-26T16:28:29+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_38_720p.mp4.sig",
+                    "size": 77653524,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_38_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "39",
+                    "length": 211.05066666666667,
+                    "modified": "2016-05-26T16:28:29+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_39_720p.mp4.sig",
+                    "size": 56930749,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_39_720p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "42",
+                    "length": 238.54933333333332,
+                    "modified": "2016-05-26T16:28:27+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_42_720p.mp4.sig",
+                    "size": 63956482,
+                    "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_42_720p.mp4"
+                  }
+                ],
+                "contributor": [],
+                "format": "application/zip; content=video/mp4",
+                "modified": "2018-08-14T16:44:32.993758+00:00",
+                "quality": "720p",
+                "signature": "https://cdn.door43.org/en/obs/v4/720p/en_obs_720p.zip.sig",
+                "size": 2748880681,
+                "source_version": "4",
+                "url": "https://cdn.door43.org/en/obs/v4/720p/en_obs_720p.zip",
+                "version": "1"
+              },
+              {
+                "chapters": [
+                  {
+                    "format": "video/mp4",
+                    "identifier": "48",
+                    "length": 280.05587301587303,
+                    "modified": "2016-05-26T16:27:55+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_48_360p.mp4.sig",
+                    "size": 30845731,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_48_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "35",
+                    "length": 195.65133786848074,
+                    "modified": "2016-05-26T16:27:59+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_35_360p.mp4.sig",
+                    "size": 21493860,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_35_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "13",
+                    "length": 262.0836281179138,
+                    "modified": "2016-05-26T16:28:06+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_13_360p.mp4.sig",
+                    "size": 28959499,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_13_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "30",
+                    "length": 135.04725623582766,
+                    "modified": "2016-05-26T16:28:00+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_30_360p.mp4.sig",
+                    "size": 14833310,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_30_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "37",
+                    "length": 194.04916099773243,
+                    "modified": "2016-05-26T16:27:58+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_37_360p.mp4.sig",
+                    "size": 21398949,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_37_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "46",
+                    "length": 242.5556462585034,
+                    "modified": "2016-05-26T16:27:56+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_46_360p.mp4.sig",
+                    "size": 26717366,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_46_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "16",
+                    "length": 376.09360544217685,
+                    "modified": "2016-05-26T16:28:05+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_16_360p.mp4.sig",
+                    "size": 41389992,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_16_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "21",
+                    "length": 276.6657596371882,
+                    "modified": "2016-05-26T16:28:03+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_21_360p.mp4.sig",
+                    "size": 30356222,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_21_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "27",
+                    "length": 164.04897959183674,
+                    "modified": "2016-05-26T16:28:01+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_27_360p.mp4.sig",
+                    "size": 18311172,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_27_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "20",
+                    "length": 251.541768707483,
+                    "modified": "2016-05-26T16:28:03+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_20_360p.mp4.sig",
+                    "size": 27742192,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_20_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "18",
+                    "length": 206.35573696145124,
+                    "modified": "2016-05-26T16:28:04+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_18_360p.mp4.sig",
+                    "size": 22819106,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_18_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "33",
+                    "length": 134.04879818594105,
+                    "modified": "2016-05-26T16:27:59+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_33_360p.mp4.sig",
+                    "size": 14812403,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_33_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "11",
+                    "length": 113.03473922902495,
+                    "modified": "2016-05-26T16:28:07+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_11_360p.mp4.sig",
+                    "size": 12549931,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_11_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "50",
+                    "length": 317.0220408163265,
+                    "modified": "2016-05-26T16:27:55+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_50_360p.mp4.sig",
+                    "size": 35051795,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_50_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "45",
+                    "length": 249.42875283446713,
+                    "modified": "2016-05-26T16:27:56+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_45_360p.mp4.sig",
+                    "size": 27699811,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_45_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "01",
+                    "length": 271.02331065759637,
+                    "modified": "2016-05-26T16:28:11+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_01_360p.mp4.sig",
+                    "size": 30023585,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_01_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "40",
+                    "length": 156.54893424036283,
+                    "modified": "2016-05-26T16:27:58+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_40_360p.mp4.sig",
+                    "size": 17150613,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_40_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "12",
+                    "length": 223.3295238095238,
+                    "modified": "2016-05-26T16:28:07+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_12_360p.mp4.sig",
+                    "size": 24531836,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_12_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "24",
+                    "length": 157.54739229024943,
+                    "modified": "2016-05-26T16:28:01+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_24_360p.mp4.sig",
+                    "size": 17287191,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_24_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "05",
+                    "length": 197.55537414965985,
+                    "modified": "2016-05-26T16:28:09+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_05_360p.mp4.sig",
+                    "size": 21768140,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_05_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "19",
+                    "length": 347.06866213151926,
+                    "modified": "2016-05-26T16:28:04+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_19_360p.mp4.sig",
+                    "size": 38326704,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_19_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "25",
+                    "length": 102.28390022675737,
+                    "modified": "2016-05-26T16:28:01+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_25_360p.mp4.sig",
+                    "size": 11288350,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_25_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "32",
+                    "length": 226.5338775510204,
+                    "modified": "2016-05-26T16:28:00+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_32_360p.mp4.sig",
+                    "size": 24889970,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_32_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "36",
+                    "length": 107.22975056689343,
+                    "modified": "2016-05-26T16:27:58+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_36_360p.mp4.sig",
+                    "size": 11865064,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_36_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "17",
+                    "length": 319.0421768707483,
+                    "modified": "2016-05-26T16:28:04+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_17_360p.mp4.sig",
+                    "size": 35258214,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_17_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "28",
+                    "length": 142.54730158730158,
+                    "modified": "2016-05-26T16:28:01+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_28_360p.mp4.sig",
+                    "size": 15809015,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_28_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "47",
+                    "length": 229.5524716553288,
+                    "modified": "2016-05-26T16:27:55+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_47_360p.mp4.sig",
+                    "size": 25174224,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_47_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "03",
+                    "length": 269.02639455782315,
+                    "modified": "2016-05-26T16:28:10+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_03_360p.mp4.sig",
+                    "size": 29897606,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_03_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "26",
+                    "length": 184.29678004535148,
+                    "modified": "2016-05-26T16:28:01+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_26_360p.mp4.sig",
+                    "size": 20499223,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_26_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "23",
+                    "length": 184.62185941043083,
+                    "modified": "2016-05-26T16:28:02+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_23_360p.mp4.sig",
+                    "size": 20356859,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_23_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "14",
+                    "length": 298.4460770975057,
+                    "modified": "2016-05-26T16:28:06+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_14_360p.mp4.sig",
+                    "size": 32992748,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_14_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "09",
+                    "length": 226.64997732426303,
+                    "modified": "2016-05-26T16:28:08+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_09_360p.mp4.sig",
+                    "size": 24896208,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_09_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "22",
+                    "length": 170.31836734693877,
+                    "modified": "2016-05-26T16:28:02+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_22_360p.mp4.sig",
+                    "size": 18664848,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_22_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "06",
+                    "length": 93.042358276644,
+                    "modified": "2016-05-26T16:28:09+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_06_360p.mp4.sig",
+                    "size": 10245088,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_06_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "15",
+                    "length": 246.27083900226756,
+                    "modified": "2016-05-26T16:28:05+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_15_360p.mp4.sig",
+                    "size": 27188065,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_15_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "31",
+                    "length": 119.02548752834467,
+                    "modified": "2016-05-26T16:28:00+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_31_360p.mp4.sig",
+                    "size": 13136171,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_31_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "44",
+                    "length": 149.07210884353742,
+                    "modified": "2016-05-26T16:27:56+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_44_360p.mp4.sig",
+                    "size": 16299438,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_44_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "29",
+                    "length": 129.03328798185942,
+                    "modified": "2016-05-26T16:28:00+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_29_360p.mp4.sig",
+                    "size": 14264247,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_29_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "10",
+                    "length": 170.41124716553287,
+                    "modified": "2016-05-26T16:28:08+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_10_360p.mp4.sig",
+                    "size": 18659656,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_10_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "41",
+                    "length": 130.4497052154195,
+                    "modified": "2016-05-26T16:27:57+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_41_360p.mp4.sig",
+                    "size": 14497148,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_41_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "04",
+                    "length": 160.1015873015873,
+                    "modified": "2016-05-26T16:28:09+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_04_360p.mp4.sig",
+                    "size": 17609776,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_04_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "02",
+                    "length": 216.5725170068027,
+                    "modified": "2016-05-26T16:28:10+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_02_360p.mp4.sig",
+                    "size": 23900219,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_02_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "08",
+                    "length": 214.01832199546485,
+                    "modified": "2016-05-26T16:28:08+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_08_360p.mp4.sig",
+                    "size": 23848949,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_08_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "34",
+                    "length": 147.05197278911564,
+                    "modified": "2016-05-26T16:27:59+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_34_360p.mp4.sig",
+                    "size": 16203358,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_34_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "07",
+                    "length": 156.3399546485261,
+                    "modified": "2016-05-26T16:28:08+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_07_360p.mp4.sig",
+                    "size": 17244435,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_07_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "49",
+                    "length": 325.07936507936506,
+                    "modified": "2016-05-26T16:27:55+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_49_360p.mp4.sig",
+                    "size": 35746816,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_49_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "43",
+                    "length": 207.33097505668934,
+                    "modified": "2016-05-26T16:27:57+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_43_360p.mp4.sig",
+                    "size": 22683126,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_43_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "38",
+                    "length": 287.2308390022676,
+                    "modified": "2016-05-26T16:27:58+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_38_360p.mp4.sig",
+                    "size": 31724296,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_38_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "39",
+                    "length": 211.06938775510204,
+                    "modified": "2016-05-26T16:27:58+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_39_360p.mp4.sig",
+                    "size": 23116536,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_39_360p.mp4"
+                  },
+                  {
+                    "format": "video/mp4",
+                    "identifier": "42",
+                    "length": 238.5618140589569,
+                    "modified": "2016-05-26T16:27:57+00:00",
+                    "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_42_360p.mp4.sig",
+                    "size": 26363788,
+                    "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_42_360p.mp4"
+                  }
+                ],
+                "contributor": [],
+                "format": "application/zip; content=video/mp4",
+                "modified": "2018-08-14T16:46:51.967763+00:00",
+                "quality": "360p",
+                "signature": "https://cdn.door43.org/en/obs/v4/360p/en_obs_360p.zip.sig",
+                "size": 1135776951,
+                "source_version": "4",
+                "url": "https://cdn.door43.org/en/obs/v4/360p/en_obs_360p.zip",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4",
+                "url": "https://www.youtube.com/playlist?list=PLa3_fZSWwn6BA0eElhJ1_xosy6P3nMeIb",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4",
+                "url": "http://bloomlibrary.org/browse/detail/2nbAvDqoQJ",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4",
+                "url": "https://door43.org/u/Door43-Catalog/en_obs/",
+                "version": "4"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": null
+          }
+        ],
+        "publisher": "unfoldingWord",
+        "relation": [
+          "en/tw",
+          "en/obs-tq",
+          "en/obs-tn"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "es",
+    "category_labels": {
+      "bible-nt": "Bible: NT",
+      "bible-ot": "Bible: OT",
+      "ta": "translationAcademy"
+    },
+    "direction": "ltr",
+    "title": "Spanish",
+    "versification_labels": {
+      "kjv": "King James Version",
+      "mt": "Masoretic Text (Hebrew Bible)"
+    },
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "Level 1 check cleared via email to Tim Jore by translation team.",
+        "contributor": [
+          "ljbadiola",
+          "natilatina"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "una mini Biblia visual sin restricciones en cualquier idioma",
+        "identifier": "obs",
+        "issued": "2015-04-08T00:00:00+00:00",
+        "modified": "2018-08-09T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:12:41+00:00",
+                "signature": "https://cdn.door43.org/es/obs/v3.2.1/obs.zip.sig",
+                "size": 87435,
+                "url": "https://cdn.door43.org/es/obs/v3.2.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:26:42+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/es/obs-es-v3_2_1.pdf.sig",
+                "size": 49662118,
+                "source_version": "3.2.1",
+                "url": "https://cdn.door43.org/obs/txt/1/es/obs-es-v3_2_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "3.2.1",
+                "url": "https://door43.org/u/Door43-Catalog/es_obs/",
+                "version": "3.2.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "HISTORIAS BÍBLICAS LIBRES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "HISTORIAS BÍBLICAS LIBRES",
+        "version": "3.2.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "pt-br",
+    "direction": "ltr",
+    "title": "Brazilian Português",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "L1 Vera Meningroni | L2 beta.lara.carla",
+            "Lara Andrade",
+            "Clara Pinto | L3 Igreja Boas Novas de Sao Paulo",
+            "Brasil: Vagner Vaelatti",
+            "David Distler",
+            "Eduardo de Oliveira",
+            "Jade",
+            "Thiago",
+            "Vanessa",
+            "Andre",
+            "Wilza",
+            "Nadia",
+            "Tatiane"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "abe.beserra",
+          "beta.lara.carla",
+          "cheryljore",
+          "dan",
+          "deboradc",
+          "isaacthib",
+          "jonatas.matheus",
+          "tim",
+          "verinhalcm"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "HISTÓRIAS BÍBLICA LIVRES",
+        "identifier": "obs",
+        "issued": "2015-01-29T00:00:00+00:00",
+        "modified": "2015-01-29T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:09:20+00:00",
+                "signature": "https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip.sig",
+                "size": 86847,
+                "url": "https://cdn.door43.org/pt-br/obs/v3.2.3/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:35:52+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/pt-br/obs-pt-br-v3_2_3.pdf.sig",
+                "size": 49235166,
+                "source_version": "3.2.3",
+                "url": "https://cdn.door43.org/obs/txt/1/pt-br/obs-pt-br-v3_2_3.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "3.2.3",
+                "url": "https://door43.org/u/Door43-Catalog/pt-br_obs/",
+                "version": "3.2.3"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "HISTÓRIAS BÍBLICA LIVRES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "HISTÓRIAS BÍBLICA LIVRES",
+        "version": "3.2.3"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "vi",
+    "direction": "ltr",
+    "title": "Vietnamese",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "not specified"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Joseph",
+          "Huong",
+          "Panda",
+          "Arthur",
+          "Samuel"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Open Bible Stories",
+        "identifier": "obs",
+        "issued": "2016-03-24T00:00:00+00:00",
+        "modified": "2016-03-24T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:13:50+00:00",
+                "signature": "https://cdn.door43.org/vi/obs/v4.1/obs.zip.sig",
+                "size": 97829,
+                "url": "https://cdn.door43.org/vi/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:38:52+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/vi/obs-vi-v4_1.pdf.sig",
+                "size": 49686711,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/vi/obs-vi-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/vi_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "ha",
+    "direction": "ltr",
+    "title": "(Hausa) هَوُسَ",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Dr. Aichatou Moustapha A.M. Johnson",
+          "Thomas R. Johnson"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES: Buɗewar Maganar Allah",
+        "identifier": "obs",
+        "issued": "2016-01-12T00:00:00+00:00",
+        "modified": "2016-01-12T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:10:56+00:00",
+                "signature": "https://cdn.door43.org/ha/obs/v4.1/obs.zip.sig",
+                "size": 77767,
+                "url": "https://cdn.door43.org/ha/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:32:49+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/ha/obs-ha-v4_1.pdf.sig",
+                "size": 49639138,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/ha/obs-ha-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/ha_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES: Buɗewar Maganar Allah",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES: Buɗewar Maganar Allah",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "ru",
+    "direction": "ltr",
+    "title": "Русский",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Arman Arenbaev",
+            "Bagrat Gevorgyan",
+            "Elena Zastechik",
+            "Katya Savitskaya",
+            "Luda Ignashina",
+            "Parviz Kamilov",
+            "Rusang",
+            "Ruslan Saitbatalov",
+            "Samuel Kim",
+            "Sergey Sheidt"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Anna Savitskaya",
+          "Ivan Pavlii",
+          "Jack Shibata",
+          "Katya Tsvetaeva"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2018-08-16T00:00:00+00:00",
+        "modified": "2018-08-16T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-17T18:20:43+00:00",
+                "signature": "https://cdn.door43.org/ru/obs/v4.2/obs.zip.sig",
+                "size": 103303,
+                "url": "https://cdn.door43.org/ru/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:36:24+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/ru/obs-ru-v4_1.pdf.sig",
+                "size": 49661864,
+                "source_version": "4.2",
+                "url": "https://cdn.door43.org/obs/txt/1/ru/obs-ru-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/ru_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "ru/ulb",
+          "ru/tn",
+          "ru/tq",
+          "ru/tw",
+          "ru/obs-tq",
+          "ru/obs-tn"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "pa",
+    "direction": "ltr",
+    "title": "Punjabi",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Bishop Aroon Kumar Das (ECI, Batala)",
+            "Rev. George Stephen (IPC, Moga)",
+            "Rev. Mannadey Bhatti (EFI, Raikot)",
+            "Rev. Wilson Shah (Methodist Church, Ludhiana)"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Manpreet Singh",
+          "Merlyn Easa",
+          "Shojo John"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Punjabi translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-11-28T00:00:00+00:00",
+        "modified": "2017-11-28T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:56:36+00:00",
+                "signature": "https://cdn.door43.org/pa/obs/v4.3/obs.zip.sig",
+                "size": 104748,
+                "url": "https://cdn.door43.org/pa/obs/v4.3/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:35:27+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/pa/obs-pa-v4_2.pdf.sig",
+                "size": 49697678,
+                "source_version": "4.3",
+                "url": "https://cdn.door43.org/obs/txt/1/pa/obs-pa-v4_2.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.3",
+                "url": "https://door43.org/u/Door43-Catalog/pa_obs/",
+                "version": "4.3"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "pa/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.3"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "es-419",
+    "direction": "ltr",
+    "title": "Español Latin America",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Noel Ponce Ortiz",
+            "Gabriel Villanueva",
+            "Myrna Villanueva",
+            "Jose Luis Ramirez",
+            "Francisco Luna",
+            "Javier Rascon",
+            "Jesús Rodríguez",
+            "Manuel Castillo",
+            "Guillermo Juárez",
+            "Martha Juárez",
+            "Lamberto Salcida",
+            "Erick Montilla",
+            "Claudia Rodríguez",
+            "Iglesia Shalom",
+            "Uriel Pérez"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Wendy Colón",
+          "Aida Rodríguez",
+          "Ada Gonzále",
+          "Miriam Planas",
+          "Felipa Ramos",
+          "Maria FIgueroa",
+          "Margarita Cedeño",
+          "Lillian Castro",
+          "Nancy Santiago",
+          "Elizabeth Vázquez",
+          "José A. Florán",
+          "Yesenia Bruno",
+          "Luis E. Cabán",
+          "Gamaliel Marcano",
+          "Luis Angel Rodríguez",
+          "Myriam Sánchez",
+          "Miriam Otero",
+          "Sonia Morales",
+          "Francisco Mercado",
+          "Ashley M. Rivera",
+          "Josué D. Medina",
+          "Gretchen M. Rivera",
+          "Ana Bruno Oquendo",
+          "Jeffrey Felicia"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "HISTORIAS BÍBLICAS LIBRES",
+        "identifier": "obs",
+        "issued": "2017-03-14T00:00:00+00:00",
+        "modified": "2017-03-15T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:57:41+00:00",
+                "signature": "https://cdn.door43.org/es-419/obs/v4.1/obs.zip.sig",
+                "size": 88550,
+                "url": "https://cdn.door43.org/es-419/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:26:18+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/es-419/obs-es-419-v4_1.pdf.sig",
+                "size": 49764269,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/es-419/obs-es-419-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/es-419_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "HISTORIAS BÍBLICAS LIBRES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "HISTORIAS BÍBLICAS LIBRES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "mr",
+    "direction": "ltr",
+    "title": "मराठी",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Kirti Shalmon Dongre (City Of Gates Church, Aurangabad)",
+            "Mrs. Ruth Tode (Nazarene Church, Aurangabad)",
+            "Sumit Wankhede (Indian Friends Fellowship Church, Akola)"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Amit Kumar Aryan",
+          "Merlyn Easa",
+          "Shojo John"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Marathi translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-11-28T00:00:00+00:00",
+        "modified": "2017-11-28T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:07:51+00:00",
+                "signature": "https://cdn.door43.org/mr/obs/v4.2/obs.zip.sig",
+                "size": 110228,
+                "url": "https://cdn.door43.org/mr/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:34:03+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/mr/obs-mr-v4_1.pdf.sig",
+                "size": 49701876,
+                "source_version": "4.2",
+                "url": "https://cdn.door43.org/obs/txt/1/mr/obs-mr-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/mr_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "mr/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "bn",
+    "direction": "ltr",
+    "title": "বাংলা",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Dilip Kumar Ghosh (ECI)",
+            "Sourav Roy (Presbyterian Church)",
+            "Swapna Biswas (CNI Church)"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Ayan Kumar Ghosh",
+          "Merlyn Easa",
+          "Shojo John"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Bangali translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2018-01-10T00:00:00+00:00",
+        "modified": "2018-01-10T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:15:06+00:00",
+                "signature": "https://cdn.door43.org/bn/obs/v4.3/obs.zip.sig",
+                "size": 103757,
+                "url": "https://cdn.door43.org/bn/obs/v4.3/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:25:06+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/bn/obs-bn-v4_1.pdf.sig",
+                "size": 49687333,
+                "source_version": "4.3",
+                "url": "https://cdn.door43.org/obs/txt/1/bn/obs-bn-v4_1.pdf",
+                "version": "4.1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.3",
+                "url": "https://door43.org/u/Door43-Catalog/bn_obs/",
+                "version": "4.3"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "bn/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.3"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "sw",
+    "direction": "ltr",
+    "title": "Kiswahili",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Rev. Erasmus Peter Malelo, Coordinator, Aict Pwani Diocese Translation Section"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Ev. Cloud Roman",
+          "Ev. James A. Makula",
+          "Ev. Lazaro Chalomhjola",
+          "Ev. Mathew Kazimoto",
+          "GS. Andrew Gewe",
+          "Karen Riecks",
+          "Miss Joyce Masasi",
+          "Mr. Alex Nyuri",
+          "Mr. Ezekiel Daudi",
+          "Mr. James Semnkai",
+          "Mr. Moses Marugu",
+          "Pst. Isack A. Gomugo",
+          "Pst. John Kerim",
+          "Pst. Jordan",
+          "Pst. Mathias William",
+          "Rev. Catherin D. Matia",
+          "Rev. Charles Mabisa",
+          "Rev. Donald Dutuyi",
+          "Rev. Dr. David Magoke",
+          "Rev. Elias Ndema",
+          "Rev. Elisande Mhanga",
+          "Rev. Erasmus Malelo",
+          "Rev. Gungutu Elias",
+          "Rev. John Ndaluka",
+          "Rev. Lameck Tobotobo",
+          "Rev. Moses Eliakim Ndege",
+          "Rev. Philipo Kanwele",
+          "Rev. Yekonia M. Koko",
+          "Rev. Yohana Batano",
+          "Rev. Yohana S Dutuyi"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-12-18T00:00:00+00:00",
+        "modified": "2017-12-18T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:10:53+00:00",
+                "signature": "https://cdn.door43.org/sw/obs/v4.1/obs.zip.sig",
+                "size": 79734,
+                "url": "https://cdn.door43.org/sw/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/sw_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": null
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "sw/udb",
+          "sw/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "tdj",
+    "direction": "ltr",
+    "title": "Tajio",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Luke Samoff"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Alexander Timboko",
+          "Toni Lumpet",
+          "Ramlin Solangka",
+          "Yosan Timboko",
+          "Anton Djahandu",
+          "Derek Harman"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "50 tejarita nuꞌAlataꞌala sanu mabebas mepake ane maala eilalong tebasa-basa ntaninya",
+        "identifier": "obs",
+        "issued": "2017-03-14T00:00:00+00:00",
+        "modified": "2017-03-14T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:18+00:00",
+                "signature": "https://cdn.door43.org/tdj/obs/v4.1/obs.zip.sig",
+                "size": 84232,
+                "url": "https://cdn.door43.org/tdj/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:37:18+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/tdj/obs-tdj-v4_1.pdf.sig",
+                "size": 49779509,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/tdj/obs-tdj-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/tdj_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "lpx",
+    "direction": "ltr",
+    "title": "Lopit",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Translators"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "John Kerim Fabiano",
+          "Ahatar Paul Gilbert",
+          "Achaha Samuel",
+          "Valentio Ladu Koro",
+          "Lopit Bible Translators",
+          "Rev. Tito Abaha Oturo",
+          "Kerim",
+          "John Ojasi"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Ara hiyebita inno Bibia hunna inno lobe huwo eyumo inne leriamik huwo riŋa to hutuhien inno huwo bi daŋ ta fau.",
+        "identifier": "obs",
+        "issued": "2016-11-29T00:00:00+00:00",
+        "modified": "2016-11-29T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:07:11+00:00",
+                "signature": "https://cdn.door43.org/lpx/obs/v4.1/obs.zip.sig",
+                "size": 79814,
+                "url": "https://cdn.door43.org/lpx/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:33:58+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/lpx/obs-lpx-v4_1.pdf.sig",
+                "size": 49728381,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/lpx/obs-lpx-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/lpx_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Hiyebita inno Bibia ",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Hiyebita inno Bibia ",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "ceb",
+    "direction": "ltr",
+    "title": "Cebuano",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "WP"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Honey Chiong",
+          "Bong Lumawan",
+          "Marth Atab",
+          "Tano Emboc"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES",
+        "identifier": "obs",
+        "issued": "2016-05-10T00:00:00+00:00",
+        "modified": "2016-05-10T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:14:43+00:00",
+                "signature": "https://cdn.door43.org/ceb/obs/v4.1/obs.zip.sig",
+                "size": 83817,
+                "url": "https://cdn.door43.org/ceb/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:25:32+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/ceb/obs-ceb-v4_1.pdf.sig",
+                "size": 49666490,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/ceb/obs-ceb-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/ceb_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "gaj-x-ymnk",
+    "direction": "ltr",
+    "title": "Gadsup Yomunka",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Jack Ulndama",
+          "Kenneth Norabate",
+          "Steven Pikus",
+          "Misson Ayabe",
+          "Kennedy Berola",
+          "Nason Timi",
+          "Muntera Noka",
+          "Yasu Opune"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "1970-08-22T08:12:01+00:00",
+        "modified": "2016-07-25T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:55:57+00:00",
+                "signature": "https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip.sig",
+                "size": 78861,
+                "url": "https://cdn.door43.org/gaj-x-ymnk/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:28:18+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/gaj-x-ymnk/obs-gaj-x-ymnk-v4_1.pdf.sig",
+                "size": 49726514,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/gaj-x-ymnk/obs-gaj-x-ymnk-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/gaj-x-ymnk_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "or",
+    "direction": "ltr",
+    "title": "Oriya",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Rev. Ayub Chhinchani",
+            "Rev Amiya Kumar Sahu",
+            "Rev. Chittaranjan Nayak"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Ashok Kumar Kar",
+          "Bobby Chellappan",
+          "Cdr. Thomas Mathew",
+          "Charles Lakhra",
+          "Feba Jacob",
+          "Hinal Prakash",
+          "Merlyn Easa",
+          "Paulson John",
+          "Shojo John"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Oriya translation of 50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-11-27T00:00:00+00:00",
+        "modified": "2017-11-27T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:55:24+00:00",
+                "signature": "https://cdn.door43.org/or/obs/v4.2/obs.zip.sig",
+                "size": 110521,
+                "url": "https://cdn.door43.org/or/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:34:54+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/or/obs-or-v4_1.pdf.sig",
+                "size": 49702622,
+                "source_version": "4.2",
+                "url": "https://cdn.door43.org/obs/txt/1/or/obs-or-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/or_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "or/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "tpi",
+    "direction": "ltr",
+    "title": "Tok Pisin",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Pastor Jonathan Iswe",
+            "Pastor Ben Wane",
+            "Pastor Tonny Evina",
+            "Pastor Philip Sesni Sokas",
+            "Pastor Willie",
+            "Pastor Wakes"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Mambu Aki",
+          "Titus Gamudze",
+          "Tom Hadzata",
+          "Steven Tropoqogo",
+          "Rambai Kerua",
+          "Misson Ayabe",
+          "Pastor Kenneth Norabate",
+          "Ladong Tibong",
+          "Aluis Simatab",
+          "Meya Ivano",
+          "Ms. Ninau Herenie Ephraim",
+          "Maria Oraro",
+          "Mara Iyama",
+          "Victor Opungu",
+          "Robert Eko Ikouso",
+          "Stephen Moyaru",
+          "Pastor Jonathan Iswe",
+          "Pastor Ben Wane",
+          "Pastor Tonny Evina",
+          "Pastor Philip Sesni Sokas",
+          "Pastor Willie",
+          "Pastor Wakes"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "2015-10-09T00:00:00+00:00",
+        "modified": "2015-10-09T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:26:42+00:00",
+                "signature": "https://cdn.door43.org/tpi/obs/v4.2/obs.zip.sig",
+                "size": 78058,
+                "url": "https://cdn.door43.org/tpi/obs/v4.2/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:37:29+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/tpi/obs-tpi-v4_2.pdf.sig",
+                "size": 49663520,
+                "source_version": "4.2",
+                "url": "https://cdn.door43.org/obs/txt/1/tpi/obs-tpi-v4_2.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.2",
+                "url": "https://door43.org/u/Door43-Catalog/tpi_obs/",
+                "version": "4.2"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.2.2"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.2"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "ur",
+    "direction": "rtl",
+    "title": "اردو",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "L2: Rev. Sajid Imdad",
+            "Ms. Shiza Nazir | L3: Rev. Imran Maqbool",
+            "Rev.  Azeem Albert",
+            "Rev. Arif Sarraj",
+            "Rev. Dr. Peter Calvin"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Rev. Nadeem Mukhtar",
+          "Rev. Sajid Imdad",
+          "Ms. Shiza Nazir"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "2015-11-25T00:00:00+00:00",
+        "modified": "2015-11-25T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:31+00:00",
+                "signature": "https://cdn.door43.org/ur/obs/v4.1/obs.zip.sig",
+                "size": 105210,
+                "url": "https://cdn.door43.org/ur/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:38:28+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/ur/obs-ur-v4_1.pdf.sig",
+                "size": 49931554,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/ur/obs-ur-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/ur_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.2.1"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "gof",
+    "direction": "ltr",
+    "title": "Gofa",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "TWFTW Ethiopia"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Simon Zekewos",
+          "Hizkiel Zekarias",
+          "Tezera Kafie"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "Open Bible Stories",
+        "identifier": "obs",
+        "issued": "2016-05-10T00:00:00+00:00",
+        "modified": "2016-05-10T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:56:08+00:00",
+                "signature": "https://cdn.door43.org/gof/obs/v4.1/obs.zip.sig",
+                "size": 77214,
+                "url": "https://cdn.door43.org/gof/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:31:27+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/gof/obs-gof-v4_1.pdf.sig",
+                "size": 49644539,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/gof/obs-gof-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/gof_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "hmr",
+    "direction": "ltr",
+    "title": "Hmar",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Rev. Dr. Lalthankhum Sinate",
+            "Vice-President Emeritus",
+            "Partnership Mission Society"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Bibles For The World",
+          "Partnership Publishing House",
+          "Rev. Dr. Lalthankhum Sinate"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "OPEN BIBLE STORIES",
+        "identifier": "obs",
+        "issued": "2016-07-21T00:00:00+00:00",
+        "modified": "2016-07-25T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:08+00:00",
+                "signature": "https://cdn.door43.org/hmr/obs/v4.1/obs.zip.sig",
+                "size": 82329,
+                "url": "https://cdn.door43.org/hmr/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:33:44+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/hmr/obs-hmr-v4_1.pdf.sig",
+                "size": 49751789,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/hmr/obs-hmr-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/hmr_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "hu",
+    "direction": "ltr",
+    "title": "magyar",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Santa Lidia",
+          "Todd Prince"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "1970-08-22T08:12:08+00:00",
+        "modified": "2016-07-28T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:55:34+00:00",
+                "signature": "https://cdn.door43.org/hu/obs/v4.1/obs.zip.sig",
+                "size": 91807,
+                "url": "https://cdn.door43.org/hu/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:33:48+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/hu/obs-hu-v4_1.pdf.sig",
+                "size": 49773502,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/hu/obs-hu-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/hu_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "hr",
+    "direction": "ltr",
+    "title": "hrvatski jezik",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Todd L. Price, PhD, Roma Bible Translation Team Coordinator, Pioneers"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Ivana Balint-Feudvarski",
+          "Miroslav Balint-Feudvarski",
+          "Sergej Radošević",
+          "Todd Price"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2017-09-15T00:00:00+00:00",
+        "modified": "2017-09-15T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:11:00+00:00",
+                "signature": "https://cdn.door43.org/hr/obs/v4.1/obs.zip.sig",
+                "size": 85005,
+                "url": "https://cdn.door43.org/hr/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/hr_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": null
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Biblijske priče za sve",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "lo",
+    "direction": "ltr",
+    "title": "Lao",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "Pastor John of 1st Christian Church, etc"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "Door43 World Missions Community"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "50 key stories of the Bible, from Creation to Revelation, for evangelism & discipleship, in text, audio, and video, on any mobile phone, in any language, for free. It increases understanding of the historical and redemptive narrative of the entire Bible.",
+        "identifier": "obs",
+        "issued": "2018-02-14T00:00:00+00:00",
+        "modified": "2017-09-15T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T19:10:45+00:00",
+                "signature": "https://cdn.door43.org/lo/obs/v4.1/obs.zip.sig",
+                "size": 108927,
+                "url": "https://cdn.door43.org/lo/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/lo_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [
+          "lo/ulb"
+        ],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "fa",
+    "direction": "rtl",
+    "title": "فارسی",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "tarifi",
+            "sardan",
+            "razy",
+            "marokhi",
+            "sharvari",
+            "parpour",
+            "rebaz",
+            "shaei",
+            "morchi"
+          ],
+          "checking_level": "2"
+        },
+        "comment": "",
+        "contributor": [
+          "morchi",
+          "marokhi",
+          "mozari",
+          "razy",
+          "shaei",
+          "marpour",
+          "parpour",
+          "sardan",
+          "marnia",
+          "rebaz",
+          "tarifi"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "2016-06-15T00:00:00+00:00",
+        "modified": "2016-06-15T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:57:48+00:00",
+                "signature": "https://cdn.door43.org/fa/obs/v4.1/obs.zip.sig",
+                "size": 99112,
+                "url": "https://cdn.door43.org/fa/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:27:16+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/fa/obs-fa-v4_1.pdf.sig",
+                "size": 49900296,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/fa/obs-fa-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/fa_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "4"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "am",
+    "direction": "ltr",
+    "title": "አማርኛ",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "L1 IEC",
+            "BehailuA | L2 WE",
+            "GirmaG",
+            "TeferaB | L3 WE",
+            "TeferaE",
+            "KHEC",
+            "Dr.Woyita"
+          ],
+          "checking_level": "3"
+        },
+        "comment": "",
+        "contributor": [
+          "GetachewB",
+          "TasseK"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "ፈቃድ፡-",
+        "identifier": "obs",
+        "issued": "2015-08-26T00:00:00+00:00",
+        "modified": "2015-08-26T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:50:07+00:00",
+                "signature": "https://cdn.door43.org/am/obs/v4.1/obs.zip.sig",
+                "size": 98036,
+                "url": "https://cdn.door43.org/am/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:24:30+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/am/obs-am-v4_1.pdf.sig",
+                "size": 49722237,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/am/obs-am-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/am_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "Open Bible Stories",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.2"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "Open Bible Stories",
+        "version": "4.1"
+      }
+    ]
+  },
+  {
+    "subject": "Open_Bible_Stories",
+    "identifier": "Open_Bible_Stories",
+    "language": "tr",
+    "direction": "ltr",
+    "title": "Türkçe",
+    "resources": [
+      {
+        "checking": {
+          "checking_entity": [
+            "translation team"
+          ],
+          "checking_level": "1"
+        },
+        "comment": "",
+        "contributor": [
+          "Ivan Pavlii"
+        ],
+        "creator": "Door43 World Missions Community",
+        "description": "an unrestricted visual mini-Bible in any language",
+        "identifier": "obs",
+        "issued": "2015-08-26T00:00:00+00:00",
+        "modified": "2015-08-26T00:00:00+00:00",
+        "projects": [
+          {
+            "categories": [],
+            "formats": [
+              {
+                "format": "application/zip; type=book content=text/markdown conformsto=rc0.2",
+                "modified": "2018-08-16T18:25:52+00:00",
+                "signature": "https://cdn.door43.org/tr/obs/v4.1/obs.zip.sig",
+                "size": 87171,
+                "url": "https://cdn.door43.org/tr/obs/v4.1/obs.zip"
+              },
+              {
+                "contributor": [],
+                "format": "application/pdf",
+                "modified": "2017-08-16T19:38:01+00:00",
+                "signature": "https://cdn.door43.org/obs/txt/1/tr/obs-tr-v4_1.pdf.sig",
+                "size": 49648112,
+                "source_version": "4.1",
+                "url": "https://cdn.door43.org/obs/txt/1/tr/obs-tr-v4_1.pdf",
+                "version": "1"
+              },
+              {
+                "contributor": [],
+                "format": "",
+                "modified": "",
+                "signature": "",
+                "size": 0,
+                "source_version": "4.1",
+                "url": "https://door43.org/u/Door43-Catalog/tr_obs/",
+                "version": "4.1"
+              }
+            ],
+            "identifier": "obs",
+            "sort": 0,
+            "title": "OPEN BIBLE STORIES",
+            "versification": "ufw"
+          }
+        ],
+        "publisher": "Door43",
+        "relation": [],
+        "rights": "CC BY-SA 4.0",
+        "source": [
+          {
+            "identifier": "obs",
+            "language": "en",
+            "version": "3.2"
+          }
+        ],
+        "subject": "Open Bible Stories",
+        "title": "OPEN BIBLE STORIES",
+        "version": "4.1"
+      }
+    ]
+  }
+]

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
     appendStyle();
 
     // load OBS now
-    let obs: OBS = new OBS('https://s3-us-west-2.amazonaws.com/api.door43.org/v3/catalog.json', function() {
+    let obs: OBS = new OBS('https://s3-us-west-2.amazonaws.com/api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
         if (typeof initMap === 'function')
             obs.buildDiv(initMap);
         else

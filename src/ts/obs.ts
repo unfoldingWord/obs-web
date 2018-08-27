@@ -9,10 +9,10 @@ interface Catalog {
 
 interface Language {
 
-    title: string;
-    identifier: string;
+    language: string;   // language code
+    title: string;      // localized language name
+    direction: string;  // ltr or rtl
     resources: Resource[];
-    obs_resource: Resource;
 }
 
 interface Resource {
@@ -115,16 +115,10 @@ class OBS {
         $.ajax({
             url: url,
             dataType: 'json'
-        }).done(function(data: Catalog) {
+        }).done(function(data: Language[]) {
 
-            if (!('languages' in data)) {
-                me.loadResult = 'Error loading catalog - "Languages" element not found.';
-            }
-            else {
-                me.loadResult = 'Successfully loaded catalog data.';
-
-                me.extractOBS(data);
-            }
+            me.extractOBS(data);
+            me.loadResult = 'Successfully loaded catalog data.';
 
             console.log(me.loadResult);
 
@@ -145,30 +139,15 @@ class OBS {
 
     /**
      * Extracts the languages with OBS resources from the catalog
-     * @param data The catalog from https://api.door43.org/v3/catalog.json
+     * @param data The catalog from https://api.door43.org/v3/subjects/Open_Bible_Stories.json
      */
-    extractOBS(data: Catalog): void {
+    extractOBS(data: Language[]): void {
 
-        // get languages that have OBS resources
-        this.languages = data.languages.filter(function(lang: Language) {
-            let found = lang.resources.filter(function(res: Resource) {
-                return res.identifier === 'obs';
-            });
-
-            return found.length > 0;
-        });
-
-        // identify the OBS resources
-        for (let i = 0; i < this.languages.length; i++) {
-            let found = this.languages[i].resources.filter(function(res: Resource) {
-                return res.identifier === 'obs';
-            });
-
-            this.languages[i].obs_resource = found[0];
-        }
+        // all languages in this file now have OBS resources
+        this.languages = data;
 
         // sort the languages by id
-        this.languages.sort(function(a: Language, b: Language) { return a.identifier.localeCompare(b.identifier); });
+        this.languages.sort(function(a: Language, b: Language) { return a.language.localeCompare(b.language); });
     }
 
     /**
@@ -185,9 +164,9 @@ class OBS {
             let $div = $('<div></div>');
             let lang: Language = this.languages[i];
 
-            if (!lang.obs_resource) continue;
+            if (lang.resources.length < 1) continue;
 
-            $div.append(OBS.lang_h2.format(lang.identifier, lang.title));
+            $div.append(OBS.lang_h2.format(lang.language, lang.title));
 
             let res_types = OBS.getResources(lang);
 
@@ -227,7 +206,10 @@ class OBS {
 
         let res_types = new ResourceTypes();
 
-        let res: Resource = lang.obs_resource;
+        if (lang.resources.length < 1)
+            return res_types;
+
+        let res: Resource = lang.resources[0];
         for (let j = 0; j < res.projects.length; j++) {
 
             let proj: Project = res.projects[j];

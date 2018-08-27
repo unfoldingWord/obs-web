@@ -5,10 +5,10 @@ interface Catalog {
     languages: Language[];
 }
 interface Language {
+    language: string;
     title: string;
-    identifier: string;
+    direction: string;
     resources: Resource[];
-    obs_resource: Resource;
 }
 interface Resource {
     identifier: string;
@@ -51,7 +51,7 @@ declare class OBS {
     loadResult: string;
     languages: Language[];
     constructor(url: string, callback?: Function);
-    extractOBS(data: Catalog): void;
+    extractOBS(data: Language[]): void;
     buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
     private static getDescription(fmt);
