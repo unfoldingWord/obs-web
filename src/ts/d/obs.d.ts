@@ -5,10 +5,10 @@ interface Catalog {
     languages: Language[];
 }
 interface Language {
+    language: string;
     title: string;
-    identifier: string;
+    direction: string;
     resources: Resource[];
-    obs_resource: Resource;
 }
 interface Resource {
     identifier: string;
@@ -28,6 +28,10 @@ interface Format {
     quality: string;
     size: number;
     url: string;
+    chapters: Chapter[];
+}
+interface Chapter extends Format {
+    identifier: string;
 }
 declare class ResourceTypes {
     text: Format[];
@@ -36,16 +40,19 @@ declare class ResourceTypes {
     other: Format[];
 }
 declare class OBS {
-    lang_h2: string;
-    res_type_desc: string;
+    static lang_h2: string;
+    static chapters_h2: string;
+    static res_type_desc: string;
     static res_li: string;
     static res_ul: string;
+    static description: string;
+    static size_span: string;
     testString: string;
     loadResult: string;
     languages: Language[];
     constructor(url: string, callback?: Function);
-    extractOBS(data: Catalog): void;
-    buildDiv(): void;
+    extractOBS(data: Language[]): void;
+    buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
     private static getDescription(fmt);
     private static getSize(file_size);
