@@ -25,7 +25,7 @@ function appendStyle(): void {
     lnk.rel = 'stylesheet';
     lnk.type = 'text/css';
     lnk.media = 'all';
-    lnk.href = 'https://s3-us-west-2.amazonaws.com/cdn.unfoldingword.org/obs/js/map-style.min.css';
+    lnk.href = 'https://cdn.unfoldingword.org/obs/js/map-style.min.css';
     document.getElementsByTagName("head")[0].appendChild(lnk);
 }
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
     appendStyle();
 
     // load OBS now
-    let obs: OBS = new OBS('https://s3-us-west-2.amazonaws.com/api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
+    let obs: OBS = new OBS('https://api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
         if (typeof initMap === 'function')
             obs.buildDiv(initMap);
         else
