@@ -308,6 +308,10 @@ class OBS {
             fmt_description = 'MP4';
             fmt_class = 'fa-file-video-o';
         }
+        else if (format_string.indexOf('video/3gp') > -1) {
+            fmt_description = '3GP';
+            fmt_class = 'fa-file-video-o';
+        }
         else {
             fmt_description = format_string;
             fmt_class = 'fa-file-o';
