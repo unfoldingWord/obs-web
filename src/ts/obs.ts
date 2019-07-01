@@ -232,6 +232,18 @@ class OBS {
                     fmt.format = 'door43';
                     res_types.text.push(fmt);
                 }
+                else if (!fmt.format && (fmt.url.indexOf('docx') > -1)) {
+                    fmt.format = 'docx';
+                    res_types.text.push(fmt);
+                }
+                else if (!fmt.format && (fmt.url.indexOf('odt') > -1)) {
+                    fmt.format = 'odt';
+                    res_types.text.push(fmt);
+                }
+                else if (!fmt.format && (fmt.url.indexOf('epub') > -1)) {
+                    fmt.format = 'epub';
+                    res_types.text.push(fmt);
+                }
                 else if (!fmt.format) {
 
                     // check for youtube link
@@ -271,13 +283,13 @@ class OBS {
         if (format_string.indexOf('application/pdf') > -1) {
             return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
         }
-        else if (format_string.indexOf('youtube') > -1) {
+        else if (format_string === 'youtube') {
             return OBS.description.format('fa-youtube', 'YouTube');
         }
-        else if (format_string.indexOf('bloom') > -1) {
+        else if (format_string === 'bloom') {
             return OBS.description.format('fa-book', 'Bloom Shell Book');
         }
-        else if (format_string.indexOf('door43') > -1) {
+        else if (format_string === 'door43') {
             return OBS.description.format('fa-globe', 'View on Door43.org');
         }
 
@@ -285,7 +297,19 @@ class OBS {
         let fmt_description: string;
         let fmt_class: string;
 
-        if (format_string.indexOf('text/markdown') > -1) {
+        if (format_string === 'docx') {
+            fmt_description = 'Word Document';
+            fmt_class = 'fa-file-word-o';
+        }
+        else if (format_string === 'odt') {
+            fmt_description = 'OpenDocument Text';
+            fmt_class = 'fa-file-text-o';
+        }
+        else if (format_string === 'epub') {
+            fmt_description = 'ePub Book';
+            fmt_class = 'fa-book';
+        }
+        else if (format_string.indexOf('text/markdown') > -1) {
             fmt_description = 'Markdown';
             fmt_class = 'fa-file-text-o';
         }
