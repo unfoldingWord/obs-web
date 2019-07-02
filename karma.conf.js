@@ -69,7 +69,7 @@ module.exports = function (config) {
         browsers: ['PhantomJS'],
 
         customLaunchers: {
-            without_security: {
+            Chrome_without_security: {
                 base: 'Chrome',
                 flags: ['--disable-web-security']
             }

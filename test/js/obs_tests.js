@@ -121,4 +121,24 @@ describe('OBS class test suite', function() {
             done();
         });
     });
+
+    it('Test DOCX, ODT and EPUB link', function(done) {
+
+        var obs = new OBS('/base/test/data/Open_Bible_Stories.json', function(loadResult) {
+
+            expect(loadResult).toEqual('Successfully loaded catalog data.');
+
+            obs.buildDiv();
+
+            var $div = $('body').find('h2[data-lang-code=en]').closest('div');
+            var html = $div.html();
+
+            expect(html).toContain('Word Document');
+            expect(html).toContain('OpenDocument Text');
+            expect(html).toContain('ePub Book');
+
+            html = $('html').html();
+            done();
+        });
+    });
 });

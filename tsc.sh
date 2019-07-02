@@ -2,29 +2,24 @@
 
 thisDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-printf "Compiling library files... "
-#"${thisDir}/node_modules/.bin/tsc" --declaration "ts/script.ts" --outDir ${thisDir}/ts/d
-#find ${thisDir}/ts/d -not -path '*/\.*' -type f ! -name *.d.ts -delete
+declare -a files=("strings"
+                  "obs"
+                  "obs-start"
+                  "lang-names"
+                  "map_data"
+                  "region_data"
+                  "map_interactive"
+                  )
 
+for file in "${files[@]}"
+do
+   printf "   Compiling ${file}.ts... "
+   "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/${file}.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
 
-printf "compiling typescript files... "
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/strings.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/obs.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/obs-start.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/lang-names.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/map_data.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/region_data.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
-"${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/map_interactive.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
+   printf "uglifying... "
+   "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/${file}.js" -o "${thisDir}/output/js/${file}.min.js" --compress --mangle
 
+   printf "finished.\n"
+done
 
-printf "uglifying... "
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/strings.js" -o "${thisDir}/output/js/strings.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/obs.js" -o "${thisDir}/output/js/obs.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/obs-start.js" -o "${thisDir}/output/js/obs-start.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/lang-names.js" -o "${thisDir}/output/js/lang-names.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/map_data.js" -o "${thisDir}/output/js/map_data.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/region_data.js" -o "${thisDir}/output/js/region_data.min.js" --compress --mangle
-"${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/map_interactive.js" -o "${thisDir}/output/js/map_interactive.min.js" --compress --mangle
-
-
-printf "finished.\n"
+echo "Finished compiling typescript files"

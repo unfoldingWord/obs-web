@@ -10,9 +10,12 @@ Hosting location: [https://account.squarespace.com/](https://account.squarespace
 
 * PDF
 * DOCX
+* ODT
+* EPUB
 * MD
 * MP3 (high and low quality) (individual files and zip)
 * MP4 (high and low quality) (individual files and zip)
+* 3GP
 
 #### User interface recommendations
 
