@@ -54,6 +54,8 @@ declare class OBS {
     extractOBS(data: Language[]): void;
     buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
+    private static getUrlExt;
+    private static getFormatFromUrl;
     private static getDescription;
     private static getSize;
     private static getList;

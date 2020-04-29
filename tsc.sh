@@ -14,10 +14,10 @@ declare -a files=("strings"
 for file in "${files[@]}"
 do
    printf "   Compiling ${file}.ts... "
-   "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/${file}.ts" --outDir ${thisDir}/output/js --declarationDir ${thisDir}/src/ts/d --removeComments
+   "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/${file}.ts" --outDir ${thisDir}/build/js --declarationDir ${thisDir}/src/ts/d --removeComments
 
    printf "uglifying... "
-   "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/output/js/${file}.js" -o "${thisDir}/output/js/${file}.min.js" --compress --mangle
+   "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/build/js/${file}.js" -o "${thisDir}/build/js/${file}.min.js" --compress --mangle
 
    printf "finished.\n"
 done

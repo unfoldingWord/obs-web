@@ -43,3 +43,96 @@ See http://openchannelmedia.org/ for an example
 [https://api.door43.org/v3/catalog.json](https://api.door43.org/v3/catalog.json)
 
 https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
+
+
+## Development, Build and Deploy
+
+### To Setup the Development Environment:
+
+##### Clone the repo:
+
+```
+  $ git clone git@github.com:unfoldingword-dev/obs-web.git
+```
+
+##### Install node.js:
+
+  You can install nodejs and npm easily with apt install, just run the following commands on Ubuntu.
+
+```
+  $ sudo apt install nodejs
+  $ sudo apt install npm
+```
+
+  or with brew on Mac:
+
+```
+  $ brew install nodejs
+  $ brew install npm
+```
+
+  For other OSs, go to the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/)
+
+#### Install yarn:
+
+  After installing node, this project will need yarn too, so just run the following command.
+
+```
+  $ npm install -g yarn
+```
+
+#### Load the dependencies:
+
+```
+  $ cd obs-web
+  $ yarn install --frozen-lockfile
+```
+
+If you modify the package.json file to add/update dependencies, run:
+
+```
+  $ yarn install
+```
+
+#### Edit the source files:
+
+  Edit the files in the `src/` directory.
+
+### To Build:
+
+  Build by running:
+
+```
+  $ yarn build
+```
+
+  This will build the minified js and css files in the `build/` directory.
+
+### To View the OBS Library Page Locally:
+
+  Run the following to get the http-server going on port 8081:
+
+```
+  $ yarn start
+```
+
+  and go to [http://127.0.0.1:8081](http://127.0.0.1:8081).
+
+  If you desire a different port, just use, for example:
+
+```
+  $ yarn start --port=8888
+```
+
+  where `8888` is the port that will be used, and [http://127.0.0.1:8888](http://127.0.0.1:8888) is where you can view the html page.
+
+### To Run Unit Tests:
+
+  To run the unit tests, using karma, run:
+
+```
+  $ yarn test
+```
+
+  Add your tests to the js files in the `test/js/` directory.
+
