@@ -45,7 +45,7 @@ See http://openchannelmedia.org/ for an example
 https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
 
 
-## Development, Build and Deploy
+## Developing, Building & Testing
 
 ### To Setup the Development Environment:
 
