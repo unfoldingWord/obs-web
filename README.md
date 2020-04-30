@@ -150,7 +150,7 @@ to
   $ yarn install --production==true
 ```
 
-This will install just enough for the build:
+This will install the minimal number of packages needed for the build:
 
 ```
   $ yarn build
