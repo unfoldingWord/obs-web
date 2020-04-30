@@ -175,7 +175,7 @@ When the master branch is updated for the [https://www.github.com/unfoldingword-
 <span class="sr-only">Loading...</span><br/>Loading...</center></div>
 ```
 
-## Other Documentation & Info
+## Other Documentation & Links
 
 * [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
 * [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json)
