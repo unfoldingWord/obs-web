@@ -118,7 +118,7 @@ If you modify the package.json file to add/update dependencies, run:
 
   where `8888` is the port that will be used, and [http://127.0.0.1:8888](http://127.0.0.1:8888) is where you can view the html page.
 
-**NOTE:** This uses the production OBS Catalog file at [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json). If you need to use a local copy of the JSON file, you need to put it in the `build/` directory make the following change in[src/ts/obs-start.ts#L37](src/ts/obs-start.ts#L37):
+**NOTE:** This uses the production OBS Catalog file at [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json). If you need to use a local copy of the JSON file, you need to put it in the `build/` directory make the following change at [src/ts/obs-start.ts#L37](src/ts/obs-start.ts#L37):
 
 Change
 ```
