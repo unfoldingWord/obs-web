@@ -118,6 +118,20 @@ If you modify the package.json file to add/update dependencies, run:
 
   where `8888` is the port that will be used, and [http://127.0.0.1:8888](http://127.0.0.1:8888) is where you can view the html page.
 
+**NOTE:** This uses the production OBS Catalog file at [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json). If you need to use a local copy of the JSON file, you need to put it in the `build/` directory make the following change in[src/ts/obs-start.ts#L37](src/ts/obs-start.ts#L37):
+
+Change
+```
+    let obs: OBS = new OBS('https://api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
+```
+to
+```
+    let obs: OBS = new OBS('/Open_Bible_Stories.json', function() {
+```
+(that is, remove `https://api.door43.org/v3/subjects`) and then run the build command again.
+
+**PLEASE REMEMBER TO CHANGE IT BACK BEFORE COMMITTING YOUR CHANGES!!!**
+
 ### To Run Unit Tests:
 
   To run the unit tests, using karma, run:
