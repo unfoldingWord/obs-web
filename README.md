@@ -175,6 +175,8 @@ When the master branch is updated for the [https://www.github.com/unfoldingword-
 <span class="sr-only">Loading...</span><br/>Loading...</center></div>
 ```
 
+Live example at: [https://obs-web.netlify.app/prod_example.html](https://obs-web.netlify.app/prod_example.html)
+
 ## Other Documentation & Links
 
 * [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
