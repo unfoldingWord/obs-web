@@ -158,7 +158,7 @@ This will install just enough for the build:
 
 The `output/` directory has the produciton files, where `build/index.html` is an example of what can be placed at [https://openbiblestories.org/library](https://openbiblestories.org/library).
 
-When the master branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
+When the develop branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
 
 ```
 <link data-preserve-html-node="true" rel="stylesheet" href="https://obs-web.netlify.app/css/map-style.min.css" type="text/css" media="all">
