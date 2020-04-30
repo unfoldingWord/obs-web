@@ -178,6 +178,7 @@ When the master branch is updated for the [https://www.github.com/unfoldingword-
 ## Other Documentation & Info
 
 * [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
+* [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json)
 * [https://api.door43.org/v3/catalog.json](https://api.door43.org/v3/catalog.json)
 * [https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv)
 * [https://www.netlify.com/](https://www.netlify.com/)
