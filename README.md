@@ -110,7 +110,7 @@ If you modify the package.json file to add/update dependencies, run:
 
   and go to [http://127.0.0.1:8081](http://127.0.0.1:8081).
 
-  If you desire a different port, just use, for example:
+  If you need it to run on a different port, just run, for example:
 
 ```
   $ yarn start --port=8888
