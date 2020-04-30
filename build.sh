@@ -4,6 +4,5 @@ set -e
 
 ./tsc.sh
 ./less.sh
-cp src/index.html build
-
+cp src/*.html build
 
