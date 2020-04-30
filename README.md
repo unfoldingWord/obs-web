@@ -161,7 +161,7 @@ The `output/` directory has the produciton files, where `build/index.html` is an
 When the master branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
 
 ```
-<link data-preserve-html-node="true" rel="stylesheet" href="css/map-style.min.css" type="text/css" media="all">
+<link data-preserve-html-node="true" rel="stylesheet" href="https://obs-web.netlify.app/css/map-style.min.css" type="text/css" media="all">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script data-preserve-html-node="true" type="text/javascript" src="https://use.fontawesome.com/ac6410a9c6.js"></script>
 <script data-preserve-html-node="true" type="text/javascript" src="https://obs-web.netlify.app/js/strings.min.js"></script>
