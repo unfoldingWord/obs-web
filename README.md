@@ -2,7 +2,7 @@
 
 ## Priority #1 - User-friendly Library Page
 
-Target location: [https://openbiblestories.com/library](https://openbiblestories.com/library)
+Target location: [https://openbiblestories.org/library](https://openbiblestories.org/library)
 
 Hosting location: [https://account.squarespace.com/](https://account.squarespace.com/)
 
@@ -156,7 +156,7 @@ This will install just enough for the build:
   $ yarn build
 ```
 
-The `output/` directory has the produciton files, where `build/index.html` is an example of what can be placed at [https://www.openbiblestores.org](https://www.openbiblestores.org).
+The `output/` directory has the produciton files, where `build/index.html` is an example of what can be placed at [https://openbiblestories.org/library](https://openbiblestories.org/library).
 
 When the master branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
 
