@@ -4,7 +4,7 @@ thisDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ext=".css"
 min_ext=".min.css"
-path="output/css"
+path="build/css"
 
 for file in ${thisDir}/src/less/*.less
 do

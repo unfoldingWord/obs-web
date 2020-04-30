@@ -115,7 +115,7 @@ class OBS {
         $.ajax({
             url: url,
             dataType: 'json'
-        }).done(function(data: Language[]) {
+        }).done(function (data: Language[]) {
 
             me.extractOBS(data);
             me.loadResult = 'Successfully loaded catalog data.';
@@ -125,7 +125,7 @@ class OBS {
             if (typeof callback !== 'undefined')
                 callback(me.loadResult);
 
-        }).fail(function(jqXHR, textStatus, errorThrown) {
+        }).fail(function (jqXHR, textStatus, errorThrown) {
 
             me.loadResult = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
 
@@ -147,7 +147,7 @@ class OBS {
         this.languages = data;
 
         // sort the languages by id
-        this.languages.sort(function(a: Language, b: Language) { return a.language.localeCompare(b.language); });
+        this.languages.sort(function (a: Language, b: Language) { return a.language.localeCompare(b.language); });
     }
 
     /**
@@ -195,8 +195,8 @@ class OBS {
 
         // activate the accordion animation
         let $h2 = $container.find('h2');
-        $h2.css('cursor','pointer');
-        $h2.click(function() {$(this).nextUntil('h2').slideToggle();});
+        $h2.css('cursor', 'pointer');
+        $h2.click(function () { $(this).nextUntil('h2').slideToggle(); });
 
         if (typeof callback !== 'undefined')
             callback();
@@ -219,7 +219,7 @@ class OBS {
 
                 // sort chapters
                 if ('chapters' in fmt) {
-                    fmt.chapters.sort(function(a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
+                    fmt.chapters.sort(function (a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
                 }
 
                 if (fmt.format.indexOf('audio') > -1) {
@@ -271,6 +271,46 @@ class OBS {
     }
 
     /**
+     * Get the file extension of a URL (including if it has query params) without the preceeding dot
+     * @param {string} url
+     * @returns {string}
+     */
+    private static getUrlExt(url: string): string {
+        return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).split('#')[0].substr(url.lastIndexOf(".")+1)
+    }
+
+    /**
+     * Get the format from the URL based on its file extension
+     * @param {string} url 
+     * @returns {string}
+     */
+    private static getFormatFromUrl(url: string): string {
+        var ext = OBS.getUrlExt(url);
+        switch (ext) {
+            case '3gp':
+                return 'video/3gp';
+            case 'html':
+                return 'text/html';
+            case 'md':
+                return 'application/markdown';
+            case 'mp3':
+                return 'audio/mp3';
+            case 'mp4':
+                return 'video/mp4';
+            case 'pdf':
+                return 'application/pdf';
+            case 'txt':
+                return 'text/txt';
+            case 'usfm':
+                return 'text/usfm';
+            case 'zip':
+                return 'application/zip';
+            default:
+                return ext;
+        }
+    }
+
+    /**
      * Gets a friendly description of the format
      * @param {Format|Chapter} fmt
      * @returns {string}
@@ -278,22 +318,27 @@ class OBS {
     private static getDescription(fmt: Format | Chapter): string {
 
         let format_string = fmt.format;
+        let url = fmt.url;
         let size_string = OBS.getSize(fmt.size);
 
-        if (format_string.indexOf('application/pdf') > -1) {
+        if (!format_string && url) {
+            format_string = OBS.getFormatFromUrl(url);
+        }
+
+        if (format_string && format_string.indexOf('application/pdf') > -1) {
             return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
         }
-        else if (format_string === 'youtube') {
+        else if (format_string && format_string === 'youtube') {
             return OBS.description.format('fa-youtube', 'YouTube');
         }
-        else if (format_string === 'bloom') {
+        else if (format_string && format_string === 'bloom') {
             return OBS.description.format('fa-book', 'Bloom Shell Book');
         }
-        else if (format_string === 'door43') {
+        else if (format_string && format_string === 'door43') {
             return OBS.description.format('fa-globe', 'View on Door43.org');
         }
 
-        let is_zipped = format_string.indexOf('application/zip') > -1;
+        let is_zipped = (format_string ? format_string.indexOf('application/zip') > -1 : false);
         let fmt_description: string;
         let fmt_class: string;
 
@@ -309,30 +354,30 @@ class OBS {
             fmt_description = 'ePub Book';
             fmt_class = 'fa-book';
         }
-        else if (format_string.indexOf('text/markdown') > -1) {
+        else if (format_string && format_string.indexOf('text/markdown') > -1) {
             fmt_description = 'Markdown';
             fmt_class = 'fa-file-text-o';
         }
-        else if (format_string.indexOf('text/html') > -1) {
+        else if (format_string && format_string.indexOf('text/html') > -1) {
             // we are skipping this one for now
             return null;
 
             // fmt_description = 'HTML';
             // fmt_class = 'fa-code';
         }
-        else if (format_string.indexOf('text/usfm') > -1) {
+        else if (format_string && format_string.indexOf('text/usfm') > -1) {
             fmt_description = 'USFM';
             fmt_class = 'fa-file-text';
         }
-        else if (format_string.indexOf('audio/mp3') > -1) {
+        else if (format_string && format_string.indexOf('audio/mp3') > -1) {
             fmt_description = 'MP3';
             fmt_class = 'fa-file-audio-o';
         }
-        else if (format_string.indexOf('video/mp4') > -1) {
+        else if (format_string && format_string.indexOf('video/mp4') > -1) {
             fmt_description = 'MP4';
             fmt_class = 'fa-file-video-o';
         }
-        else if (format_string.indexOf('video/3gp') > -1) {
+        else if (format_string && format_string.indexOf('video/3gp') > -1) {
             fmt_description = '3GP';
             fmt_class = 'fa-file-video-o';
         }
