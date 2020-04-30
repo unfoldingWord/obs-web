@@ -118,19 +118,19 @@ If you modify the package.json file to add/update dependencies, run:
 
   where `8888` is the port that will be used, and [http://127.0.0.1:8888](http://127.0.0.1:8888) is where you can view the html page.
 
-**NOTE:** This uses the production OBS Catalog file at [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json). If you need to use a local copy of the JSON file, you need to put it in the `build/` directory make the following change at [src/ts/obs-start.ts#L37](src/ts/obs-start.ts#L37):
+  **NOTE:** This uses the production OBS Catalog file at [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json). If you need to use a local copy of the JSON file, you need to put it in the `build/` directory make the following change at [src/ts/obs-start.ts#L37](src/ts/obs-start.ts#L37):
 
-Change
+  Change
 ```
     let obs: OBS = new OBS('https://api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
 ```
-to
+  to
 ```
     let obs: OBS = new OBS('/Open_Bible_Stories.json', function() {
 ```
 (that is, remove `https://api.door43.org/v3/subjects`) and then run the build command again.
 
-**PLEASE REMEMBER TO CHANGE IT BACK BEFORE COMMITTING YOUR CHANGES!!!**
+               **PLEASE REMEMBER TO CHANGE IT BACK BEFORE COMMITTING YOUR CHANGES!!!**
 
 ### To Run Unit Tests:
 
@@ -150,15 +150,15 @@ to
   $ yarn install --production==true
 ```
 
-This will install the minimal number of packages needed for the build:
+  This will install the minimal number of packages needed for the build:
 
 ```
   $ yarn build
 ```
 
-The `output/` directory has the produciton files, where `build/index.html` is an example of what can be placed at [https://openbiblestories.org/library](https://openbiblestories.org/library).
+  The `output/` directory has the production files, where `build/index.html` is an example of what can be placed at [https://openbiblestories.org/library](https://openbiblestories.org/library).
 
-When the develop branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
+  When the `develop` branch is updated for the [https://www.github.com/unfoldingword-dev/obs-web](https://www.github.com/unfoldingword-dev/obs-web) repo, it will automatically be built at [https://obs-web.netlify.app](https://obs-web.netlify.app). The JS and CSS files can then be used elsewhere, such as on squarespace.com by linking them as follows:
 
 ```
 <link data-preserve-html-node="true" rel="stylesheet" href="https://obs-web.netlify.app/css/map-style.min.css" type="text/css" media="all">
@@ -175,12 +175,12 @@ When the develop branch is updated for the [https://www.github.com/unfoldingword
 <span class="sr-only">Loading...</span><br/>Loading...</center></div>
 ```
 
-Live example at: [https://obs-web.netlify.app/prod_example.html](https://obs-web.netlify.app/prod_example.html)
+ Live example at: [https://obs-web.netlify.app/prod_example.html](https://obs-web.netlify.app/prod_example.html)
 
 ## Other Documentation & Links
 
-* [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
-* [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json)
-* [https://api.door43.org/v3/catalog.json](https://api.door43.org/v3/catalog.json)
-* [https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv)
-* [https://www.netlify.com/](https://www.netlify.com/)
+  * [http://api-info.readthedocs.io/en/latest/door43.html](http://api-info.readthedocs.io/en/latest/door43.html)
+  * [https://api.door43.org/v3/subjects/Open_Bible_Stories.json](https://api.door43.org/v3/subjects/Open_Bible_Stories.json)
+  * [https://api.door43.org/v3/catalog.json](https://api.door43.org/v3/catalog.json) 
+  * [https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv)
+  * [https://www.netlify.com/](https://www.netlify.com/)
