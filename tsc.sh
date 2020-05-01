@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-thisDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 declare -a files=("strings"
                   "obs"
                   "obs-start"
@@ -14,10 +12,10 @@ declare -a files=("strings"
 for file in "${files[@]}"
 do
    printf "   Compiling ${file}.ts... "
-   "${thisDir}/node_modules/.bin/tsc" --sourcemap -d "src/ts/${file}.ts" --outDir ${thisDir}/build/js --declarationDir ${thisDir}/src/ts/d --removeComments
+   tsc --sourcemap -d "src/ts/${file}.ts" --outDir build/js --declarationDir src/ts/d --removeComments
 
    printf "uglifying... "
-   "${thisDir}/node_modules/.bin/uglifyjs" "${thisDir}/build/js/${file}.js" -o "${thisDir}/build/js/${file}.min.js" --compress --mangle
+   uglifyjs "build/js/${file}.js" -o "build/js/${file}.min.js" --compress --mangle
 
    printf "finished.\n"
 done

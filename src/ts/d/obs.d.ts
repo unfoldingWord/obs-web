@@ -55,8 +55,9 @@ declare class OBS {
     buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
     private static getUrlExt;
-    private static getFormatFromUrl;
+    private static getFormatFromFields;
     private static getDescription;
-    private static getSize;
+    private static getRemoteFileSize;
+    private static getSizeString;
     private static getList;
 }
