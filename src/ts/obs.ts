@@ -232,10 +232,12 @@ class OBS {
                     res_types.video.push(fmt);
                 }
                 else if (
-                    fmt.format.indexOf('door43') > -1 ||
+                    fmt.format.indexOf('markdown') > -1 ||
+                    fmt.format.indexOf('pdf') > -1 ||
                     fmt.format.indexOf('docx') > -1 ||
                     fmt.format.indexOf('odt') > -1 ||
-                    fmt.format.indexOf('epub') > -1
+                    fmt.format.indexOf('epub') > -1 ||
+                    fmt.format.indexOf('door43') > -1
                 ) {
                     res_types.text.push(fmt);
                 }
