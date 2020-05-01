@@ -1,4 +1,3 @@
-/// <reference path="jquery.d.ts" />
 /// <reference path="strings.d.ts" />
 interface Catalog {
     catalogs: any[];
@@ -55,7 +54,7 @@ declare class OBS {
     buildDiv(callback?: Function): void;
     static getResources(lang: Language): ResourceTypes;
     private static getUrlExt;
-    private static getFormatFromUrl;
+    private static getFormatFromFields;
     private static getDescription;
     private static getSize;
     private static getList;

@@ -1,4 +1,3 @@
-/// <reference path="jquery.d.ts" />
 /// <reference path="region_data.d.ts" />
 /// <reference path="map_data.d.ts" />
 /// <reference path="obs.d.ts" />
