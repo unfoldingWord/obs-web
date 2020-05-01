@@ -280,7 +280,7 @@ class OBS {
             case 'html':
                 return 'text/html';
             case 'md':
-                return 'application/markdown';
+                return 'text/markdown';
             case 'mp3':
                 return 'audio/mp3';
             case 'mp4':
