@@ -1,4 +1,3 @@
-/// <reference path="d/jquery.d.ts" />
 /// <reference path="d/strings.d.ts" />
 
 interface Catalog {
@@ -270,6 +269,8 @@ class OBS {
      * @returns {string}
      */
     private static getFormatFromFields(fmt: Format): string {
+        if (!fmt.url)
+            return '';
         var ext = OBS.getUrlExt(fmt.url.toLowerCase());
         switch (ext) {
             case '3gp':

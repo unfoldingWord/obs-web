@@ -15,6 +15,7 @@
     "start": "http-server build"
   },
   "dependencies": {
+    "@types/jquery": "^3.3.36",
     "less": "^3.11.1",
     "less-plugin-clean-css": "^1.5.1",
     "typescript": "^3.8.3",

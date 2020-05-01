@@ -1,4 +1,3 @@
-/// <reference path="d/jquery.d.ts" />
 /// <reference path="d/strings.d.ts" />
 /// <reference path="region_data.ts" />
 

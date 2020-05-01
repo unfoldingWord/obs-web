@@ -1,4 +1,3 @@
-/// <reference path="jquery.d.ts" />
 /// <reference path="strings.d.ts" />
 interface Catalog {
     catalogs: any[];
@@ -57,7 +56,6 @@ declare class OBS {
     private static getUrlExt;
     private static getFormatFromFields;
     private static getDescription;
-    private static getRemoteFileSize;
-    private static getSizeString;
+    private static getSize;
     private static getList;
 }
