@@ -32,8 +32,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     appendStyle();
 
+    let urls = [
+        'https://api.door43.org/v3/subjects/Open_Bible_Stories.json',
+        'https://api.door43.org/v3/subjects/OBS_Study_Notes.json',
+        'https://api.door43.org/v3/subjects/OBS_Study_Questions.json',
+        'https://api.door43.org/v3/subjects/OBS_Translation_Notes.json',
+        'https://api.door43.org/v3/subjects/OBS_Translation_Questions.json',
+    ];
+
     // load OBS now
-    let obs: OBS = new OBS('https://api.door43.org/v3/subjects/Open_Bible_Stories.json', function() {
+    let obs: OBS = new OBS(urls, function() {
         if (typeof initMap === 'function')
             obs.buildDiv(initMap);
         else

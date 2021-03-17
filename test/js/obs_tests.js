@@ -14,7 +14,7 @@ describe('OBS class test suite', function() {
 
     it('Test OBS constructor', function() {
 
-        var obs = new OBS('test');
+        var obs = new OBS(['test']);
 
         expect(obs).toBeTruthy();
         expect(obs.testString).toEqual('Test success.');
@@ -22,7 +22,7 @@ describe('OBS class test suite', function() {
 
     it('Test constructor with bad path', function(done) {
 
-        new OBS('/base/test/data/catalog.bob', function(loadResult) {
+        new OBS(['/base/test/data/catalog.bob'], function(loadResult) {
 
             expect(loadResult).toEqual('Failed: status = "error", message = "Not Found".');
 
@@ -32,8 +32,8 @@ describe('OBS class test suite', function() {
 
     it('Test constructor with good path', function(done) {
         testWithAllObsCatalogFiles(function(obs) {
-            expect(obs.languages.length).toBeGreaterThan(0);
-            expect(obs.languages[0].resources[0].identifier).toEqual('obs');
+            expect(Object.keys(obs.languages).length).toBeGreaterThan(0);
+            expect(obs.languages['en'].subjects["Open_Bible_Stories"].resources[0].identifier).toEqual('obs');
         }, done);
     });
 
@@ -45,12 +45,25 @@ describe('OBS class test suite', function() {
         }, done);
     });
 
+    it('Test Full OBS.buildDiv() with OBS Helps', function(done) {
+        jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
+        loadFixtures('published-languages-fixture.html');
+        expect(jQuery('#jasmine-fixtures')).toBeTruthy();
+        var obs = new OBS(obsCatalogFiles[3], function(loadResult) {
+            expect(loadResult).toEqual('Successfully loaded catalog data.');
+            obs.buildDiv();
+            var html = $('body');
+            expect(html).toBeTruthy();
+            done();
+        });
+    });
+
     it('Test no format specified', function(done) {
         testWithAllObsCatalogFiles(function(obs) {
-            var english = obs.languages.filter(function(lang) { return lang.language === 'en'; });
+            var en_obs = obs.languages['en'].subjects['Open_Bible_Stories'];
             // noinspection JSCheckFunctionSignatures
-            expect(english.length).toEqual(1);
-            var resources = OBS.getResources(english[0]);
+            expect(en_obs.resources.length).toEqual(1);
+            var resources = OBS.getResources(en_obs);
             expect(resources).toHaveProp('other');
             expect(resources.other.length).toBeGreaterThan(0);
         }, done);
@@ -58,8 +71,8 @@ describe('OBS class test suite', function() {
 
     it('Test YouTube format', function(done) {
         testWithAllObsCatalogFiles(function(obs) {
-            var english = obs.languages.filter(function(lang) { return lang.language === 'en'; });
-            var resources = OBS.getResources(english[0]);
+            var en_obs = obs.languages['en'].subjects['Open_Bible_Stories'];
+            var resources = OBS.getResources(en_obs);
             expect(resources.other.length).toBeGreaterThan(0);
 
             var youtube = resources.other.filter(function(res) { return res['format'].indexOf('youtube') > -1 });
@@ -77,8 +90,8 @@ describe('OBS class test suite', function() {
 
     it('Test audio chapters', function(done) {
         testWithAllObsCatalogFiles(function(obs) {
-            var english = obs.languages.filter(function(lang) { return lang.language === 'en'; });
-            var resources = OBS.getResources(english[0]);
+            var en_obs = obs.languages['en'].subjects['Open_Bible_Stories'];
+            var resources = OBS.getResources(en_obs);
             expect(resources.audio.length).toBeGreaterThan(0);
 
             var mp3 = resources.audio[0];
@@ -130,9 +143,16 @@ describe('OBS class test suite', function() {
 });
 
 var obsCatalogFiles = [
-    '/base/test/data/Open_Bible_Stories_v4.json',
-    '/base/test/data/Open_Bible_Stories_v7.json',
-    '/base/test/data/Open_Bible_Stories_v8.json',
+    ['/base/test/data/Open_Bible_Stories_v4.json'],
+    ['/base/test/data/Open_Bible_Stories_v7.json'],
+    ['/base/test/data/Open_Bible_Stories_v8.json'],
+    [
+        '/base/test/data/Open_Bible_Stories_v9.json',
+        '/base/test/data/OBS_Study_Notes_v9.json',
+        '/base/test/data/OBS_Study_Questions_v9.json',
+        '/base/test/data/OBS_Translation_Notes_v9.json',
+        '/base/test/data/OBS_Translation_Questions_v9.json',
+    ],
 ];
 
 function testWithAllObsCatalogFiles(callback, done) {

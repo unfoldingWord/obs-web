@@ -7,6 +7,12 @@ interface Language {
     language: string;
     title: string;
     direction: string;
+    subjects: {
+        [key: string]: Subject;
+    };
+}
+interface Subject {
+    subject: string;
     resources: Resource[];
 }
 interface Resource {
@@ -15,6 +21,8 @@ interface Resource {
     version: string;
     issued: string;
     modified: string;
+    title: string;
+    subject: string;
 }
 interface Project {
     identifier: string;
@@ -40,7 +48,8 @@ declare class ResourceTypes {
 }
 declare class OBS {
     static lang_h2: string;
-    static chapters_h2: string;
+    static subject_h3: string;
+    static chapters_h3: string;
     static res_type_desc: string;
     static res_li: string;
     static res_ul: string;
@@ -48,11 +57,13 @@ declare class OBS {
     static size_span: string;
     testString: string;
     loadResult: string;
-    languages: Language[];
-    constructor(url: string, callback?: Function);
-    extractOBS(data: Language[]): void;
+    languages: {
+        [key: string]: Language;
+    };
+    constructor(urls: string[], callback?: Function);
+    extractOBS(data: Object[]): void;
     buildDiv(callback?: Function): void;
-    static getResources(lang: Language): ResourceTypes;
+    static getResources(subject: Subject): ResourceTypes;
     private static getUrlExt;
     private static getFormatFromFields;
     private static getDescription;
