@@ -207,8 +207,7 @@ class OBS {
             let lang = me.languages[langId]
             let ang = '';
             if (langId in langnames && 'ang' in langnames[langId] && langnames[langId]['ang'].trim() &&
-                langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase() &&
-                lang.title.toLowerCase().indexOf(langnames[langId]['ang'].tolowerCase()) < 0) {
+                langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
                 ang = ' / ' + langnames[langId].ang;
             }
             $lang_div.append(OBS.lang_h2.format(lang.language, ang, lang.title));
