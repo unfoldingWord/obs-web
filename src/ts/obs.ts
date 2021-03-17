@@ -7,20 +7,25 @@ interface Catalog {
 }
 
 interface Language {
-
     language: string;   // language code
     title: string;      // localized language name
     direction: string;  // ltr or rtl
+    subjects: { [key: string]: Subject; };
+}
+
+interface Subject {
+    subject: string  // subject
     resources: Resource[];
 }
 
 interface Resource {
-
     identifier: string;
     projects: Project[];
     version: string;
     issued: string;
     modified: string;
+    title: string;
+    subject: string;
 }
 
 interface Project {
@@ -60,9 +65,11 @@ class OBS {
      * {1} = Localized language name
      * @type {string}
      */
-    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong>+ {0} ({1})</strong></h2>\n';
+    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong><span class="plus"></span> {0} ({1})</strong></h2>\n';
 
-    static chapters_h2: string = '<h2 class="chapters-h2" style="display: inline-block; font-size: 1em; margin: 0">&ensp;<i class="fa fa-plus" aria-hidden="true" style="font-size: 1em"></i>&ensp;</h2>';
+    static subject_h3: string = '<h3 class="subject-h3" data-lang-code="{0}"><span class="plus"></span> {1}</h3>\n';
+
+    static chapters_h3: string = '<h3 class="chapters-h3">&ensp;<span class="plus"></span></h3>';
 
     /**
      * {0} = Resource type name (Text, Audio, Video)
@@ -81,72 +88,94 @@ class OBS {
 
     /**
      * {0} = font awesome class
-     * {1} = description
+     * {1} = title
+     * {2} = type
+     * {3} = size
      * @type {string}
      */
-    static description: string = '<i class="fa {0}" aria-hidden="true"></i>&ensp;{1}';
+    static description: string = '<i class="fa {0}" aria-hidden="true"></i>&ensp;{1}&nbsp;<span style="color: #606060">({2}{3})</span>';
 
     /**
      * {0} = size string, and zipped if applicable
      * @type {string}
      */
-    static size_span = '&nbsp;<span style="color: #606060">({0})</span>';
+    static size_span = '&nbsp;<span style="color: #606060">{0}</span>';
 
     testString: string;
     loadResult: string;
-    languages: Language[];
+    languages: { [key: string]: Language; } = {};
 
     /**
      * Class constructor
-     * @param {string} url
+     * @param {string[]} urls
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(url: string, callback?: Function) {
+    constructor(urls: string[], callback?: Function) {
 
         // this is for unit testing
-        if (url === 'test') {
+        if (urls.length > 0 && urls[0] === 'test') {
             this.testString = 'Test success.';
             return;
         }
 
         // load the url now
         let me = this;
-        $.ajax({
-            url: url,
-            dataType: 'json'
-        }).done(function (data: Language[]) {
+        let urlResults = [];
+        let error = null;
 
-            me.extractOBS(data);
-            me.loadResult = 'Successfully loaded catalog data.';
-
+        let finish = function () {
+            if (! error) {
+                let data = [].concat.apply([], urlResults);
+                me.extractOBS(data);
+                me.loadResult = 'Successfully loaded catalog data.';
+            } else {
+                me.loadResult = error;
+            }
             console.log(me.loadResult);
-
             if (typeof callback !== 'undefined')
                 callback(me.loadResult);
+        };
 
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-
-            me.loadResult = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
-
-            console.log(me.loadResult);
-
-            if (typeof callback !== 'undefined')
-                callback(me.loadResult);
+        urls.forEach(function (url) {
+            $.ajax({
+                url: url,
+                dataType: 'json'
+            }).done(function (data) {
+                urlResults.push(data);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                error = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
+                urlResults.push(error);
+                console.log(error);
+            }).always(function () {
+                if (urlResults.length == urls.length) {
+                    finish();
+                }
+            });
         });
-
     }
 
     /**
      * Extracts the languages with OBS resources from the catalog
      * @param data The catalog from https://api.door43.org/v3/subjects/Open_Bible_Stories.json
      */
-    extractOBS(data: Language[]): void {
-
-        // all languages in this file now have OBS resources
-        this.languages = data;
-
-        // sort the languages by id
-        this.languages.sort(function (a: Language, b: Language) { return a.language.localeCompare(b.language); });
+    extractOBS(data: Object[]): void {
+        let me = this;
+        data.forEach(item => {
+            let langId = item['language'];
+            let subjectStr = item['subject'];
+            if (! (langId in me.languages)) {
+                me.languages[langId] = <Language> {
+                    language: langId,
+                    title: item['title'],
+                    direction: item['direction'],
+                    subjects: {},
+                };
+            }
+            me.languages[langId].subjects[subjectStr] = <Subject> {
+                subject: subjectStr.replace(/_/g, ' '),
+                resources: <Resource[]> item["resources"],
+            };
+        });
     }
 
     /**
@@ -154,61 +183,88 @@ class OBS {
      * @param {Function} callback An optional callback function
      */
     buildDiv(callback?: Function): void {
-
         let $container = $('body').find('#published-languages');
         $container.empty();
+        let me = this;
+        Object.keys(me.languages).sort().forEach(langId => {
+            let $lang_div = $('<div></div>');
+            let lang = me.languages[langId]
+            $lang_div.append(OBS.lang_h2.format(lang.language, lang.title));
 
-        for (let i = 0; i < this.languages.length; i++) {
+            Object.keys(me.languages[langId].subjects).sort((a: string, b: string)=>{
+                // List Open Bible Stories first, all others alphabetically
+                return (a=="Open_Bible_Stories" ? -1 : a.localeCompare(b));
+            }).forEach(subjectId => {
+                let subject = me.languages[langId].subjects[subjectId];
 
-            let $div = $('<div></div>');
-            let lang: Language = this.languages[i];
+                if (subject.resources.length < 1) return;
 
-            if (lang.resources.length < 1) continue;
+                let subjectStr = subject.subject;
 
-            $div.append(OBS.lang_h2.format(lang.language, lang.title));
+                let res: Resource = subject.resources[0];
 
-            let res_types = OBS.getResources(lang);
+                let $subject_div = $('<div></div>');
 
-            if (res_types.text.length > 0) {
-                $div.append(OBS.res_type_desc.format('Text'));
-                $div.append(OBS.getList(res_types.text));
-            }
+                let title = res.title
+                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, subjectStr);
+                $subject_div.append(subject_h3);
 
-            if (res_types.audio.length > 0) {
-                $div.append(OBS.res_type_desc.format('Audio'));
-                $div.append(OBS.getList(res_types.audio));
-            }
+                let res_types = OBS.getResources(subject);
 
-            if (res_types.video.length > 0) {
-                $div.append(OBS.res_type_desc.format('Video'));
-                $div.append(OBS.getList(res_types.video));
-            }
+                if (res_types.text.length > 0) {
+                    $subject_div.append(OBS.res_type_desc.format('Text'));
+                    $subject_div.append(OBS.getList(res_types.text, res.title));
+                }
 
-            if (res_types.other.length > 0) {
-                $div.append(OBS.res_type_desc.format('Other'));
-                $div.append(OBS.getList(res_types.other));
-            }
+                if (res_types.audio.length > 0) {
+                    $subject_div.append(OBS.res_type_desc.format('Audio'));
+                    $subject_div.append(OBS.getList(res_types.audio, res.title));
+                }
 
-            $container.append($div);
-        }
+                if (res_types.video.length > 0) {
+                    $subject_div.append(OBS.res_type_desc.format('Video'));
+                    $subject_div.append(OBS.getList(res_types.video, res.title));
+                }
+
+                if (res_types.other.length > 0) {
+                    $subject_div.append(OBS.res_type_desc.format('Other'));
+                    $subject_div.append(OBS.getList(res_types.other, res.title));
+                }
+
+                $lang_div.append($subject_div);
+            });
+
+            $container.append($lang_div);
+        });
 
         // activate the accordion animation
         let $h2 = $container.find('h2');
         $h2.css('cursor', 'pointer');
-        $h2.click(function () { $(this).nextUntil('h2').slideToggle(); });
+        $h2.click(function () {
+            $(this).nextUntil('h2').slideToggle();
+            $(this).find('span').toggleClass('minus');
+        });
+        $h2.nextUntil('h2').slideUp();
+
+        let $h3 = $container.find('h3');
+        $h3.css('cursor', 'pointer');
+        $h3.click(function () {
+            $(this).nextUntil('h3').slideToggle();
+            $(this).find('span').toggleClass('minus');
+        });
 
         if (typeof callback !== 'undefined')
             callback();
     }
 
-    static getResources(lang: Language): ResourceTypes {
+    static getResources(subject: Subject): ResourceTypes {
 
         let res_types = new ResourceTypes();
 
-        if (lang.resources.length < 1)
+        if (subject.resources.length < 1)
             return res_types;
 
-        let res: Resource = lang.resources[0];
+        let res: Resource = subject.resources[0];
         for (let j = 0; j < res.projects.length; j++) {
 
             let proj: Project = res.projects[j];
@@ -222,7 +278,7 @@ class OBS {
 
                 // sort chapters
                 if ('chapters' in fmt) {
-                    fmt.chapters.sort(function (a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
+                    fmt.chapters.sort( (a: Chapter, b: Chapter)=>{return a.identifier.localeCompare(b.identifier)});
                 }
 
                 if (fmt.format.indexOf('audio') > -1) {
@@ -328,100 +384,128 @@ class OBS {
     /**
      * Gets a friendly description of the format
      * @param {Format|Chapter} fmt
+     * @param {string} title
+     *
      * @returns {string}
      */
     private static getDescription(fmt: Format | Chapter): string {
-
-        let size_string = OBS.getSize(fmt.size);
+        let title = fmt.url.split(/[\\/]/).pop();
 
         if (!fmt.format) {
             fmt.format = OBS.getFormatFromFields(fmt);
         }
 
-        if (fmt.format.indexOf('application/pdf') > -1) {
-            return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
-        }
-        else if (fmt.format === 'youtube') {
-            return OBS.description.format('fa-youtube', 'YouTube');
-        }
-        else if (fmt.format === 'bloom') {
-            return OBS.description.format('fa-book', 'Bloom Shell Book');
-        }
-        else if (fmt.format === 'door43') {
-            return OBS.description.format('fa-globe', 'View on Door43.org');
-        }
-
-        let is_zipped = fmt.format.indexOf('application/zip') > -1;
         let fmt_description: string;
         let fmt_class: string;
 
-        if (fmt.format.indexOf('docx') > -1) {
-            fmt_description = 'Word Document';
-            fmt_class = 'fa-file-word-o';
-        }
-        else if (fmt.format.indexOf('odt') > -1) {
-            fmt_description = 'OpenDocument Text';
-            fmt_class = 'fa-file-text-o';
-        }
-        else if (fmt.format.indexOf('epub') > -1) {
-            fmt_description = 'ePub Book';
-            fmt_class = 'fa-book';
-        }
-        else if (fmt.format.indexOf('markdown') > -1) {
-            fmt_description = 'Markdown';
-            fmt_class = 'fa-file-text-o';
-        }
-        else if (fmt.format.indexOf('html') > -1) {
-            // we are skipping this one for now
-            return null;
+        let format_parts = fmt.format.split(' ');
+        let format_map = {};
+        format_parts.forEach(part => {
+            part = part.replace(/\s*;*$/, '');
+            let key_value = part.split('=');
+            if (key_value.length == 2) {
+                format_map[key_value[0]] = key_value[1];
+            } else if (!format_map['mime']) {
+                format_map['mime'] = part;
+            }
+        });
 
-            // fmt_description = 'HTML';
-            // fmt_class = 'fa-code';
-        }
-        else if (fmt.format.indexOf('usfm') > -1) {
-            fmt_description = 'USFM';
-            fmt_class = 'fa-file-text';
-        }
-        else if (fmt.format.indexOf('mp3') > -1) {
-            fmt_description = 'MP3';
-            fmt_class = 'fa-file-audio-o';
-        }
-        else if (fmt.format.indexOf('mp4') > -1) {
-            fmt_description = 'MP4';
-            fmt_class = 'fa-file-video-o';
-        }
-        else if (fmt.format.indexOf('3gp') > -1) {
-            fmt_description = '3GP';
-            fmt_class = 'fa-file-video-o';
-        }
-        else {
-            fmt_description = fmt.format;
-            fmt_class = 'fa-file-o';
+        let is_zipped = (format_map['mime'] == 'application/zip');
+        let mime = format_map['mime'];
+        if (is_zipped && 'content' in format_map) {
+            mime = format_map['content'];
         }
 
-        if ('identifier' in fmt) {
-            fmt_description = 'Chapter ' + parseInt((<Chapter>fmt).identifier).toLocaleString()
+        let mime_parts = mime.split('/');
+        let show_size = true;
+        switch (mime_parts[mime_parts.length - 1]) {
+            case 'pdf':
+                fmt_description = 'PDF';
+                fmt_class = 'fa-file-pdf-o';
+                break;
+            case 'youtube':
+                title = 'YouTube';
+                show_size = false;
+                fmt_class = 'fa-youtube';
+                fmt_description = 'Website'
+                break;
+            case 'bloom':
+                title = 'Bloom Shell Book';
+                show_size = false;
+                fmt_description = 'Website';
+                fmt_class = 'fa-book';
+                break;
+            case 'door43':
+                title = 'View on Door43.org'
+                fmt_description = 'Website';
+                fmt_class = 'fa-globe';
+                show_size = false;
+                break;
+            case 'docx':
+                fmt_description = 'Word Document';
+                fmt_class = 'fa-file-word-o';
+                break;
+            case 'odt':
+                fmt_description = 'OpenDocument Text';
+                fmt_class = 'fa-file-text-o';
+                break;
+            case 'epub':
+                fmt_description = 'ePub Book';
+                fmt_class = 'fa-book';
+                break;
+            case 'markdown':
+            case 'md':
+                fmt_description = 'Markdown';
+                fmt_class = 'fa-file-text-o';
+                break;
+            case 'html':
+                fmt_description = 'HTML';
+                fmt_class = 'fa-code';
+                break;
+            case 'usfm':
+                fmt_description = 'USFM';
+                fmt_class = 'fa-file-text';
+                break;
+            case 'mp3':
+                fmt_description = 'MP3';
+                fmt_class = 'fa-file-audio-o';
+                break;
+            case 'mp4':
+                fmt_description = 'MP4';
+                fmt_class = 'fa-file-video-o';
+                break;
+            case '3gp':
+            case '3gpp':
+                fmt_description = '3GP';
+                fmt_class = 'fa-file-video-o';
+                break;
+            default:
+                fmt_description = fmt.format;
+                fmt_class = 'fa-file-o';
+                break;
         }
 
-        let return_val = OBS.description.format(fmt_class, fmt_description);
+        if (fmt.quality && fmt.quality != fmt_description) {
+            fmt_description += '&nbsp;&ndash;&nbsp;' + fmt.quality;
+        }
 
-        if (fmt.quality) {
-            return_val += '&nbsp;&ndash;&nbsp;' + fmt.quality;
+        let size_string = ''
+        if (show_size) {
+            size_string = OBS.getSize(fmt.size);
         }
 
         if (is_zipped) {
-            if (size_string) {
-                return return_val + OBS.size_span.format(size_string + '&nbsp;zipped');
-            }
-
-            return return_val + OBS.size_span.format('zipped');
+            size_string += ' zipped';
         }
-
         if (size_string) {
-            return return_val + OBS.size_span.format(size_string);
+            size_string = ', ' + size_string;
         }
 
-        return return_val;
+        if ('identifier' in fmt) {
+            title = '<span style="color: #606060">Chapter&nbsp;' + parseInt((<Chapter>fmt).identifier).toLocaleString() + ':</span> ' + title
+        }
+
+        return OBS.description.format(fmt_class, title, fmt_description, size_string);
     }
 
     private static getSize(file_size: number): string {
@@ -450,7 +534,7 @@ class OBS {
         }
     }
 
-    private static getList(res_type: Format[]): JQuery {
+    private static getList(res_type: Format[], title: string): JQuery {
 
         let $ul: JQuery = $(OBS.res_ul);
 
@@ -465,7 +549,7 @@ class OBS {
             let $li = $(OBS.res_li.format(fmt.url, description));
 
             if (('chapters' in fmt) && (fmt.chapters.length > 0)) {
-                $li.append(OBS.chapters_h2);
+                $li.append(OBS.chapters_h3);
 
                 let $chapter_ul: JQuery = $(OBS.res_ul);
 
