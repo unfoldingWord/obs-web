@@ -193,7 +193,7 @@ class OBS {
 
             Object.keys(me.languages[langId].subjects).sort((a: string, b: string)=>{
                 // List Open Bible Stories first, all others alphabetically
-                return (a=="Open_Bible_Stories" ? -1 : a.localeCompare(b));
+                return (a=="Open_Bible_Stories" ? -1 : (b=="Open Bible Stories" ? 1 : a.localeCompare(b)));
             }).forEach(subjectId => {
                 let subject = me.languages[langId].subjects[subjectId];
 
