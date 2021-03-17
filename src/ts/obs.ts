@@ -228,7 +228,9 @@ class OBS {
 
                 let locale_title = res.title;
                 let title = locale_title;
-                if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '')
+                if (title.replace('Open Bible Stories ', 'OBS ').replace(/ /g, '').toLowerCase() == subjectStr.replace(/ /g, '').toLowerCase())
+                    title = subjectStr;
+                else if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '')
                     != locale_title.toLowerCase().replace(/ /g, ''))
                     title = subjectStr + ' / ' + locale_title;
                 let subject_h3 = OBS.subject_h3.format(langId + "-" + subjectId, title);
