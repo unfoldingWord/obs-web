@@ -1,5 +1,4 @@
-﻿/// <reference path="d/jquery.d.ts" />
-/// <reference path="d/region_data.d.ts" />
+﻿/// <reference path="d/region_data.d.ts" />
 /// <reference path="d/map_data.d.ts" />
 /// <reference path="d/obs.d.ts" />
 

@@ -17,7 +17,7 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             'https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',
-            'output/js/*.js',
+            'build/js/*.js',
 
             // served fixtures
             { pattern: 'test/fixtures/**/*.html', included: false, served: true },
@@ -29,15 +29,15 @@ module.exports = function (config) {
 
         // list of files to exclude
         exclude: [
-            'output/js/*.min.js',
-            'output/js/obs-start.js'
+            'build/js/*.min.js',
+            'build/js/obs-start.js'
         ],
 
 
         // pre-process matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'output/js/*.js': ['coverage']
+            'build/js/*.js': ['coverage']
         },
 
 
@@ -69,7 +69,7 @@ module.exports = function (config) {
         browsers: ['PhantomJS'],
 
         customLaunchers: {
-            without_security: {
+            Chrome_without_security: {
                 base: 'Chrome',
                 flags: ['--disable-web-security']
             }

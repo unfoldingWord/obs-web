@@ -1,4 +1,3 @@
-/// <reference path="d/jquery.d.ts" />
 /// <reference path="d/strings.d.ts" />
 
 interface Catalog {
@@ -76,7 +75,7 @@ class OBS {
      * {1} = Resource description
      * @type {string}
      */
-    static res_li: string = '<li><a href=' + '"{0}">{1}</a></li>\n';
+    static res_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;">{1}</a></li>\n';
 
     static res_ul: string = '<ul style="margin: 16px 0; display: none"></ul>';
 
@@ -115,7 +114,7 @@ class OBS {
         $.ajax({
             url: url,
             dataType: 'json'
-        }).done(function(data: Language[]) {
+        }).done(function (data: Language[]) {
 
             me.extractOBS(data);
             me.loadResult = 'Successfully loaded catalog data.';
@@ -125,7 +124,7 @@ class OBS {
             if (typeof callback !== 'undefined')
                 callback(me.loadResult);
 
-        }).fail(function(jqXHR, textStatus, errorThrown) {
+        }).fail(function (jqXHR, textStatus, errorThrown) {
 
             me.loadResult = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
 
@@ -147,7 +146,7 @@ class OBS {
         this.languages = data;
 
         // sort the languages by id
-        this.languages.sort(function(a: Language, b: Language) { return a.language.localeCompare(b.language); });
+        this.languages.sort(function (a: Language, b: Language) { return a.language.localeCompare(b.language); });
     }
 
     /**
@@ -195,8 +194,8 @@ class OBS {
 
         // activate the accordion animation
         let $h2 = $container.find('h2');
-        $h2.css('cursor','pointer');
-        $h2.click(function() {$(this).nextUntil('h2').slideToggle();});
+        $h2.css('cursor', 'pointer');
+        $h2.click(function () { $(this).nextUntil('h2').slideToggle(); });
 
         if (typeof callback !== 'undefined')
             callback();
@@ -217,9 +216,13 @@ class OBS {
 
                 let fmt: Format = proj.formats[k];
 
+                if (! fmt.format) {
+                    fmt.format = OBS.getFormatFromFields(fmt);
+                }
+
                 // sort chapters
                 if ('chapters' in fmt) {
-                    fmt.chapters.sort(function(a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
+                    fmt.chapters.sort(function (a: Chapter, b: Chapter) { return a.identifier.localeCompare(b.identifier); });
                 }
 
                 if (fmt.format.indexOf('audio') > -1) {
@@ -228,34 +231,98 @@ class OBS {
                 else if (fmt.format.indexOf('video') > -1) {
                     res_types.video.push(fmt);
                 }
-                else if (!fmt.format && (fmt.url.indexOf('https://door43.org/u/Door43-Catalog') > -1)) {
-                    fmt.format = 'door43';
+                else if (
+                    fmt.format.indexOf('markdown') > -1 ||
+                    fmt.format.indexOf('pdf') > -1 ||
+                    fmt.format.indexOf('docx') > -1 ||
+                    fmt.format.indexOf('odt') > -1 ||
+                    fmt.format.indexOf('epub') > -1 ||
+                    fmt.format.indexOf('door43') > -1
+                ) {
                     res_types.text.push(fmt);
                 }
-                else if (!fmt.format) {
-
-                    // check for youtube link
-                    if (fmt.url.indexOf('youtube') > -1) {
-                        fmt.format = 'youtube';
-                    }
-                    // check for bloom link
-                    else if (fmt.url.indexOf('bloom') > -1) {
-                        fmt.format = 'bloom';
-                    }
-                    // just use the host name
-                    else {
-                        fmt.format = fmt.url.getHostName();
-                    }
-
+                else if (
+                    fmt.format.indexOf('youtube') > -1 ||
+                    fmt.format.indexOf('bloom') > - 1
+                ) {
                     res_types.other.push(fmt);
                 }
                 else {
-                    res_types.text.push(fmt);
+                    res_types.other.push(fmt);
                 }
             }
         }
 
         return res_types;
+    }
+
+    /**
+     * Get the file extension of a URL (including if it has query params) without the preceeding dot
+     * @param {string} url
+     * @returns {string}
+     */
+    private static getUrlExt(url: string): string {
+        return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).split('#')[0].substr(url.lastIndexOf(".")+1)
+    }
+
+    /**
+     * Get the format from the Format fields, such based on the URL file extension or quality
+     * @param {Fields} fmt 
+     * @returns {string}
+     */
+    private static getFormatFromFields(fmt: Format): string {
+        if (!fmt.url)
+            return '';
+        var ext = OBS.getUrlExt(fmt.url.toLowerCase());
+        switch (ext) {
+            case '3gp':
+                return 'video/3gp';
+            case 'html':
+                return 'text/html';
+            case 'md':
+                return 'text/markdown';
+            case 'mp3':
+                return 'audio/mp3';
+            case 'mp4':
+                return 'video/mp4';
+            case 'pdf':
+                return 'application/pdf';
+            case 'txt':
+                return 'text/txt';
+            case 'usfm':
+                return 'text/usfm';
+            case 'doc':
+                return 'application/doc';
+            case 'docx':
+                return 'application/docx';
+            case 'epub':
+                return 'application/epub';
+            case 'odt':
+                return 'applicaiton/odt';
+            case 'zip':
+                if (fmt.quality) {
+                    switch (fmt.quality.toLowerCase()) {
+                        case '3gp':
+                            return 'application/zip; content=video/3gp';
+                        case 'mp4':
+                            return 'application/zip; content=video/mp4';
+                        case 'mp3':
+                            return 'application/zip; content=audio/mp3';
+                    }
+                }
+                return 'application/zip';
+            default:
+                if (fmt.url.toLowerCase().indexOf('door43.org/u/door43-catalog') > -1)
+                    return 'door43';
+                else if (fmt.url.toLowerCase().indexOf('youtube') > -1)
+                    return 'youtube';
+                else if (fmt.url.toLowerCase().indexOf('bloom') > -1)
+                    return 'bloom';
+                else if (ext)
+                    return ext;
+                else
+                    return fmt.url.getHostName();
+        }
     }
 
     /**
@@ -265,51 +332,70 @@ class OBS {
      */
     private static getDescription(fmt: Format | Chapter): string {
 
-        let format_string = fmt.format;
         let size_string = OBS.getSize(fmt.size);
 
-        if (format_string.indexOf('application/pdf') > -1) {
+        if (!fmt.format) {
+            fmt.format = OBS.getFormatFromFields(fmt);
+        }
+
+        if (fmt.format.indexOf('application/pdf') > -1) {
             return '<i class="fa fa-file-pdf-o" aria-hidden="true"></i>&ensp;PDF&nbsp;<span style="color: #606060">(' + size_string + ')</span>';
         }
-        else if (format_string.indexOf('youtube') > -1) {
+        else if (fmt.format === 'youtube') {
             return OBS.description.format('fa-youtube', 'YouTube');
         }
-        else if (format_string.indexOf('bloom') > -1) {
+        else if (fmt.format === 'bloom') {
             return OBS.description.format('fa-book', 'Bloom Shell Book');
         }
-        else if (format_string.indexOf('door43') > -1) {
+        else if (fmt.format === 'door43') {
             return OBS.description.format('fa-globe', 'View on Door43.org');
         }
 
-        let is_zipped = format_string.indexOf('application/zip') > -1;
+        let is_zipped = fmt.format.indexOf('application/zip') > -1;
         let fmt_description: string;
         let fmt_class: string;
 
-        if (format_string.indexOf('text/markdown') > -1) {
+        if (fmt.format.indexOf('docx') > -1) {
+            fmt_description = 'Word Document';
+            fmt_class = 'fa-file-word-o';
+        }
+        else if (fmt.format.indexOf('odt') > -1) {
+            fmt_description = 'OpenDocument Text';
+            fmt_class = 'fa-file-text-o';
+        }
+        else if (fmt.format.indexOf('epub') > -1) {
+            fmt_description = 'ePub Book';
+            fmt_class = 'fa-book';
+        }
+        else if (fmt.format.indexOf('markdown') > -1) {
             fmt_description = 'Markdown';
             fmt_class = 'fa-file-text-o';
         }
-        else if (format_string.indexOf('text/html') > -1) {
+        else if (fmt.format.indexOf('html') > -1) {
             // we are skipping this one for now
             return null;
 
             // fmt_description = 'HTML';
             // fmt_class = 'fa-code';
         }
-        else if (format_string.indexOf('text/usfm') > -1) {
+        else if (fmt.format.indexOf('usfm') > -1) {
             fmt_description = 'USFM';
             fmt_class = 'fa-file-text';
         }
-        else if (format_string.indexOf('audio/mp3') > -1) {
+        else if (fmt.format.indexOf('mp3') > -1) {
             fmt_description = 'MP3';
             fmt_class = 'fa-file-audio-o';
         }
-        else if (format_string.indexOf('video/mp4') > -1) {
+        else if (fmt.format.indexOf('mp4') > -1) {
             fmt_description = 'MP4';
             fmt_class = 'fa-file-video-o';
         }
+        else if (fmt.format.indexOf('3gp') > -1) {
+            fmt_description = '3GP';
+            fmt_class = 'fa-file-video-o';
+        }
         else {
-            fmt_description = format_string;
+            fmt_description = fmt.format;
             fmt_class = 'fa-file-o';
         }
 
