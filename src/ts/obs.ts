@@ -210,11 +210,10 @@ class OBS {
                 if ('en' in me.languages && subjectId in me.languages['en'].subjects &&
                     me.languages['en'].subjects[subjectId].resources.length > 0)
                     en_title = me.languages['en'].subjects[subjectId].resources[0].title;
-                if (locale_title.toLowerCase() == subjectStr.toLowerCase())
-                    locale_title = subjectStr;
-                if (locale_title.toLowerCase() == en_title.toLowerCase())
-                    locale_title = en_title
-                let title = en_title + ' / ' + locale_title;
+                let title = en_title;
+                if (en_title.toLowerCase() != locale_title.toLowerCase()
+                    && subjectStr.toLowerCase() != locale_title.toLowerCase())
+                    title += ' / ' + locale_title;
                 let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, title);
                 $subject_div.append(subject_h3);
 
