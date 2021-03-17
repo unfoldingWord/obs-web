@@ -62,10 +62,11 @@ class OBS {
 
     /**
      * {0} = language code
-     * {1} = Localized language name
+     * {1} = Anglicized language name
+     * {2} = Localized language name
      * @type {string}
      */
-    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong><span class="plus"></span> {0} ({1})</strong></h2>\n';
+    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong><span class="plus"></span> {0}{1} / {2}</strong></h2>\n';
 
     static subject_h3: string = '<h3 class="subject-h3" data-lang-code="{0}"><span class="plus"></span> {1}</h3>\n';
 
@@ -183,17 +184,37 @@ class OBS {
      * @param {Function} callback An optional callback function
      */
     buildDiv(callback?: Function): void {
+        let langnames = {}
+        $.ajax({
+            dataType: "json",
+            url: 'json/langnames.json',
+            async: false,
+            error: function (xhr, status, error) {
+                console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
+            },
+            success: function (data) {
+                console.log('read json/langnames.json successful');
+                data.forEach(langname => {
+                    langnames[langname["lc"]] = langname;
+                })
+            }
+        });
         let $container = $('body').find('#published-languages');
         $container.empty();
         let me = this;
         Object.keys(me.languages).sort().forEach(langId => {
             let $lang_div = $('<div></div>');
             let lang = me.languages[langId]
-            $lang_div.append(OBS.lang_h2.format(lang.language, lang.title));
+            let ang = '';
+            if (langId in langnames && 'ang' in langnames[langId] && langnames[langId]['ang'].trim() &&
+                langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
+                ang = ' / ' + langnames[langId].ang;
+            }
+            $lang_div.append(OBS.lang_h2.format(lang.language, ang, lang.title));
 
-            Object.keys(me.languages[langId].subjects).sort((a: string, b: string)=>{
+            Object.keys(me.languages[langId].subjects).sort((a: string, b: string) => {
                 // List Open Bible Stories first, all others alphabetically
-                return (a=="Open_Bible_Stories" ? -1 : (b=="Open_Bible_Stories" ? 1 : a.localeCompare(b)));
+                return (a == "Open_Bible_Stories" ? -1 : (b == "Open_Bible_Stories" ? 1 : a.localeCompare(b)));
             }).forEach(subjectId => {
                 let subject = me.languages[langId].subjects[subjectId];
 
@@ -207,9 +228,10 @@ class OBS {
 
                 let locale_title = res.title;
                 let title = locale_title;
-                if (langId != 'en' && subjectStr.toLowerCase() != locale_title.toLowerCase())
+                if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '')
+                    != locale_title.toLowerCase().replace(/ /g, ''))
                     title = subjectStr + ' / ' + locale_title;
-                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, title);
+                let subject_h3 = OBS.subject_h3.format(langId + "-" + subjectId, title);
                 $subject_div.append(subject_h3);
 
                 let res_types = OBS.getResources(subject);
