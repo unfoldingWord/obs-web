@@ -206,7 +206,7 @@ class OBS {
                 let $subject_div = $('<div></div>');
 
                 let title = res.title
-                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, subjectStr);
+                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, title);
                 $subject_div.append(subject_h3);
 
                 let res_types = OBS.getResources(subject);
