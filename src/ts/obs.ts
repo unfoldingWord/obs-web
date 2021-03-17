@@ -206,14 +206,9 @@ class OBS {
                 let $subject_div = $('<div></div>');
 
                 let locale_title = res.title;
-                let en_title = subjectStr;
-                if ('en' in me.languages && subjectId in me.languages['en'].subjects &&
-                    me.languages['en'].subjects[subjectId].resources.length > 0)
-                    en_title = me.languages['en'].subjects[subjectId].resources[0].title;
-                let title = en_title;
-                if (en_title.toLowerCase() != locale_title.toLowerCase()
-                    && subjectStr.toLowerCase() != locale_title.toLowerCase())
-                    title += ' / ' + locale_title;
+                let title = locale_title;
+                if (langId != 'en' && subjectStr.toLowerCase() != locale_title.toLowerCase())
+                    title = subjectStr + ' / ' + locale_title;
                 let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, title);
                 $subject_div.append(subject_h3);
 
