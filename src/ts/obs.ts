@@ -193,7 +193,7 @@ class OBS {
 
             Object.keys(me.languages[langId].subjects).sort((a: string, b: string)=>{
                 // List Open Bible Stories first, all others alphabetically
-                return (a=="Open_Bible_Stories" ? -1 : (b=="Open Bible Stories" ? 1 : a.localeCompare(b)));
+                return (a=="Open_Bible_Stories" ? -1 : (b=="Open_Bible_Stories" ? 1 : a.localeCompare(b)));
             }).forEach(subjectId => {
                 let subject = me.languages[langId].subjects[subjectId];
 
@@ -205,8 +205,17 @@ class OBS {
 
                 let $subject_div = $('<div></div>');
 
-                let title = res.title
-                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, subjectStr);
+                let locale_title = res.title;
+                let en_title = subjectStr;
+                if ('en' in me.languages && subjectId in me.languages['en'].subjects &&
+                    me.languages['en'].subjects[subjectId].resources.length > 0)
+                    en_title = me.languages['en'].subjects[subjectId].resources[0].title;
+                if (locale_title.toLowerCase() == subjectStr.toLowerCase())
+                    locale_title = subjectStr;
+                if (locale_title.toLowerCase() == en_title.toLowerCase())
+                    locale_title = en_title
+                let title = en_title + ' / ' + locale_title;
+                let subject_h3 = OBS.subject_h3.format(langId+"-"+subjectId, title);
                 $subject_div.append(subject_h3);
 
                 let res_types = OBS.getResources(subject);
