@@ -187,10 +187,10 @@ class OBS {
         let langnames = {}
         $.ajax({
             dataType: "json",
-            url: 'json/langnames.json',
+            url: 'https://obs-web.netlify.app/json/langnames.json',
             async: false,
             error: function (xhr, status, error) {
-                console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
+                console.log('Error reading file: https://obs-web.netlify.app/json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
             },
             success: function (data) {
                 console.log('read json/langnames.json successful');
