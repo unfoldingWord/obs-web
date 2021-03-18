@@ -185,9 +185,16 @@ class OBS {
      */
     buildDiv(callback?: Function): void {
         let langnames = {}
+        let scripts = document.getElementsByTagName('script');
+        let myRoot = '';
+        for(let i=0; i < scripts.length; ++i) {
+            if (scripts[i].src.indexOf('obs.js') > 0) {
+                myRoot = scripts[i].src.replace('js/obs.js', '');
+            }
+        }
         $.ajax({
             dataType: "json",
-            url: 's/langnames.json',
+            url: myRoot + 'json/langnames.json',
             async: false,
             error: function (xhr, status, error) {
                 console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
