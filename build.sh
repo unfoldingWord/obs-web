@@ -5,6 +5,7 @@ set -e
 ./tsc.sh
 ./less.sh
 cp src/*.html build
-cp -R src/json build
+mkdir build/s
+cp -R src/json/* build/s
 
 

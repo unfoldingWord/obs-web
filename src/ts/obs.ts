@@ -187,7 +187,7 @@ class OBS {
         let langnames = {}
         $.ajax({
             dataType: "json",
-            url: 'json/langnames.json',
+            url: 's/langnames.json',
             async: false,
             error: function (xhr, status, error) {
                 console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
