@@ -106,12 +106,15 @@ class OBS {
     loadResult: string;
     languages: { [key: string]: Language; } = {};
 
+    langnames: { [key: string]: any; } = {};
+
     /**
      * Class constructor
      * @param {string[]} urls
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
     constructor(urls: string[], callback?: Function) {
+        this.populateLangnames();
 
         // this is for unit testing
         if (urls.length > 0 && urls[0] === 'test') {
@@ -156,6 +159,37 @@ class OBS {
     }
 
     /**
+     * Due to CORS, the file originally at https://td.unfoldingword.org/exports/langnames.json has
+     * to reside on the same server as this script, and since we serving this script from
+     * obs-web.netlify.app, it has to access the file there. The below code determines if we are
+     * on the SquareSpace openbiblestories.org site (or the squarespace.com site for editing), and
+     * if so, adds 'obs-web.netlify.app' to the json/langnames.json URL. Otherwise it gets the one
+     * we fetch in the build.sh script on build.
+    */
+    populateLangnames() {
+        let me = this;
+        let hostname = '';
+        if (window.location.hostname.indexOf("openbiblestories.org") >= 0 ||
+            window.location.hostname.indexOf("squarespace.com") >= 0) {
+            hostname = 'https://obs-web.netlify.app/';
+        }
+        $.ajax({
+            dataType: "json",
+            url: hostname + 'json/langnames.json',
+            async: false,
+            error: function (xhr, status, error) {
+                console.log('Error fetching file: '+hostname+'json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
+            },
+            success: function (data) {
+                console.log('Fetch of '+hostname+'json/langnames.json successful');
+                data.forEach(langname => {
+                    me.langnames[langname["lc"]] = langname;
+                })
+            }
+        });
+    }
+
+    /**
      * Extracts the languages with OBS resources from the catalog
      * @param data The catalog from https://api.door43.org/v3/subjects/Open_Bible_Stories.json
      */
@@ -184,30 +218,6 @@ class OBS {
      * @param {Function} callback An optional callback function
      */
     buildDiv(callback?: Function): void {
-        let langnames = {}
-
-        // Due to CORS, the langnames.json file from td.unfoldingword.org has to reside on the same server
-        // as this script, and due to us serving this script on obs-web.netlify.app, it has to access the
-        // file there. So this determines if we are on the SquareSpace openbiblestories.com site, or on a
-        // testing site.
-        let hostname = ''
-        if (window.location.hostname.indexOf(".org") >= 0 || window.location.hostname.indexOf(".com") >= 0) {
-            hostname = 'https://obs-web.netlify.app/';
-        }
-        $.ajax({
-            dataType: "json",
-            url: hostname + 'json/langnames.json',
-            async: false,
-            error: function (xhr, status, error) {
-                console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
-            },
-            success: function (data) {
-                console.log('read json/langnames.json successful');
-                data.forEach(langname => {
-                    langnames[langname["lc"]] = langname;
-                })
-            }
-        });
         let $container = $('body').find('#published-languages');
         $container.empty();
         let me = this;
@@ -215,9 +225,9 @@ class OBS {
             let $lang_div = $('<div></div>');
             let lang = me.languages[langId]
             let ang = '';
-            if (langId in langnames && 'ang' in langnames[langId] && langnames[langId]['ang'].trim() &&
-                langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
-                ang = ' / ' + langnames[langId].ang;
+            if (langId in me.langnames && 'ang' in me.langnames[langId] && me.langnames[langId]['ang'].trim() &&
+                me.langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
+                ang = ' / ' + me.langnames[langId].ang;
             }
             $lang_div.append(OBS.lang_h2.format(lang.language, ang, lang.title));
 
