@@ -191,7 +191,7 @@ class OBS {
         // file there. So this determines if we are on the SquareSpace openbiblestories.com site, or on a
         // testing site.
         let hostname = ''
-        if (window.location.hostname.indexOf("openbiblestories.org") >= 0) {
+        if (window.location.hostname.indexOf(".org") >= 0 || window.location.hostname.indexOf(".com") >= 0) {
             hostname = 'https://obs-web.netlify.app/';
         }
         $.ajax({
