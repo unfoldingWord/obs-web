@@ -185,16 +185,18 @@ class OBS {
      */
     buildDiv(callback?: Function): void {
         let langnames = {}
-        let scripts = document.getElementsByTagName('script');
-        let myRoot = '';
-        for(let i=0; i < scripts.length; ++i) {
-            if (scripts[i].src.indexOf('obs.js') > 0) {
-                myRoot = scripts[i].src.replace('js/obs.js', '');
-            }
+
+        // Due to CORS, the langnames.json file from td.unfoldingword.org has to reside on the same server
+        // as this script, and due to us serving this script on obs-web.netlify.app, it has to access the
+        // file there. So this determines if we are on the SquareSpace openbiblestories.com site, or on a
+        // testing site.
+        let hostname = ''
+        if (window.location.hostname.indexOf("openbiblestories.com") >= 0) {
+            hostname = 'https://obs-web.netlify.app/';
         }
         $.ajax({
             dataType: "json",
-            url: myRoot + 'json/langnames.json',
+            url: hostname + 'json/langnames.json',
             async: false,
             error: function (xhr, status, error) {
                 console.log('Error reading file: json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
