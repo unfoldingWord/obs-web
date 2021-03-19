@@ -60,7 +60,11 @@ declare class OBS {
     languages: {
         [key: string]: Language;
     };
+    langnames: {
+        [key: string]: any;
+    };
     constructor(urls: string[], callback?: Function);
+    populateLangnames(): void;
     extractOBS(data: Object[]): void;
     buildDiv(callback?: Function): void;
     static getResources(subject: Subject): ResourceTypes;
