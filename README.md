@@ -75,15 +75,17 @@ See http://openchannelmedia.org/ for an example
 
 #### Load the dependencies:
 
+**NOTE:** Due to outdated dependencies and Github no longer allowing git:// URLs which old packages use, you may not be able to load the devDependencies for testing. Set NODE_ENV=production to only install produciton dependencies.
+
 ```
   $ cd obs-web
-  $ yarn install --frozen-lockfile
+  $ NODE_ENV=produciton yarn install --frozen-lockfile
 ```
 
 If you modify the package.json file to add/update dependencies, run:
 
 ```
-  $ yarn install
+  $ NODE_ENV=production yarn install
 ```
 
 #### Edit the source files:
