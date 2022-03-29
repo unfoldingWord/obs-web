@@ -75,7 +75,7 @@ See http://openchannelmedia.org/ for an example
 
 #### Load the dependencies:
 
-**NOTE:** Due to outdated dependencies and Github no longer allowing git:// URLs which old packages use, you may not be able to load the devDependencies for testing. Set NODE_ENV=production to only install produciton dependencies.
+**NOTE:** Due to outdated dependencies and Github no longer allowing git:// URLs which old packages use, you may not be able to load the devDependencies for testing. Set NODE_ENV=production to only install production dependencies.
 
 ```
   $ cd obs-web
