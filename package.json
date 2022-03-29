@@ -1,6 +1,6 @@
 {
   "name": "obs-web",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The Javascript used in the frontend of https://www.openbiblestories.org/library",
   "repository": {
     "type": "git",
