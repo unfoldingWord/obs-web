@@ -67,17 +67,15 @@ See http://openchannelmedia.org/ for an example
 
 #### Load the dependencies:
 
-**NOTE:** Due to outdated dependencies and Github no longer allowing git:// URLs which old packages use, you may not be able to load the devDependencies for testing. Use --only=prod to not install devDependencies
-
 ```
   $ cd obs-web
-  $ npm ci --only=prod
+  $ npm ci
 ```
 
 If you modify the package.json file to add/update dependencies, run:
 
 ```
-  $ npm i
+  $ npm install
 ```
 
 #### Edit the source files:
