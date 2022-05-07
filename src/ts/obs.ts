@@ -192,7 +192,7 @@ class OBS {
     extractOBS(data: Object[]): void {
         let me = this;
         data.forEach(item => {
-            if (item['language'] != 'es-419') return;
+            // if (item['language'] != 'en') return;
             console.log(item)
             let langId = item['language'];
             let subjectId = item['subject'].toLowerCase().replaceAll(/ /g, '');
