@@ -192,7 +192,7 @@ class OBS {
     extractOBS(data: Object[]): void {
         let me = this;
         data.forEach(item => {
-            // if (item['language'] != 'en') return;
+            if (item['language'] != 'es-419') return;
             console.log(item)
             let langId = item['language'];
             let subjectId = item['subject'].toLowerCase().replaceAll(/ /g, '');
@@ -436,7 +436,8 @@ class OBS {
                         title = locale_title;
                     else if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '') != locale_title.toLowerCase().replace(/ /g, ''))
                         title = locale_title + " (" + subjectStr + ")";
-                    if (subject.owners.length > 0) {
+                    console.log("LENGTH OF OWNERS: ", subject);
+                    if (Object.keys(subject.owners).length > 1) {
                         title += " ("+owner.name+")";
                     }
                     console.log("title", title);
