@@ -32,6 +32,7 @@ interface CatalogEntry {
     release: Release;
     subject: string;
     title: string;
+    zipball_url: string;
 }
 interface Release {
     id: string;

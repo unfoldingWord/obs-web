@@ -35,7 +35,8 @@ interface CatalogEntry {
     owner: string;
     release: Release;
     subject: string;
-    title: string;  
+    title: string;
+    zipball_url: string;
 }
 
 interface Release {
@@ -238,6 +239,7 @@ class OBS {
         fmt.prefix = asset.browser_download_url.getHostName();
         fmt.format = fmt.prefix;
         fmt.version = version;
+        console.log(fmt);
         let type: string = "other";
 
         if (
@@ -496,6 +498,15 @@ class OBS {
 
         if (entries.length < 1)
             return downloadable_types;
+        const top_entry = entries[0];
+        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset> {
+            'name': "View on Door43.org",
+            'browser_download_url': "https://door43.org/u/"+top_entry.full_name+"/"+top_entry.release.tag_name,
+        }, top_entry.release.tag_name);
+        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset> {
+            'name': top_entry.name+".zip",
+            'browser_download_url': top_entry.zipball_url,
+        }, top_entry.release.tag_name);
 
         for (let i = 0; i < entries.length; i++) {
             let entry: CatalogEntry = entries[i];
@@ -671,6 +682,12 @@ class OBS {
                 title = fmt.name;
                 fmt_description = 'Website';
                 fmt_class = 'fa-globe';
+                show_size = false;
+                break;
+            case 'git.door43.org':
+                title = fmt.name;
+                fmt_description = 'Source Files';
+                fmt_class = 'fa-solid fa-file-lines';
                 show_size = false;
                 break;
             case 'docx':
