@@ -101,7 +101,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;">{1}</a></li>\n';
+    static downloadable_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
 
     static downloadable_url: string = '<ul style="margin: 16px 0; display: none"></ul>';
 
@@ -192,10 +192,10 @@ class OBS {
     extractOBS(data: Object[]): void {
         let me = this;
         data.forEach(item => {
-            // if (item['language'] != 'en') return;
+            if (item['language'] != 'en') return;
             console.log(item)
             let langId = item['language'];
-            let subjectId = item['subject'].toLowerCase().replaceAll(/ /g, '');
+            let subjectId = item['subject'].toLowerCase().replaceAll(/ /g, '').replace(/^tsv/, '');
             let ownerId = item['owner'].toLowerCase();
             if (! (langId in me.languages)) {
                 me.languages[langId] = <Language> {
@@ -505,7 +505,7 @@ class OBS {
             'browser_download_url': "https://door43.org/u/"+top_entry.full_name+"/"+top_entry.release.tag_name,
         }, top_entry.release.tag_name);
         downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset> {
-            'name': top_entry.name+".zip",
+            'name': top_entry.name+"-"+top_entry.release.tag_name+".zip",
             'browser_download_url': top_entry.zipball_url,
         }, top_entry.release.tag_name);
 
