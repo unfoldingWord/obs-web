@@ -10,17 +10,17 @@ interface Language {
     language: string;   // language code
     title: string;      // localized language name
     direction: string;  // ltr or rtl
+    owners: { [key: string]: Owner; };
+}
+
+interface Owner {
+    name: string;
     subjects: { [key: string]: Subject; };
 }
 
 interface Subject {
     subject: string;  // subject
-    owners: Owner[]; // owners
-}
-
-interface Owner {
-    name: string
-    entries: CatalogEntry[]
+    entries: CatalogEntry[];
 }
 
 interface CatalogEntry {
@@ -77,16 +77,13 @@ class DownloadableTypes {
 }
 
 class OBS {
-
     /**
      * {0} = language code
      * {1} = Anglicized language name
      * {2} = Localized language name
      * @type {string}
      */
-    static lang_h2: string = '<h2 class="language-h2" data-lang-code="{0}"><strong><span class="plus"></span> {0}{1} / {2}</strong></h2>\n';
-
-    static owner_h3: string = '<h3 class="subject-h3" data-lang-code="{0}"><span class="plus"></span> {1}</h3>\n';
+    static expandable_list_header: string = '<h{0} class="resource-list-h{0}" data-lang-code="{1}"><span class="plus"></span> {2}</h{0}>\n';
 
     static chapters_h3: string = '<h3 class="chapters-h3">&ensp;<span class="plus"></span></h3>';
 
@@ -94,7 +91,7 @@ class OBS {
      * {0} = Downloadable type name (Text, Audio, Video)
      * @type {string}
      */
-    static downloadable_type_desc: string = '<p style="display: none"><strong><em>{0}</em></strong></p>\n';
+    static downloadable_type_desc: string = '<p><strong><em>{0}</em></strong></p>\n';
 
     /**
      * {0} = Downloadable URL
@@ -103,7 +100,7 @@ class OBS {
      */
     static downloadable_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
 
-    static downloadable_url: string = '<ul style="margin: 16px 0; display: none"></ul>';
+    static downloadable_url: string = '<ul style="margin: 16px 0;"></ul>';
 
     /**
      * {0} = font awesome class
@@ -135,17 +132,14 @@ class OBS {
         this.populateLangnames();
 
         // load the v5 catalog now
-        console.log("HERE: "+v5_url);
         let me = this;
         $.ajax({
             url: v5_url,
             dataType: 'json',
             context: this,
         }).done(function (resp) {
-            console.log(resp);
             me.extractOBS(resp.data);
             me.loadResult = 'Successfully loaded catalog data.';
-            console.log(me.loadResult);
             if (typeof callback !== 'undefined')
                 callback(me.loadResult);
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -174,10 +168,10 @@ class OBS {
             url: hostname + 'json/langnames.json',
             async: false,
             error: function (xhr, status, error) {
-                console.log('Error fetching file: '+hostname+'json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
+                console.log('Error fetching file: ' + hostname + 'json/langnames.json\n\rxhr: ' + xhr + '\n\rstatus: ' + status + '\n\rerror: ' + error);
             },
             success: function (data) {
-                console.log('Fetch of '+hostname+'json/langnames.json successful');
+                console.log('Fetch of ' + hostname + 'json/langnames.json successful');
                 data.forEach(langname => {
                     me.langnames[langname["lc"]] = langname;
                 })
@@ -192,36 +186,32 @@ class OBS {
     extractOBS(data: Object[]): void {
         let me = this;
         data.forEach(item => {
-            // if (item['language'] != 'en') return;
-            console.log(item)
+            if (item['language'] != 'en' && item['language'] != 'es-419') return;
             let langId = item['language'];
-            let subjectId = item['subject'].toLowerCase().replaceAll(/ /g, '').replace(/^tsv/, '');
+            let subjectId = item['subject'].toLowerCase().replace(/^tsv */, '');
             let ownerId = item['owner'].toLowerCase();
-            if (! (langId in me.languages)) {
-                me.languages[langId] = <Language> {
+            if (!(langId in me.languages)) {
+                me.languages[langId] = <Language>{
                     language: langId,
                     title: item['language_title'],
                     direction: item['language_direction'],
-                    subjects: {},
-                };
-            }
-            if (! (subjectId in me.languages[langId].subjects)) {
-                me.languages[langId].subjects[subjectId] = <Subject> {
-                    subject: item['subject'],
                     owners: {},
                 };
             }
-            if (! (ownerId in me.languages[langId].subjects[subjectId].owners)) {
-                me.languages[langId].subjects[subjectId].owners[ownerId] = <Owner> {
+            if (!(ownerId in me.languages[langId].owners)) {
+                me.languages[langId].owners[ownerId] = <Owner>{
                     name: item['owner'],
+                    subjects: {},
+                };
+            }
+            if (!(subjectId in me.languages[langId].owners[ownerId].subjects)) {
+                me.languages[langId].owners[ownerId].subjects[subjectId] = <Subject>{
+                    subject: item['subject'],
                     entries: [],
                 };
             }
-            me.languages[langId].subjects[subjectId].owners[ownerId].entries.push(<CatalogEntry> item);
-            console.log(langId, subjectId, ownerId, me.languages[langId].subjects[subjectId].owners[ownerId].entries);
+            me.languages[langId].owners[ownerId].subjects[subjectId].entries.push(<CatalogEntry>item);
         });
-        console.log(me.languages);
-        console.log("DONE");
     }
 
     /**
@@ -230,16 +220,14 @@ class OBS {
      * @param {Asset} asset the asset to add
      */
     static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, version: string): DownloadableTypes {
-        console.log("ADDLINK", asset);
-        if (!asset || !asset.browser_download_url || ! asset.name)
+        if (!asset || !asset.browser_download_url || !asset.name)
             return downloadable_types;
         let fmt = new Format();
         fmt.name = asset.name;
         fmt.asset = asset;
         fmt.prefix = asset.browser_download_url.getHostName();
-        fmt.format = fmt.prefix;
+        fmt.format = OBS.getFormatFromName(asset.name);
         fmt.version = version;
-        console.log(fmt);
         let type: string = "other";
 
         if (
@@ -248,41 +236,37 @@ class OBS {
             type = "text";
         }
 
-        for(let k = 0; k < downloadable_types[type].length; k++) {
+        for (let k = 0; k < downloadable_types[type].length; k++) {
             let f = downloadable_types[type][k];
-            console.log("Comparing ", f, " to ", fmt);
             if (f.prefix == fmt.prefix && f.version > fmt.version)
                 return downloadable_types;
         }
         downloadable_types[type].push(fmt);
-        console.log("ADDED FMT", fmt);         
         return downloadable_types;
-     }
+    }
 
     /**
      * Adds an asset to Downloadable types
      * @param {DownloadableTypes} downloadable_types the existing downloadable types
      * @param {Asset} asset the asset to add
      */
-     static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes {
+    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes {
         const fileparts_regex = /^([^_]+)_([^_]+)_v([\d\.-]+)_*(.*)\.([^\._]+)$/;
-        const audioparts_regex = /^(\d+|mp\d)_([^_]+)$/;
-        let fileparts = fileparts_regex.exec(asset.name)
+        const audioparts_regex = /^(\d+|mp\d|3gpp)_([^_]+)$/;
+        let fileparts = fileparts_regex.exec(asset.name.toLowerCase())
         if (!fileparts) {
             return OBS.addLinkToDownloadableTypes(downloadable_types, asset, release_version)
         }
-        let prefix = fileparts[1]+"_"+fileparts[2];
+        let prefix = fileparts[1] + "_" + fileparts[2];
         let version = fileparts[3];
         let info = fileparts[4];
         let ext = fileparts[5];
         let format = OBS.getFormatFromName(asset.name);
-        console.log(asset, format, ext);
         const audioparts = audioparts_regex.exec(info);
-        console.log("REGEX: ", asset.name, audioparts);
         if (audioparts && (ext == "zip" || ext == "mp3" || ext == "mp4")) {
             let quality = audioparts[2];
             if (ext == "mp3" || ext == "mp4") {
-                let parent_zip_name = prefix+"_v"+version+"_"+ext+"_"+quality+".zip"
+                let parent_zip_name = prefix + "_v" + version + "_" + ext + "_" + quality + ".zip"
                 let chapterNum = audioparts[1]
                 let parent: Format;
                 let chapter = new Chapter();
@@ -297,16 +281,15 @@ class OBS {
                 let type = "audio";
                 if (ext == "mp4")
                     type = "video";
-                for(let k = 0; k < downloadable_types[type].length; k++) {
+                for (let k = 0; k < downloadable_types[type].length; k++) {
                     let media = downloadable_types[type][k];
                     if (media.prefix == prefix && media.quality == quality && media.version > version)
                         return downloadable_types;
                     if (!parent && media.name == parent_zip_name) {
                         parent = media;
-                        console.log("HAVE PARENT", parent);
                     }
                 }
-                if (! parent) {
+                if (!parent) {
                     parent = new Format();
                     parent.name = parent_zip_name;
                     parent.chapters = [];
@@ -315,36 +298,33 @@ class OBS {
                     parent.ext = "zip";
                     parent.version = version;
                     downloadable_types[type].push(parent);
-                    console.log("NO PARENT", parent);
                 }
                 parent.chapters.push(chapter);
-                parent.chapters.sort( (a: Chapter, b: Chapter)=>{return a.identifier.localeCompare(b.identifier)});
-                console.log("MY PARENT", parent);
-            } 
+                parent.chapters.sort((a: Chapter, b: Chapter) => { return a.identifier.localeCompare(b.identifier) });
+            }
             else { // is a media zip
-                let media_ext = audioparts[1]; 
+                let media_ext = audioparts[1];
                 let my_fmt;
                 let type: string = "audio";
-                if (media_ext == "mp4") {
+                console.log("EXT: ", media_ext);
+                if (media_ext == "mp4" || media_ext == "3gpp") {
                     type = "video";
                 }
-                for(let k = 0; k < downloadable_types[type].length; k++) {
+                for (let k = 0; k < downloadable_types[type].length; k++) {
                     let media = downloadable_types[type][k];
                     if (media.prefix == prefix && media.format == format && media.quality == quality && media.version > version)
                         return downloadable_types;
                     if (!my_fmt && !media.asset && media.name == asset.name) {
                         my_fmt = media;
-                        console.log("HAVE MY FORMAT", my_fmt)
                     }
                 }
-                if (! my_fmt) {
+                if (!my_fmt) {
                     my_fmt = new Format();
                     my_fmt.quality = quality;
                     my_fmt.format = format;
                     my_fmt.prefx = prefix;
                     my_fmt.ext = ext;
                     my_fmt.version = version;
-                    console.log("DON'T HAVE MY FORMAT", my_fmt);
                     downloadable_types[type].push(my_fmt);
                 }
                 my_fmt.name = asset.name;
@@ -377,16 +357,13 @@ class OBS {
                 type = "text";
             }
 
-            for(let k = 0; k < downloadable_types[type].length; k++) {
+            for (let k = 0; k < downloadable_types[type].length; k++) {
                 let f = downloadable_types[type][k];
-                console.log("Comparing ", f, " to ", fmt);
                 if (f.prefix == fmt.prefix && f.ext == fmt.ext && f.format == fmt.format && f.version > fmt.version)
                     return downloadable_types;
             }
             downloadable_types[type].push(fmt);
-            console.log("ADDED FMT", fmt);
         }
-        console.log("DT in addAsset", downloadable_types)
         return downloadable_types;
     }
 
@@ -398,96 +375,122 @@ class OBS {
         let $container = $('body').find('#published-languages');
         $container.empty();
         let me = this;
-        console.log("here");
+        let $top_accordion = $(`<div class="accordion" id="language-list"></div>`);
         Object.keys(me.languages).sort().forEach(langId => {
-            console.log(langId);
-            let $lang_div = $('<div></div>');
             let lang = me.languages[langId]
             let ang = '';
             if (langId in me.langnames && 'ang' in me.langnames[langId] && me.langnames[langId]['ang'].trim() &&
                 me.langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
                 ang = ' / ' + me.langnames[langId].ang;
             }
-            $lang_div.append(OBS.lang_h2.format(lang.language, ang, lang.title));
+            $top_accordion.append(`
+    <h2 class="accordion-title">${ang}${lang.title}
+        <i class="accordion-icon">
+            <div class="line-01"></div>
+            <div class="line-02"></div>
+        </i>
+    </h2>
+`);
+            let $lang_content = $(`<div class="accordion-content"></div>`);
+            $top_accordion.append($lang_content);
+            let $lang_accordion = $('<div class="accordion accordion-nested"></div>');
+            $lang_content.append($lang_accordion);
 
-            Object.keys(lang.subjects).sort((a: string, b: string) => {
-                // List Open Bible Stories first, all others alphabetically
-                return (a.startsWith("open") ? -1 : (b.startsWith("open") ? 1 : a.localeCompare(b)));
-            }).forEach(subjectId => {
-                console.log(subjectId);
-                let subject = me.languages[langId].subjects[subjectId];
-                console.log(subject);
-                if (subject.owners.length < 1) return;
-                console.log("HERE2222");
+            Object.keys(lang.owners).sort().forEach(ownerId => {
+                let owner = me.languages[langId].owners[ownerId];
 
-                Object.keys(subject.owners).sort().forEach(ownerId => {
-                    console.log(ownerId);
-                    let owner = subject.owners[ownerId]
-                    if (owner.entries.length < 1) return;
+                $lang_accordion.append(`
+        <h3 class="accordion-title">${owner.name}
+            <i class="accordion-icon">
+                <div class="line-01"></div>
+                <div class="line-02"></div>
+            </i>
+        </h3>
+`);
 
-                    let top_entry: CatalogEntry = owner.entries[0];
-                    let $owner_div = $('<div></div>');
+                let $owner_content = $(`<div class="accordion-content"></div>`);
+                $lang_accordion.append($owner_content);
+                let $owner_accordion = $('<div class="accordion accordion-nested"></div>');
+                $owner_content.append($owner_accordion);
+
+                Object.keys(owner.subjects).sort((a: string, b: string) => {
+                    // List Open Bible Stories first, all others alphabetically
+                    return (a.startsWith("open") ? -1 : (b.startsWith("open") ? 1 : a.localeCompare(b)));
+                }).forEach(subjectId => {
+                    let subject = owner.subjects[subjectId]
+
+                    let top_entry: CatalogEntry = subject.entries[0];
 
                     let locale_title = top_entry.title;
                     let subjectStr = top_entry.subject;
-                    console.log("locale_title", locale_title);
                     let title = locale_title;
                     if (title.replace('Open Bible Stories ', 'OBS ').replace(/ /g, '').toLowerCase() == subjectStr.replace(/ /g, '').toLowerCase())
                         title = locale_title;
                     else if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '') != locale_title.toLowerCase().replace(/ /g, ''))
                         title = locale_title + " (" + subjectStr + ")";
-                    console.log("LENGTH OF OWNERS: ", subject);
-                    if (Object.keys(subject.owners).length > 1) {
-                        title += " ("+owner.name+")";
-                    }
-                    console.log("title", title);
-                    console.log("locale_title", locale_title);
-                    let owner_h3 = OBS.owner_h3.format(langId + "-" + subjectId, title);
-                    $owner_div.append(owner_h3);
-                    let downloadable_types = OBS.getDownloadableTypes(owner.entries);
-                    console.log(downloadable_types);
+
+                    $owner_accordion.append(`
+            <h4 class="accordion-title">${title}
+                <i class="accordion-icon">
+                    <div class="line-01"></div>
+                    <div class="line-02"></div>
+                </i>
+            </h4>
+`);
+
+                    let $subject_content = $(`<div class="accordion-content"></div>`);
+                    $owner_accordion.append($subject_content);
+
+                    let downloadable_types = OBS.getDownloadableTypes(subject.entries);
 
                     if (downloadable_types.text.length > 0) {
-                        $owner_div.append(OBS.downloadable_type_desc.format('Text'));
-                        $owner_div.append(OBS.getList(downloadable_types.text, locale_title));
+                        $subject_content.append(OBS.downloadable_type_desc.format('Text'));
+                        $subject_content.append(OBS.getList(downloadable_types.text, locale_title));
                     }
 
                     if (downloadable_types.audio.length > 0) {
-                        $owner_div.append(OBS.downloadable_type_desc.format('Audio'));
-                        $owner_div.append(OBS.getList(downloadable_types.audio, locale_title));
+                        $subject_content.append(OBS.downloadable_type_desc.format('Audio'));
+                        $subject_content.append(OBS.getList(downloadable_types.audio, locale_title));
                     }
 
                     if (downloadable_types.video.length > 0) {
-                        $owner_div.append(OBS.downloadable_type_desc.format('Video'));
-                        $owner_div.append(OBS.getList(downloadable_types.video, top_entry.title));
+                        $subject_content.append(OBS.downloadable_type_desc.format('Video'));
+                        $subject_content.append(OBS.getList(downloadable_types.video, top_entry.title));
                     }
 
                     if (downloadable_types.other.length > 0) {
-                        $owner_div.append(OBS.downloadable_type_desc.format('Other'));
-                        $owner_div.append(OBS.getList(downloadable_types.other, top_entry.title));
+                        $subject_content.append(OBS.downloadable_type_desc.format('Other'));
+                        $subject_content.append(OBS.getList(downloadable_types.other, top_entry.title));
                     }
-
-                    $lang_div.append($owner_div);
                 });
             });
-
-            $container.append($lang_div);
         });
 
-        // activate the accordion animation
-        let $h2 = $container.find('h2');
-        $h2.css('cursor', 'pointer');
-        $h2.click(function () {
-            $(this).nextUntil('h2').slideToggle();
-            $(this).find('span').toggleClass('minus');
-        });
-        $h2.nextUntil('h2').slideUp();
+        $container.append($top_accordion);
 
         let $h3 = $container.find('h3');
         $h3.css('cursor', 'pointer');
         $h3.click(function () {
             $(this).nextUntil('h3').slideToggle();
             $(this).find('span').toggleClass('minus');
+        });
+
+        // When any accordion title is clicked...
+        $(".accordion-title").click(function () {
+            const $accordion_wrapper = $(this).parent();
+            const $accordion_content = $(this).parent().find(".accordion-content").first();
+            const $accordion_open = "accordion-open";
+
+            // If this accordion is already open
+            if ($accordion_wrapper.hasClass($accordion_open)) {
+                $accordion_content.slideUp();                     // Close the content.
+                $accordion_wrapper.removeClass($accordion_open);  // Remove the accordionm--open class.
+            }
+            // If this accordion is not already open
+            else {
+                $accordion_content.slideDown();                 // Show this accordion's content.
+                $accordion_wrapper.addClass($accordion_open);   // Add the accordion-open class.
+            }
         });
 
         if (typeof callback !== 'undefined')
@@ -499,48 +502,44 @@ class OBS {
 
         if (entries.length < 1)
             return downloadable_types;
+
         const top_entry = entries[0];
-        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset> {
-            'name': "View on Door43.org",
-            'browser_download_url': "https://door43.org/u/"+top_entry.full_name+"/"+top_entry.release.tag_name,
-        }, top_entry.release.tag_name);
-        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset> {
-            'name': top_entry.name+"-"+top_entry.release.tag_name+".zip",
-            'browser_download_url': top_entry.zipball_url,
-        }, top_entry.release.tag_name);
 
         for (let i = 0; i < entries.length; i++) {
             let entry: CatalogEntry = entries[i];
-            console.log(entry);
             for (let j = 0; j < entry.release.assets.length; j++) {
                 let asset: Asset = entry.release.assets[j];
-                console.log("AAAAAAAAA", asset);
-                if (asset.name.toLowerCase().endsWith("links.json") 
-                    || asset.name.toLowerCase().endsWith("link.json") 
-                    || asset.name.toLowerCase().endsWith("assets.json") 
-                    || asset.name.toLowerCase().endsWith("attachments.json") 
+                if (asset.name.toLowerCase().endsWith("links.json")
+                    || asset.name.toLowerCase().endsWith("link.json")
+                    || asset.name.toLowerCase().endsWith("assets.json")
+                    || asset.name.toLowerCase().endsWith("attachments.json")
                     || asset.name.toLowerCase().endsWith("files.json")) {
                     $.ajax({
                         url: asset.browser_download_url,
                         dataType: "json",
                         async: false,
                         success: function (linkAssets) {
-                            if (! Array.isArray(linkAssets)) {
+                            if (!Array.isArray(linkAssets)) {
                                 linkAssets = [linkAssets];
                             }
                             linkAssets.forEach((linkAsset: Asset) => {
-                                console.log("LINK ASSET", linkAsset);
                                 downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry.release.tag_name);
-                            }); 
+                            });
                         }
                     });
                 } else {
                     downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, asset, entry.release.tag_name);
                 }
-                console.log("DT in getDT", downloadable_types);
             }
         }
-        console.log("DONE addDT", downloadable_types);
+        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
+            'name': "View on Door43.org",
+            'browser_download_url': "https://door43.org/u/" + top_entry.full_name + "/" + top_entry.release.tag_name,
+        }, top_entry.release.tag_name);
+        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
+            'name': top_entry.name + "-" + top_entry.release.tag_name + ".zip",
+            'browser_download_url': top_entry.zipball_url,
+        }, top_entry.release.tag_name);
         return downloadable_types;
     }
 
@@ -550,7 +549,7 @@ class OBS {
      * @returns {string}
      */
     private static getUrlExt(url: string): string {
-        return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).split('#')[0].substr(url.lastIndexOf(".")+1)
+        return (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).split('#')[0].substr(url.lastIndexOf(".") + 1)
     }
 
     /**
@@ -558,9 +557,9 @@ class OBS {
      * @param {string} name
      * @returns {string}
      */
-     private static getFileExt(name: string): string {
-        if (! name) return '';
-        return name.slice(name.lastIndexOf(".")+1);        
+    private static getFileExt(name: string): string {
+        if (!name) return '';
+        return name.slice(name.lastIndexOf(".") + 1);
     }
 
     /**
@@ -599,7 +598,7 @@ class OBS {
             case 'odt':
                 return 'applicaiton/odt';
             case 'zip':
-                let match = zip_type_regex.exec(name);
+                let match = zip_type_regex.exec(name.toLowerCase());
                 if (match) {
                     switch (match[1].toLowerCase()) {
                         case '3gp':
@@ -662,6 +661,7 @@ class OBS {
 
         let mime_parts = mime.split('/');
         let show_size = true;
+        let is_source_regex = /https:\/\/git.door43.org\/[^/]+\/[^/]+\/archive\//i;
         switch (mime_parts[mime_parts.length - 1]) {
             case 'pdf':
                 fmt_description = 'PDF';
@@ -729,6 +729,14 @@ class OBS {
                 fmt_description = '3GP';
                 fmt_class = 'fa-file-video-o';
                 break;
+            case 'zip':
+                fmt_class = 'fa-file-zip-o';
+                fmt_description = 'Zipped'
+                let match = is_source_regex.exec(fmt.asset.browser_download_url);
+                if (match) {
+                    fmt_description += ", Source Code"
+                }
+                break;
             default:
                 title = fmt.name;
                 fmt_description = fmt.format;
@@ -741,13 +749,13 @@ class OBS {
         }
 
         let size_string = ''
-        if (show_size) {
+        if (show_size && fmt.asset.size > 0) {
             size_string = OBS.getSize(fmt.asset.size);
+            if (is_zipped) {
+                size_string += ' zipped';
+            }
         }
 
-        if (is_zipped) {
-            size_string += ' zipped';
-        }
         if (size_string) {
             size_string = ', ' + size_string;
         }
@@ -787,7 +795,7 @@ class OBS {
 
     private static getList(downloadable_type: Format[], title: string): JQuery {
 
-        let $ul: JQuery = $(OBS.downloadable_url);
+        let $ul = $(`<div class="accordion accordion-nested"><h4</div>`);
 
         for (let n = 0; n < downloadable_type.length; n++) {
 

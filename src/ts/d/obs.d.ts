@@ -7,16 +7,18 @@ interface Language {
     language: string;
     title: string;
     direction: string;
+    owners: {
+        [key: string]: Owner;
+    };
+}
+interface Owner {
+    name: string;
     subjects: {
         [key: string]: Subject;
     };
 }
 interface Subject {
     subject: string;
-    owners: Owner[];
-}
-interface Owner {
-    name: string;
     entries: CatalogEntry[];
 }
 interface CatalogEntry {
@@ -67,8 +69,7 @@ declare class DownloadableTypes {
     other: Format[];
 }
 declare class OBS {
-    static lang_h2: string;
-    static owner_h3: string;
+    static expandable_list_header: string;
     static chapters_h3: string;
     static downloadable_type_desc: string;
     static downloadable_li: string;

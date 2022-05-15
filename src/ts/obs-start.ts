@@ -29,9 +29,7 @@ function appendStyle(): void {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-
     appendStyle();
-
     const subjects = [
         'Open Bible Stories',
         'OBS Study Notes',
@@ -43,12 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
         'OBS Translation Questions',
         "TSV OBS Translation Questions",
     ]
-
-    // const v3_urls = subjects.map(subject => `https://api.door43.org/v3/subjects/${subject.replaceAll(' ', '_')}.json`);
+    // const v5_url = `https://git.door43.org/api/catalog/v5/search?sort=released&order=desc&includeHistory=1`;
     const v5_url = `https://git.door43.org/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
-
     // load OBS now
-let obs: OBS = new OBS(v5_url, function() {
+    let obs: OBS = new OBS(v5_url, function() {
         if (typeof initMap === 'function')
             obs.buildDiv(initMap);
         else
