@@ -73,7 +73,7 @@ declare class OBS {
     static chapters_h3: string;
     static downloadable_type_desc: string;
     static downloadable_li: string;
-    static downloadable_url: string;
+    static chapters_ul: string;
     static description: string;
     static size_span: string;
     testString: string;

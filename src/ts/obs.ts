@@ -85,7 +85,7 @@ class OBS {
      */
     static expandable_list_header: string = '<h{0} class="resource-list-h{0}" data-lang-code="{1}"><span class="plus"></span> {2}</h{0}>\n';
 
-    static chapters_h3: string = '<h3 class="chapters-h3">&ensp;<span class="plus"></span></h3>';
+    static chapters_h3: string = '<span class="chapters-toggle">&ensp;<span class="plus"></span></span>';
 
     /**
      * {0} = Downloadable type name (Text, Audio, Video)
@@ -100,7 +100,7 @@ class OBS {
      */
     static downloadable_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
 
-    static downloadable_url: string = '<ul style="margin: 16px 0;"></ul>';
+    static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
     /**
      * {0} = font awesome class
@@ -186,7 +186,7 @@ class OBS {
     extractOBS(data: Object[]): void {
         let me = this;
         data.forEach(item => {
-            if (item['language'] != 'en' && item['language'] != 'es-419') return;
+            // if (item['language'] != 'en' && item['language'] != 'es-419') return;
             let langId = item['language'];
             let subjectId = item['subject'].toLowerCase().replace(/^tsv */, '');
             let ownerId = item['owner'].toLowerCase();
@@ -375,7 +375,7 @@ class OBS {
         let $container = $('body').find('#published-languages');
         $container.empty();
         let me = this;
-        let $top_accordion = $(`<div class="accordion" id="language-list"></div>`);
+        let $accordion_wrapper = $(`<div class="accordion-wrapper" id="language-list"></div>`);
         Object.keys(me.languages).sort().forEach(langId => {
             let lang = me.languages[langId]
             let ang = '';
@@ -383,8 +383,10 @@ class OBS {
                 me.langnames[langId]['ang'].toLowerCase() != lang.title.toLowerCase()) {
                 ang = ' / ' + me.langnames[langId].ang;
             }
-            $top_accordion.append(`
-    <h2 class="accordion-title">${ang}${lang.title}
+            let $lang_accordion = $(`<div class="accordion lang-accordion"></div>`);
+            $accordion_wrapper.append($lang_accordion);
+            $lang_accordion.append(`
+    <h2 class="accordion-title language-toggle" data-lang-code="${langId}">${langId}${ang} / ${lang.title}
         <i class="accordion-icon">
             <div class="line-01"></div>
             <div class="line-02"></div>
@@ -392,26 +394,23 @@ class OBS {
     </h2>
 `);
             let $lang_content = $(`<div class="accordion-content"></div>`);
-            $top_accordion.append($lang_content);
-            let $lang_accordion = $('<div class="accordion accordion-nested"></div>');
-            $lang_content.append($lang_accordion);
+            $lang_accordion.append($lang_content);
 
             Object.keys(lang.owners).sort().forEach(ownerId => {
                 let owner = me.languages[langId].owners[ownerId];
 
-                $lang_accordion.append(`
-        <h3 class="accordion-title">${owner.name}
+                let $owner_accordion = $(`<div class="accordion accordion-nested owner-accordion"></div>`)
+                $lang_content.append($owner_accordion);
+                $owner_accordion.append(`
+        <h3 class="accordion-title owner-toggle">${owner.name}
             <i class="accordion-icon">
                 <div class="line-01"></div>
                 <div class="line-02"></div>
             </i>
         </h3>
 `);
-
                 let $owner_content = $(`<div class="accordion-content"></div>`);
-                $lang_accordion.append($owner_content);
-                let $owner_accordion = $('<div class="accordion accordion-nested"></div>');
-                $owner_content.append($owner_accordion);
+                $owner_accordion.append($owner_content);
 
                 Object.keys(owner.subjects).sort((a: string, b: string) => {
                     // List Open Bible Stories first, all others alphabetically
@@ -429,8 +428,10 @@ class OBS {
                     else if (langId != 'en' && subjectStr.toLowerCase().replace(/ /g, '') != locale_title.toLowerCase().replace(/ /g, ''))
                         title = locale_title + " (" + subjectStr + ")";
 
-                    $owner_accordion.append(`
-            <h4 class="accordion-title">${title}
+                    let $subject_accordion = $(`<div class="accordion accordion-nested subject-accordion"></div>`);
+                    $owner_content.append($subject_accordion);
+                    $subject_accordion.append(`
+            <h4 class="accordion-title subject-toggle">${title}
                 <i class="accordion-icon">
                     <div class="line-01"></div>
                     <div class="line-02"></div>
@@ -439,7 +440,7 @@ class OBS {
 `);
 
                     let $subject_content = $(`<div class="accordion-content"></div>`);
-                    $owner_accordion.append($subject_content);
+                    $subject_accordion.append($subject_content);
 
                     let downloadable_types = OBS.getDownloadableTypes(subject.entries);
 
@@ -466,11 +467,11 @@ class OBS {
             });
         });
 
-        $container.append($top_accordion);
+        $container.append($accordion_wrapper);
 
-        let $h3 = $container.find('h3');
-        $h3.css('cursor', 'pointer');
-        $h3.click(function () {
+        let $chapters_toggle = $container.find('.chapters-toggle');
+        $chapters_toggle.css('cursor', 'pointer');
+        $chapters_toggle.click(function () {
             $(this).nextUntil('h3').slideToggle();
             $(this).find('span').toggleClass('minus');
         });
@@ -795,7 +796,7 @@ class OBS {
 
     private static getList(downloadable_type: Format[], title: string): JQuery {
 
-        let $ul = $(`<div class="accordion accordion-nested"><h4</div>`);
+        let $ul = $(`<ul></ul>`);
 
         for (let n = 0; n < downloadable_type.length; n++) {
 
@@ -806,11 +807,12 @@ class OBS {
                 continue;
 
             let $li = $(OBS.downloadable_li.format(fmt.asset.browser_download_url, description));
-
-            if (('chapters' in fmt) && (fmt.chapters.length > 0)) {
+            if ( ! ('chapters' in fmt) || (fmt.chapters.length < 1) ) {
+                $ul.append
+            } else {
                 $li.append(OBS.chapters_h3);
 
-                let $chapter_ul: JQuery = $(OBS.downloadable_url);
+                let $chapters_ul: JQuery = $(OBS.chapters_ul);
 
                 for (let m = 0; m < fmt.chapters.length; m++) {
 
@@ -820,11 +822,11 @@ class OBS {
                     if (chap_description == null)
                         continue;
 
-                    let $chap_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description));
-                    $chapter_ul.append($chap_li);
+                    let $chapter_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description));
+                    $chapters_ul.append($chapter_li);
                 }
 
-                $li.append($chapter_ul);
+                $li.append($chapters_ul);
             }
 
             $ul.append($li);
