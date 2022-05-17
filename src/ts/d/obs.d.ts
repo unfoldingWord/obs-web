@@ -13,6 +13,7 @@ interface Language {
 }
 interface Owner {
     name: string;
+    full_name: string;
     subjects: {
         [key: string]: Subject;
     };
