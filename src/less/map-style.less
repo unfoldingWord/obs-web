@@ -11,18 +11,22 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #text-abb {
   font-size: 16px;
   font-weight: bold;
 }
+
 #text-abb text {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 #map_base svg {
   max-height: 100%;
   width: 100%;
   margin: 0;
 }
+
 .map-tip-wd {
   font: 14px/16px Trebuchet MS, Helvetica, Arial, sans-serif;
   display: none;
@@ -42,14 +46,16 @@
   background: linear-gradient(to bottom, rgba(73, 73, 73, 1) 0%, rgba(101, 101, 101, 1) 100%);
   word-break: keep-all;
   /*white-space: nowrap;*/
-  box-shadow:1px 2px 4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow:2px 3px 6px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow:2px 3px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
 }
+
 .map-tip-wd p {
-  margin: 0!important;
-  color: #edeef0!important;
+  margin: 0 !important;
+  color: #edeef0 !important;
 }
+
 .map-tip-wd img {
   float: left;
   padding: 3px;
@@ -58,11 +64,11 @@
 #clickable-map {
   button {
     color: #fff;
-    background-color: rgba(108,161,27,.87);
+    background-color: rgba(108, 161, 27, .87);
     border: none;
     border-radius: 3px;
     padding: 21px 34px;
-    font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
     font-style: normal;
@@ -78,70 +84,178 @@
 .plus:after {
   content: "+"
 }
+
 .minus:after {
   content: "-" !important;
 }
 
 .language-h2 {
   padding-left: 5px;
-  ~ div {
+
+  ~div {
     padding-left: 20px;
+
+    .owner-h3,
     .subject-h3 {
       font-size: 1.1em;
     }
-    > p {
+
+    >p {
       padding-left: 15px;
     }
-    > ul {
+
+    >ul {
       padding-left: 35px;
+    }
+
+    .subject-h4 {
+      font-size: 1em;
+    }
+
+    >p {
+      padding-left: 20px;
+    }
+
+    >ul {
+      padding-left: 50px;
     }
   }
 }
 
-.chapters-h3 {
+.chapters-toggle {
   display: inline-block;
   font-size: 1em;
   margin: 0;
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
   #map_base svg {
-    height:180px;
+    height: 180px;
   }
+
   .map-tip-wd {
     max-width: 40%;
   }
+
   .map-tip-wd img {
     max-width: 95%;
   }
 }
+
 @media screen and (max-width: 400px) and (min-width: 321px) {
   #map_base svg {
-    height:200px;
+    height: 200px;
   }
 }
+
 @media screen and (max-width: 480px) and (min-width: 401px) {
   #map_base svg {
-    height:230px;
+    height: 230px;
   }
 }
+
 @media screen and (max-width: 568px) and (min-width: 481px) {
   #map_base svg {
-    height:290px;
+    height: 290px;
   }
 }
+
 @media screen and (max-width: 685px) and (min-width: 569px) {
   #map_base svg {
-    height:340px;
+    height: 340px;
   }
 }
+
 @media screen and (max-width: 767px) and (min-width: 686px) {
   #map_base svg {
-    height:420px;
+    height: 420px;
   }
 }
+
 @media screen and (min-width: 768px) {
   #map_base svg {
-    height:470px;
+    height: 470px;
   }
+}
+
+.accordion {
+  margin-top: -1px;
+  border-top: 1px solid #272343;
+  border-bottom: 1px solid #272343;
+
+  .accordion-icon {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+
+    .line-01,
+    .line-02 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 2px;
+      background-color: #272343;
+      transition: 0.3s;
+    }
+
+    .line-02 {
+      transform: rotate(90deg);
+    }
+  }
+
+  .accordion-title {
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    padding: 20px 16px;
+    font-size: 16px;
+    transition: 0.2s;
+  }
+
+  &.accordion-open {
+    >.accordion-title {
+      background-color: #416a8b;
+      color: #fff !important;
+
+      a.globe {
+        color: #fff !important;
+      }
+  
+      .line-01,
+      .line-02 {
+        background-color: #fff;
+      }
+
+      .line-02 {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .accordion-content {
+    display: none;
+    padding: 24px 16px;
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .accordion-nested {
+
+      .accordion-title {
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      .accordion-content {
+        padding: 24px 16px 16px;
+      }
+    }
+  }
+}
+
+#loading-message {
+  text-align: center;
 }

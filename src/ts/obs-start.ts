@@ -29,19 +29,22 @@ function appendStyle(): void {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-
     appendStyle();
-
-    let urls = [
-        'https://api.door43.org/v3/subjects/Open_Bible_Stories.json',
-        'https://api.door43.org/v3/subjects/OBS_Study_Notes.json',
-        'https://api.door43.org/v3/subjects/OBS_Study_Questions.json',
-        'https://api.door43.org/v3/subjects/OBS_Translation_Notes.json',
-        'https://api.door43.org/v3/subjects/OBS_Translation_Questions.json',
-    ];
-
+    const subjects = [
+        'Open Bible Stories',
+        'OBS Study Notes',
+        'TSV OBS Study Notes',
+        'OBS Study Questions',
+        'TSV OBS Study Questions',
+        'OBS Translation Notes',
+        "TSV OBS Translation Notes",
+        'OBS Translation Questions',
+        "TSV OBS Translation Questions",
+    ]
+    // const v5_url = `https://git.door43.org/api/catalog/v5/search?sort=released&order=desc&includeHistory=1`;
+    const v5_url = `https://git.door43.org/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
     // load OBS now
-    let obs: OBS = new OBS(urls, function() {
+    let obs: OBS = new OBS(v5_url, function() {
         if (typeof initMap === 'function')
             obs.buildDiv(initMap);
         else

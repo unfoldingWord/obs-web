@@ -53,7 +53,7 @@ function addEvent(id: string): void {
 
 function selectRegion(region_name, region_label): void {
 
-    let $langs = $('#published-languages').find('h2.language-h2');
+    let $langs = $('#published-languages').find('.language-toggle');
     let $btn = $('#show-all-languages');
 
     $('#selected-region').html(region_label);

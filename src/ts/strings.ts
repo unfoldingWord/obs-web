@@ -79,6 +79,9 @@ String.prototype.getHostName = function() {
     // find and remove port number
     hostname = hostname.split(':')[0];
 
+    // remove www
+    hostname = hostname.replace('www\.', '');
+
     // find and remove "?"
     hostname = hostname.split('?')[0];
 
