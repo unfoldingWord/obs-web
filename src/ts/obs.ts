@@ -99,7 +99,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = '<li><a href=' + '"{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
+    static downloadable_li: string = '<li><a href="{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
@@ -404,7 +404,7 @@ class OBS {
                 let $owner_accordion = $(`<div class="accordion accordion-nested owner-accordion"></div>`)
                 $lang_content.append($owner_accordion);
                 $owner_accordion.append(`
-        <h3 class="accordion-title owner-toggle">${owner.full_name} <a href="https://git.door43.org/${owner.name}" target="_blank"><i class="fa fa-solid fa-arrow-up-right-from-square" aria-hidden="true" title="View Organization page on DCS"></i></a>
+        <h3 class="accordion-title owner-toggle">${owner.full_name} <a href="https://git.door43.org/${owner.name}" class="globe" target="_blank"><i class="fa fa-globe" aria-hidden="true" title="View Organization page on DCS"></i></a>
             <i class="accordion-icon">
                 <div class="line-01"></div>
                 <div class="line-02"></div>
@@ -665,18 +665,19 @@ class OBS {
         let mime_parts = mime.split('/');
         let show_size = true;
         let is_source_regex = /https:\/\/git.door43.org\/[^/]+\/[^/]+\/archive\//i;
+        console.log(mime_parts);
         switch (mime_parts[mime_parts.length - 1]) {
             case 'pdf':
                 fmt_description = 'PDF';
-                fmt_class = 'fa-file-pdf-o';
+                fmt_class = 'fa-file-pdf';
                 break;
-            case 'youtube.com':
+            case 'youtube':
                 title = fmt.name;
                 show_size = false;
-                fmt_class = 'fa-youtube';
+                fmt_class = 'fa-brands fa-youtube';
                 fmt_description = 'Website'
                 break;
-            case 'bloomlibrary.org':
+            case 'bloom':
                 title = fmt.name;
                 show_size = false;
                 fmt_description = 'Website';
@@ -691,16 +692,16 @@ class OBS {
             case 'git.door43.org':
                 title = fmt.name;
                 fmt_description = 'Source Files';
-                fmt_class = 'fa-solid fa-file-lines';
+                fmt_class = 'fa-file-lines';
                 show_size = false;
                 break;
             case 'docx':
                 fmt_description = 'Word Document';
-                fmt_class = 'fa-file-word-o';
+                fmt_class = 'fa-file-word';
                 break;
             case 'odt':
                 fmt_description = 'OpenDocument Text';
-                fmt_class = 'fa-file-text-o';
+                fmt_class = 'fa-file-text';
                 break;
             case 'epub':
                 fmt_description = 'ePub Book';
@@ -709,7 +710,7 @@ class OBS {
             case 'markdown':
             case 'md':
                 fmt_description = 'Markdown';
-                fmt_class = 'fa-file-text-o';
+                fmt_class = 'fa-file-text';
                 break;
             case 'html':
                 fmt_description = 'HTML';
@@ -721,19 +722,19 @@ class OBS {
                 break;
             case 'mp3':
                 fmt_description = 'MP3';
-                fmt_class = 'fa-file-audio-o';
+                fmt_class = 'fa-file-audio';
                 break;
             case 'mp4':
                 fmt_description = 'MP4';
-                fmt_class = 'fa-file-video-o';
+                fmt_class = 'fa-file-video';
                 break;
             case '3gp':
             case '3gpp':
                 fmt_description = '3GP';
-                fmt_class = 'fa-file-video-o';
+                fmt_class = 'fa-file-video';
                 break;
             case 'zip':
-                fmt_class = 'fa-file-zip-o';
+                fmt_class = 'fa-file-zipper';
                 fmt_description = 'Zipped'
                 let match = is_source_regex.exec(fmt.asset.browser_download_url);
                 if (match) {
@@ -743,7 +744,7 @@ class OBS {
             default:
                 title = fmt.name;
                 fmt_description = fmt.format;
-                fmt_class = 'fa-file-o';
+                fmt_class = 'fa-file';
                 break;
         }
 
