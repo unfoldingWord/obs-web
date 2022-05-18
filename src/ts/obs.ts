@@ -738,7 +738,7 @@ class OBS {
                 fmt_description = 'Zipped'
                 let match = is_source_regex.exec(fmt.asset.browser_download_url);
                 if (match) {
-                    fmt_description += ", Source Code"
+                    fmt_description += ", Source Files"
                 }
                 break;
             default:
