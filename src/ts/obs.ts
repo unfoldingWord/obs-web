@@ -404,7 +404,7 @@ class OBS {
                 let $owner_accordion = $(`<div class="accordion accordion-nested owner-accordion"></div>`)
                 $lang_content.append($owner_accordion);
                 $owner_accordion.append(`
-        <h3 class="accordion-title owner-toggle">${owner.full_name} <a href="https://git.door43.org/${owner.name}" target="_blank"><i class="fa fa-solid fa-globe" aria-hidden="true"></i></a>
+        <h3 class="accordion-title owner-toggle">${owner.full_name} <a href="https://git.door43.org/${owner.name}" target="_blank"><i class="fa fa-solid fa-arrow-up-right-from-square" aria-hidden="true" title="View Organization page on DCS"></i></a>
             <i class="accordion-icon">
                 <div class="line-01"></div>
                 <div class="line-02"></div>
