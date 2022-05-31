@@ -7,52 +7,74 @@ interface Language {
     language: string;
     title: string;
     direction: string;
+    owners: {
+        [key: string]: Owner;
+    };
+}
+interface Owner {
+    name: string;
+    full_name: string;
     subjects: {
         [key: string]: Subject;
     };
 }
 interface Subject {
     subject: string;
-    resources: Resource[];
+    entries: CatalogEntry[];
 }
-interface Resource {
-    identifier: string;
-    projects: Project[];
-    version: string;
-    issued: string;
-    modified: string;
-    title: string;
+interface CatalogEntry {
+    id: number;
+    branch_or_tag_name: string;
+    full_name: string;
+    name: string;
+    language: string;
+    language_title: string;
+    language_direction: string;
+    metadata_url: string;
+    owner: string;
+    release: Release;
     subject: string;
-}
-interface Project {
-    identifier: string;
     title: string;
-    formats: Format[];
+    zipball_url: string;
 }
-interface Format {
-    format: string;
-    modified: string;
-    quality: string;
+interface Release {
+    id: string;
+    tag_name: string;
+    assets: Asset[];
+}
+interface Asset {
+    id: number;
+    name: string;
     size: number;
-    url: string;
+    browser_download_url: string;
+    download_count: number;
+    created_at: Date;
+}
+declare class Format {
+    name: string;
+    ext: string;
+    format: string;
+    quality: string;
+    prefix: string;
+    version: string;
+    asset: Asset;
     chapters: Chapter[];
 }
-interface Chapter extends Format {
+declare class Chapter extends Format {
     identifier: string;
 }
-declare class ResourceTypes {
+declare class DownloadableTypes {
     text: Format[];
     audio: Format[];
     video: Format[];
     other: Format[];
 }
 declare class OBS {
-    static lang_h2: string;
-    static subject_h3: string;
+    static expandable_list_header: string;
     static chapters_h3: string;
-    static res_type_desc: string;
-    static res_li: string;
-    static res_ul: string;
+    static downloadable_type_desc: string;
+    static downloadable_li: string;
+    static chapters_ul: string;
     static description: string;
     static size_span: string;
     testString: string;
@@ -63,13 +85,16 @@ declare class OBS {
     langnames: {
         [key: string]: any;
     };
-    constructor(urls: string[], callback?: Function);
+    constructor(v5_url: string, callback?: Function);
     populateLangnames(): void;
     extractOBS(data: Object[]): void;
+    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, version: string): DownloadableTypes;
+    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes;
     buildDiv(callback?: Function): void;
-    static getResources(subject: Subject): ResourceTypes;
+    static getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes;
     private static getUrlExt;
-    private static getFormatFromFields;
+    private static getFileExt;
+    private static getFormatFromName;
     private static getDescription;
     private static getSize;
     private static getList;

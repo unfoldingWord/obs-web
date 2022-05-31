@@ -65,25 +65,17 @@ See http://openchannelmedia.org/ for an example
 
   For other OSs, go to the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/)
 
-#### Install yarn:
-
-  After installing node, this project will need yarn too, so just run the following command.
-
-```
-  $ npm install -g yarn
-```
-
 #### Load the dependencies:
 
 ```
   $ cd obs-web
-  $ yarn install --frozen-lockfile
+  $ npm ci
 ```
 
 If you modify the package.json file to add/update dependencies, run:
 
 ```
-  $ yarn install
+  $ npm install
 ```
 
 #### Edit the source files:
@@ -95,7 +87,7 @@ If you modify the package.json file to add/update dependencies, run:
   Build by running:
 
 ```
-  $ yarn build
+  $ npm run build
 ```
 
   This will build the minified js and css files in the `build/` directory.
@@ -105,7 +97,7 @@ If you modify the package.json file to add/update dependencies, run:
   Run the following to get the http-server going on port 8081:
 
 ```
-  $ yarn start
+  $ npm start
 ```
 
   and go to [http://127.0.0.1:8080](http://127.0.0.1:8080).
@@ -113,7 +105,7 @@ If you modify the package.json file to add/update dependencies, run:
   If you need it to run on a different port, just run, for example:
 
 ```
-  $ yarn start --port=8888
+  $ npm start --port=8888
 ```
 
   where `8888` is the port that will be used, and [http://127.0.0.1:8888](http://127.0.0.1:8888) is where you can view the html page.
@@ -137,23 +129,23 @@ If you modify the package.json file to add/update dependencies, run:
   To run the unit tests, using karma, run:
 
 ```
-  $ yarn test
+  $ npm run test
 ```
 
   Add your tests to the js files in the `test/js/` directory.
 
 ## Production build and Deployment on Netlify
 
-  Building for production can be done using the --production=true argument with yarn:
+  Building for production can be done using the --only=prod argument with npm:
 
 ```
-  $ yarn install --production==true
+  $ npm install --only=prod
 ```
 
   This will install the minimal number of packages needed for the build:
 
 ```
-  $ yarn build
+  $ npm run build
 ```
 
   The `output/` directory has the production files, where `build/index.html` is an example of what can be placed at [https://openbiblestories.org/library](https://openbiblestories.org/library).

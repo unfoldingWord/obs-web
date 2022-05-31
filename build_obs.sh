@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-file="obs"
+files=(obs obs-start)
 
-printf "   Compiling ${file}.ts... "
-tsc --sourcemap -d "src/ts/${file}.ts" --outDir build/js --declarationDir src/ts/d --removeComments
+for file in "${files[@]}"
+do
+    printf "   Compiling ${file}.ts... "
+    tsc --sourcemap -d "src/ts/${file}.ts" --outDir build/js --declarationDir src/ts/d --removeComments
 
-printf "uglifying... "
-uglifyjs "build/js/${file}.js" -o "build/js/${file}.min.js" --compress --mangle
+    printf "uglifying... "
+    uglifyjs "build/js/${file}.js" -o "build/js/${file}.min.js" --compress --mangle
 
-printf "finished.\n"
+    printf "finished.\n"
+done
 

@@ -5,3 +5,5 @@ build/*
 !build/.gitkeep
 !build/netlify.toml
 src/ts/d
+yarn.lock
+

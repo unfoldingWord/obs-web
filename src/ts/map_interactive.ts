@@ -8,7 +8,7 @@ declare let wd_config: any;
 function isTouchEnabled(): boolean {
     return (('ontouchstart' in window)
         || (navigator.maxTouchPoints > 0)
-        || (navigator.msMaxTouchPoints > 0));
+        || (navigator.maxTouchPoints > 0));
 }
 
 function addEvent(id: string): void {
@@ -53,7 +53,7 @@ function addEvent(id: string): void {
 
 function selectRegion(region_name, region_label): void {
 
-    let $langs = $('#published-languages').find('h2.language-h2');
+    let $langs = $('#published-languages').find('.language-toggle');
     let $btn = $('#show-all-languages');
 
     $('#selected-region').html(region_label);
