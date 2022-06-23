@@ -121,7 +121,6 @@ class OBS {
     testString: string;
     loadResult: string;
     languages: { [key: string]: Language; } = {};
-
     langnames: { [key: string]: any; } = {};
 
     /**
@@ -301,6 +300,9 @@ class OBS {
                     parent.version = version;
                     downloadable_types[type].push(parent);
                 }
+                if (! parent.chapters) {
+                    parent.chapters = [];
+                }
                 parent.chapters.push(chapter);
                 parent.chapters.sort((a: Chapter, b: Chapter) => { return a.identifier.localeCompare(b.identifier) });
             }
@@ -308,7 +310,6 @@ class OBS {
                 let media_ext = audioparts[1];
                 let my_fmt;
                 let type: string = "audio";
-                console.log("EXT: ", media_ext);
                 if (media_ext == "mp4" || media_ext == "3gpp") {
                     type = "video";
                 }
@@ -327,6 +328,7 @@ class OBS {
                     my_fmt.prefx = prefix;
                     my_fmt.ext = ext;
                     my_fmt.version = version;
+                    my_fmt.chapters = [];
                     downloadable_types[type].push(my_fmt);
                 }
                 my_fmt.name = asset.name;
@@ -386,9 +388,10 @@ class OBS {
                 ang = ' / ' + me.langnames[langId].ang;
             }
             let $lang_accordion = $(`<div class="accordion lang-accordion"></div>`);
+            let id = langId.replace(/[^\w-]/g,'_');
             $accordion_wrapper.append($lang_accordion);
             $lang_accordion.append(`
-    <h2 class="accordion-title language-toggle" data-lang-code="${langId}">${langId}${ang} / ${lang.title}
+    <h2 class="accordion-title language-toggle" data-lang-code="${langId}" id="${id}">${langId}${ang} / ${lang.title}
         <i class="accordion-icon">
             <div class="line-01"></div>
             <div class="line-02"></div>
@@ -402,9 +405,10 @@ class OBS {
                 let owner = me.languages[langId].owners[ownerId];
 
                 let $owner_accordion = $(`<div class="accordion accordion-nested owner-accordion"></div>`)
+                let id = `${langId}--${ownerId}`.replace(/[^\w-]/g, '_');
                 $lang_content.append($owner_accordion);
                 $owner_accordion.append(`
-        <h3 class="accordion-title owner-toggle">Published by: <strong>${owner.full_name ? owner.full_name : owner.name}</strong> <a href="https://git.door43.org/${owner.name}" class="globe" target="_blank"><i class="fa fa-external-link-alt" aria-hidden="true" title="View Organization page on DCS"></i></a>
+        <h3 class="accordion-title owner-toggle" id="${id}">Published by: <strong>${owner.full_name ? owner.full_name : owner.name}</strong> <a href="https://git.door43.org/${owner.name}" class="globe" target="_blank"><i class="fa fa-external-link-alt" aria-hidden="true" title="View Organization page on DCS"></i></a>
             <i class="accordion-icon">
                 <div class="line-01"></div>
                 <div class="line-02"></div>
@@ -431,9 +435,10 @@ class OBS {
                         title = locale_title + " (" + subjectStr + ")";
 
                     let $subject_accordion = $(`<div class="accordion accordion-nested subject-accordion"></div>`);
+                    let id = `${langId}--${ownerId}--${subjectId}`.replace(/[^\w-]/g,'_');
                     $owner_content.append($subject_accordion);
                     $subject_accordion.append(`
-            <h4 class="accordion-title subject-toggle">${title}
+            <h4 class="accordion-title subject-toggle" id="${id}">${title}
                 <i class="accordion-icon">
                     <div class="line-01"></div>
                     <div class="line-02"></div>
@@ -473,13 +478,15 @@ class OBS {
 
         let $chapters_toggle = $container.find('.chapters-toggle');
         $chapters_toggle.css('cursor', 'pointer');
-        $chapters_toggle.click(function () {
+        $chapters_toggle.on('click', function () {
             $(this).nextUntil('h3').slideToggle();
             $(this).find('span').toggleClass('minus');
         });
 
         // When any accordion title is clicked...
-        $(".accordion-title").click(function () {
+        $(".accordion-title").on('click', function () {
+            const id = $(this).attr('id');
+            history.pushState({}, "", `#${id}`);
             const $accordion_wrapper = $(this).parent();
             const $accordion_content = $(this).parent().find(".accordion-content").first();
             const $accordion_open = "accordion-open";
@@ -495,6 +502,20 @@ class OBS {
                 $accordion_wrapper.addClass($accordion_open);   // Add the accordion-open class.
             }
         });
+
+        const [langHash, ownerHash, subjectHash] = window.location.hash.split('--');
+        if (langHash) {
+            $(langHash).trigger('click');
+            if(ownerHash) {
+                $(langHash + '--' + ownerHash).trigger('click');
+                if(subjectHash) {
+                    $(langHash + '--' + ownerHash + '--' + subjectHash).trigger('click');
+                }
+            }
+            $('html, body').animate({
+                scrollTop: $(langHash).offset().top
+            }, 'slow');
+        }
 
         if (typeof callback !== 'undefined')
             callback();
@@ -665,7 +686,6 @@ class OBS {
         let mime_parts = mime.split('/');
         let show_size = true;
         let is_source_regex = /https:\/\/git.door43.org\/[^/]+\/[^/]+\/archive\//i;
-        console.log(mime_parts);
         switch (mime_parts[mime_parts.length - 1]) {
             case 'pdf':
                 fmt_description = 'PDF';
