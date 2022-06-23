@@ -327,6 +327,7 @@ class OBS {
                     my_fmt.prefx = prefix;
                     my_fmt.ext = ext;
                     my_fmt.version = version;
+                    my_fmt.chapters = [];
                     downloadable_types[type].push(my_fmt);
                 }
                 my_fmt.name = asset.name;
