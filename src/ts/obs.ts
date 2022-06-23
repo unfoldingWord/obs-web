@@ -486,7 +486,7 @@ class OBS {
         // When any accordion title is clicked...
         $(".accordion-title").on('click', function () {
             const id = $(this).attr('id');
-            window.location.hash = `#${id}`;
+            history.pushState({}, "", `#${id}`);
             const $accordion_wrapper = $(this).parent();
             const $accordion_content = $(this).parent().find(".accordion-content").first();
             const $accordion_open = "accordion-open";
