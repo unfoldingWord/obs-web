@@ -301,6 +301,9 @@ class OBS {
                     parent.version = version;
                     downloadable_types[type].push(parent);
                 }
+                if (! parent.chapters) {
+                    parent.chapters = [];
+                }
                 parent.chapters.push(chapter);
                 parent.chapters.sort((a: Chapter, b: Chapter) => { return a.identifier.localeCompare(b.identifier) });
             }
