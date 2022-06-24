@@ -90,6 +90,7 @@ declare class OBS {
     extractOBS(data: Object[]): void;
     static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, version: string): DownloadableTypes;
     static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes;
+    displayError(message: string): void;
     buildDiv(callback?: Function): void;
     static getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes;
     private static getUrlExt;

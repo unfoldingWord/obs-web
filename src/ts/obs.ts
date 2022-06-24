@@ -137,14 +137,16 @@ class OBS {
             url: v5_url,
             dataType: 'json',
             context: this,
-        }).done(function (resp) {
+        }).done(resp => {
             me.extractOBS(resp.data);
             me.loadResult = 'Successfully loaded catalog data.';
             if (typeof callback !== 'undefined')
-                callback(me.loadResult);
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            const error = 'Failed: status = "' + textStatus + '", message = "' + errorThrown + '".';
+                callback();
+        }).fail((jqXHR, textStatus, errorThrown) => {
+            const error = `<div style="color:red">Faile to fetch data from <a href="${v5_url}" target="_blank">${v5_url}</a> on the OBS library page.<br/><br/>Please reload. If the problem persists, please <a href="https://www.unfoldingword.org/contact/" target="_new">contact us</a> with this error message.</div>`;
             console.log(error);
+            if (typeof callback !== 'undefined')
+                callback(error);
         });
     }
 
@@ -371,6 +373,18 @@ class OBS {
         return downloadable_types;
     }
 
+
+    /**
+     * Displays an error that the data could not be fetched
+     * @param {string} message the error message
+     */
+     displayError(message: string): void {
+        const $container = $('body').find('#published-languages');
+        $container.empty();
+        const $message = $(`<div>${message}</div>`);
+        $container.append($message);
+     }
+
     /**
      * Builds the language accordion and inserts it into the page
      * @param {Function} callback An optional callback function
@@ -547,7 +561,12 @@ class OBS {
                                 linkAssets = [linkAssets];
                             }
                             linkAssets.forEach((linkAsset: Asset) => {
-                                downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry.release.tag_name);
+                                if (linkAsset.browser_download_url) {
+                                    if (!linkAsset.name) {
+                                        linkAsset.name = linkAsset.browser_download_url.substr(linkAsset.browser_download_url.lastIndexOf("/") + 1);
+                                    }
+                                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry.release.tag_name);
+                                }
                             });
                         }
                     });
