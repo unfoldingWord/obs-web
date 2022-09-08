@@ -76,6 +76,7 @@ declare class DownloadableTypes {
     other: Format[];
 }
 declare class OBS {
+    static obs: OBS;
     static expandable_list_header: string;
     static chapters_h3: string;
     static downloadable_type_desc: string;
@@ -91,14 +92,22 @@ declare class OBS {
     langnames: {
         [key: string]: any;
     };
-    constructor(v5_url: string, callback?: Function);
+    downloads: {
+        [key: string]: Format;
+    };
+    dcs_domain: string;
+    catalog_url: string;
+    log_downloads_url: string;
+    callback?: Function;
+    constructor(dcs_domain: string, catalog_url: string, log_downloads_url: string, callback?: Function);
     populateLangnames(): void;
+    populateCatalog(): void;
     extractOBS(data: Object[]): void;
-    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
-    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
+    addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
+    addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
     displayError(message: string): void;
     buildDiv(callback?: Function): void;
-    static getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes;
+    getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes;
     private static getUrlExt;
     private static getFileExt;
     private static getFormatFromName;
@@ -106,4 +115,4 @@ declare class OBS {
     private static getSize;
     private static getList;
 }
-declare function log_download(repo_id: string, release_id: string, owner: string, repo_name: string, language: string, subject: string, version: string, download_url: string, file: string): void;
+declare function log_download(anchor: any): void;

@@ -42,17 +42,18 @@ document.addEventListener("DOMContentLoaded", function() {
         "TSV OBS Translation Questions",
     ]
     const urlParams = new URLSearchParams(window.location.search);
-    let dcs = urlParams.get('dcs');
-    if (! dcs) {
+    let dcs_domain = urlParams.get('dcs');
+    if (! dcs_domain) {
         if (window.location.hostname.endsWith("openbiblestories.org") || window.location.hostname == "obs-web.netlify.app" || window.location.hostname == "openbiblestories.squarespace.com") {
-            dcs = 'git.door43.org';
+            dcs_domain = 'git.door43.org';
         } else {
-            dcs = 'git.door43.org';
+            dcs_domain = 'qa.door43.org';
         }
     }
-    const v5_url = `https://${dcs}/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
+    const catalog_url = `https://${dcs_domain}/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
+    const log_downloads_url = `https://${dcs_domain}/log/downloads`
     // load OBS now
-    let obs: OBS = new OBS(v5_url, function(error: string) {
+    const obs = new OBS(dcs_domain, catalog_url, log_downloads_url, function(error: string) {
         if (error)
             obs.displayError(error);
         else if (typeof initMap === 'function')
