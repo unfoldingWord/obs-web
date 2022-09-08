@@ -6,4 +6,6 @@ build/*
 !build/netlify.toml
 src/ts/d
 yarn.lock
+.DS_Store
+.history
 

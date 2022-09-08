@@ -32,10 +32,15 @@ interface CatalogEntry {
     language_direction: string;
     metadata_url: string;
     owner: string;
+    repo: Repository;
     release: Release;
     subject: string;
     title: string;
     zipball_url: string;
+}
+interface Repository {
+    id: string;
+    name: string;
 }
 interface Release {
     id: string;
@@ -51,6 +56,7 @@ interface Asset {
     created_at: Date;
 }
 declare class Format {
+    entry: CatalogEntry;
     name: string;
     ext: string;
     format: string;
@@ -88,8 +94,8 @@ declare class OBS {
     constructor(v5_url: string, callback?: Function);
     populateLangnames(): void;
     extractOBS(data: Object[]): void;
-    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, version: string): DownloadableTypes;
-    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes;
+    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
+    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes;
     displayError(message: string): void;
     buildDiv(callback?: Function): void;
     static getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes;
@@ -100,3 +106,4 @@ declare class OBS {
     private static getSize;
     private static getList;
 }
+declare function log_download(repo_id: string, release_id: string, owner: string, repo_name: string, language: string, subject: string, version: string, download_url: string, file: string): void;

@@ -34,10 +34,16 @@ interface CatalogEntry {
     language_direction: string;
     metadata_url: string;
     owner: string;
+    repo: Repository;
     release: Release;
     subject: string;
     title: string;
     zipball_url: string;
+}
+
+interface Repository {
+    id: string;
+    name: string;
 }
 
 interface Release {
@@ -56,6 +62,7 @@ interface Asset {
 }
 
 class Format {
+    entry: CatalogEntry;
     name: string;
     ext: string;
     format: string;
@@ -99,7 +106,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = '<li><a href="{0}" style="text-decoration: none;" target="_blank">{1}</a></li>\n';
+    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="log_download('{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')" target="_blank">{1}</a></li>\n`;
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
@@ -192,6 +199,7 @@ class OBS {
             let langId = item['language'];
             let subjectId = item['subject'].toLowerCase().replace(/^tsv */, '');
             let ownerId = item['owner'].toLowerCase();
+            // let repoId = item['name']
             if (!(langId in me.languages)) {
                 me.languages[langId] = <Language>{
                     language: langId,
@@ -222,15 +230,16 @@ class OBS {
      * @param {DownloadableTypes} downloadable_types the existing downloadable types
      * @param {Asset} asset the asset to add
      */
-    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, version: string): DownloadableTypes {
+    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
         if (!asset || !asset.browser_download_url || !asset.name)
             return downloadable_types;
         let fmt = new Format();
+        fmt.entry = entry;
         fmt.name = asset.name;
         fmt.asset = asset;
         fmt.prefix = asset.browser_download_url.getHostName();
         fmt.format = OBS.getFormatFromName(asset.name);
-        fmt.version = version;
+        fmt.version = entry.release.tag_name;
         let type: string = "other";
 
         if (
@@ -253,12 +262,12 @@ class OBS {
      * @param {DownloadableTypes} downloadable_types the existing downloadable types
      * @param {Asset} asset the asset to add
      */
-    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, release_version: string): DownloadableTypes {
+    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
         const fileparts_regex = /^([^_]+)_([^_]+)_v([\d\.-]+)_*(.*)\.([^\._]+)$/;
         const audioparts_regex = /^(\d+|mp\d|3gpp)_([^_]+)$/;
         let fileparts = fileparts_regex.exec(asset.name.toLowerCase())
         if (!fileparts) {
-            return OBS.addLinkToDownloadableTypes(downloadable_types, asset, release_version)
+            return OBS.addLinkToDownloadableTypes(downloadable_types, asset, entry)
         }
         let prefix = fileparts[1] + "_" + fileparts[2];
         let version = fileparts[3];
@@ -294,6 +303,7 @@ class OBS {
                 }
                 if (!parent) {
                     parent = new Format();
+                    parent.entry = entry;
                     parent.name = parent_zip_name;
                     parent.chapters = [];
                     parent.quality = quality;
@@ -325,6 +335,7 @@ class OBS {
                 }
                 if (!my_fmt) {
                     my_fmt = new Format();
+                    my_fmt.entry = entry;
                     my_fmt.quality = quality;
                     my_fmt.format = format;
                     my_fmt.prefx = prefix;
@@ -338,6 +349,7 @@ class OBS {
             }
         } else {
             let fmt = new Format();
+            fmt.entry = entry;
             fmt.name = asset.name;
             fmt.prefix = prefix;
             fmt.ext = ext;
@@ -472,7 +484,7 @@ class OBS {
 
                     if (downloadable_types.audio.length > 0) {
                         $subject_content.append(OBS.downloadable_type_desc.format('Audio'));
-                        $subject_content.append(OBS.getList(downloadable_types.audio, locale_title));
+                        $subject_content.append(OBS.getList(downloadable_types.audio, locale_title ));
                     }
 
                     if (downloadable_types.video.length > 0) {
@@ -565,24 +577,24 @@ class OBS {
                                     if (!linkAsset.name) {
                                         linkAsset.name = linkAsset.browser_download_url.substr(linkAsset.browser_download_url.lastIndexOf("/") + 1);
                                     }
-                                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry.release.tag_name);
+                                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry);
                                 }
                             });
                         }
                     });
                 } else {
-                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, asset, entry.release.tag_name);
+                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, asset, entry);
                 }
             }
         }
         downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
             'name': "View on Door43.org",
             'browser_download_url': "https://door43.org/u/" + top_entry.full_name + "/" + top_entry.release.tag_name,
-        }, top_entry.release.tag_name);
+        }, top_entry);
         downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
             'name': top_entry.name + "-" + top_entry.release.tag_name + ".zip",
             'browser_download_url': top_entry.zipball_url,
-        }, top_entry.release.tag_name);
+        }, top_entry);
         return downloadable_types;
     }
 
@@ -848,7 +860,16 @@ class OBS {
             if (description == null)
                 continue;
 
-            let $li = $(OBS.downloadable_li.format(fmt.asset.browser_download_url, description));
+            let $li = $(OBS.downloadable_li.format(fmt.asset.browser_download_url, description, 
+                encodeURIComponent(fmt.entry.repo.id),
+                encodeURIComponent(fmt.entry.release.id),
+                encodeURIComponent(fmt.entry.owner),
+                encodeURIComponent(fmt.entry.repo.name),
+                encodeURIComponent(fmt.entry.language),
+                encodeURIComponent(fmt.entry.subject),
+                encodeURIComponent(fmt.version),
+                encodeURIComponent(fmt.asset.browser_download_url),
+                encodeURIComponent(fmt.asset.name)));
             if ( ! ('chapters' in fmt) || (fmt.chapters.length < 1) ) {
                 $ul.append
             } else {
@@ -864,7 +885,16 @@ class OBS {
                     if (chap_description == null)
                         continue;
 
-                    let $chapter_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description));
+                    let $chapter_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description,
+                        encodeURIComponent(fmt.entry.repo.id),
+                        encodeURIComponent(fmt.entry.release.id),
+                        encodeURIComponent(fmt.entry.owner),
+                        encodeURIComponent(fmt.entry.repo.name),
+                        encodeURIComponent(fmt.entry.language),
+                        encodeURIComponent(fmt.entry.subject),
+                        encodeURIComponent(fmt.version),
+                        encodeURIComponent(fmt.asset.browser_download_url),
+                        encodeURIComponent(fmt.asset.name)));
                     $chapters_ul.append($chapter_li);
                 }
 
@@ -876,4 +906,10 @@ class OBS {
 
         return $ul;
     }
+}
+
+function log_download(repo_id: string, release_id: string, owner: string, repo_name: string, language: string, subject: string, version: string, download_url: string, file: string) {
+    $.ajax({
+        url: `https://git.door43.org/log/downloads?repo_id=${repo_id}&release_id=${release_id}&owner=${owner}&repo=${repo_name}&lang=${language}&subject=${subject}&version=${version}&download_url=${download_url}&file=${file}`,
+    });
 }
