@@ -44,14 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const urlParams = new URLSearchParams(window.location.search);
     let dcs = urlParams.get('dcs');
     if (! dcs) {
-        if (window.location.hostname.endsWith("openbiblestories.org") || window.location.hostname == "obs-web.netlify.app") {
+        if (window.location.hostname.endsWith("openbiblestories.org") || window.location.hostname == "obs-web.netlify.app" || window.location.hostname == "openbiblestories.squarespace.com") {
             dcs = 'git.door43.org';
         } else {
-            dcs = 'qa.door43.org';
+            dcs = 'git.door43.org';
         }
     }
     const v5_url = `https://${dcs}/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
-    console.log(v5_url);
     // load OBS now
     let obs: OBS = new OBS(v5_url, function(error: string) {
         if (error)
