@@ -132,7 +132,9 @@ class OBS {
     languages: { [key: string]: Language; } = {};
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
+    dcs_domain = "git.door43.org";
     catalog_url: string;
+    log_downloads_url: string;
     callback?: Function;
 
     /**
@@ -140,9 +142,11 @@ class OBS {
      * @param {string} v5_url
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(catalog_url: string, callback?: Function) {
+    constructor(dcs_domain: string, catalog_url: string, log_downloads_url: string, callback?: Function) {
         OBS.obs = this;
+        this.dcs_domain = dcs_domain;
         this.catalog_url = catalog_url;
+        this.log_downloads_url = log_downloads_url;
         this.callback = callback;
 
         this.populateLangnames();
@@ -450,7 +454,7 @@ class OBS {
                 let id = `${langId}--${ownerId}`.replace(/[^\w-]/g, '_');
                 $lang_content.append($owner_accordion);
                 $owner_accordion.append(`
-        <h3 class="accordion-title owner-toggle" id="${id}">Published by: <strong>${owner.full_name ? owner.full_name : owner.name}</strong> <a href="https://git.door43.org/${owner.name}" class="globe" target="_blank"><i class="fa fa-external-link-alt" aria-hidden="true" title="View Organization page on DCS"></i></a>
+        <h3 class="accordion-title owner-toggle" id="${id}">Published by: <strong>${owner.full_name ? owner.full_name : owner.name}</strong> <a href="https://${this.dcs_domain}/${owner.name}" class="globe" target="_blank"><i class="fa fa-external-link-alt" aria-hidden="true" title="View Organization page on DCS"></i></a>
             <i class="accordion-icon">
                 <div class="line-01"></div>
                 <div class="line-02"></div>
@@ -733,7 +737,7 @@ class OBS {
 
         let mime_parts = mime.split('/');
         let show_size = true;
-        let is_source_regex = /https:\/\/git.door43.org\/[^/]+\/[^/]+\/archive\//i;
+        let is_source_regex = new RegExp(`https://${OBS.obs.dcs_domain}/[^/]+/[^/]+/archive/`, 'gi'); 
         switch (mime_parts[mime_parts.length - 1]) {
             case 'pdf':
                 fmt_description = 'PDF';
@@ -757,7 +761,7 @@ class OBS {
                 fmt_class = 'fa-globe';
                 show_size = false;
                 break;
-            case 'git.door43.org':
+            case OBS.obs.dcs_domain:
                 title = fmt.name;
                 fmt_description = 'Source Files';
                 fmt_class = 'fa-file-lines';
@@ -913,7 +917,7 @@ function log_download(anchor) {
     if (! fmt) {
         return;
     }
-    let url = "https://git.door43.org/log/downloads?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}".format(
+    let url = `https://${OBS.obs.dcs_domain}/log/downloads?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
         encodeURIComponent(fmt.entry.repo.id),
         encodeURIComponent(fmt.entry.release.id),
         encodeURIComponent(fmt.entry.owner),

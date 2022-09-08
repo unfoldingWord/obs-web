@@ -95,9 +95,11 @@ declare class OBS {
     downloads: {
         [key: string]: Format;
     };
+    dcs_domain: string;
     catalog_url: string;
+    log_downloads_url: string;
     callback?: Function;
-    constructor(catalog_url: string, callback?: Function);
+    constructor(dcs_domain: string, catalog_url: string, log_downloads_url: string, callback?: Function);
     populateLangnames(): void;
     populateCatalog(): void;
     extractOBS(data: Object[]): void;
