@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     const v5_url = `https://${dcs}/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
     // load OBS now
-    let obs: OBS = new OBS(v5_url, function(error: string) {
+    const obs = new OBS(v5_url, function(error: string) {
         if (error)
             obs.displayError(error);
         else if (typeof initMap === 'function')

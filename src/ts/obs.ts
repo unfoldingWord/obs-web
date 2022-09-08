@@ -85,6 +85,8 @@ class DownloadableTypes {
 }
 
 class OBS {
+    static obs: OBS;
+
     /**
      * {0} = language code
      * {1} = Anglicized language name
@@ -106,7 +108,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="log_download('{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')" target="_blank">{1}</a></li>\n`;
+    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="log_download(this)" target="_blank">{1}</a></li>\n`;
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
@@ -129,32 +131,22 @@ class OBS {
     loadResult: string;
     languages: { [key: string]: Language; } = {};
     langnames: { [key: string]: any; } = {};
+    downloads: { [key: string]: Format} = {}
+    catalog_url: string;
+    callback?: Function;
 
     /**
      * Class constructor
      * @param {string} v5_url
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(v5_url: string, callback?: Function) {
-        this.populateLangnames();
+    constructor(catalog_url: string, callback?: Function) {
+        OBS.obs = this;
+        this.catalog_url = catalog_url;
+        this.callback = callback;
 
-        // load the v5 catalog now
-        let me = this;
-        $.ajax({
-            url: v5_url,
-            dataType: 'json',
-            context: this,
-        }).done(resp => {
-            me.extractOBS(resp.data);
-            me.loadResult = 'Successfully loaded catalog data.';
-            if (typeof callback !== 'undefined')
-                callback();
-        }).fail((jqXHR, textStatus, errorThrown) => {
-            const error = `<div style="color:red">Faile to fetch data from <a href="${v5_url}" target="_blank">${v5_url}</a> on the OBS library page.<br/><br/>Please reload. If the problem persists, please <a href="https://www.unfoldingword.org/contact/" target="_new">contact us</a> with this error message.</div>`;
-            console.log(error);
-            if (typeof callback !== 'undefined')
-                callback(error);
-        });
+        this.populateLangnames();
+        this.populateCatalog();
     }
 
     /**
@@ -185,6 +177,25 @@ class OBS {
                     me.langnames[langname["lc"]] = langname;
                 })
             }
+        });
+    }
+
+    populateCatalog() {
+        let me = this;
+        $.ajax({
+            url: this.catalog_url,
+            dataType: 'json',
+            context: this,
+        }).done(resp => {
+            me.extractOBS(resp.data);
+            me.loadResult = 'Successfully loaded catalog data.';
+            if (typeof me.callback !== 'undefined')
+                me.callback();
+        }).fail((jqXHR, textStatus, errorThrown) => {
+            const error = `<div style="color:red">Faile to fetch data from <a href="${me.catalog_url}" target="_blank">${me.catalog_url}</a> on the OBS library page.<br/><br/>Please reload. If the problem persists, please <a href="https://www.unfoldingword.org/contact/" target="_new">contact us</a> with this error message.</div>`;
+            console.log(error);
+            if (typeof me.callback !== 'undefined')
+                me.callback(error);
         });
     }
 
@@ -230,7 +241,7 @@ class OBS {
      * @param {DownloadableTypes} downloadable_types the existing downloadable types
      * @param {Asset} asset the asset to add
      */
-    static addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
+    addLinkToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
         if (!asset || !asset.browser_download_url || !asset.name)
             return downloadable_types;
         let fmt = new Format();
@@ -254,6 +265,7 @@ class OBS {
                 return downloadable_types;
         }
         downloadable_types[type].push(fmt);
+        this.downloads[fmt.asset.browser_download_url] = fmt;
         return downloadable_types;
     }
 
@@ -262,12 +274,12 @@ class OBS {
      * @param {DownloadableTypes} downloadable_types the existing downloadable types
      * @param {Asset} asset the asset to add
      */
-    static addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
+    addAssetToDownloadableTypes(downloadable_types: DownloadableTypes, asset: Asset, entry: CatalogEntry): DownloadableTypes {
         const fileparts_regex = /^([^_]+)_([^_]+)_v([\d\.-]+)_*(.*)\.([^\._]+)$/;
         const audioparts_regex = /^(\d+|mp\d|3gpp)_([^_]+)$/;
         let fileparts = fileparts_regex.exec(asset.name.toLowerCase())
         if (!fileparts) {
-            return OBS.addLinkToDownloadableTypes(downloadable_types, asset, entry)
+            return this.addLinkToDownloadableTypes(downloadable_types, asset, entry)
         }
         let prefix = fileparts[1] + "_" + fileparts[2];
         let version = fileparts[3];
@@ -280,8 +292,9 @@ class OBS {
             if (ext == "mp3" || ext == "mp4") {
                 let parent_zip_name = prefix + "_v" + version + "_" + ext + "_" + quality + ".zip"
                 let chapterNum = audioparts[1]
-                let parent: Format;
+                let parent: Format | null = null;
                 let chapter = new Chapter();
+                chapter.entry = entry;
                 chapter.identifier = chapterNum;
                 chapter.name = asset.name;
                 chapter.ext = ext;
@@ -317,6 +330,7 @@ class OBS {
                 }
                 parent.chapters.push(chapter);
                 parent.chapters.sort((a: Chapter, b: Chapter) => { return a.identifier.localeCompare(b.identifier) });
+                this.downloads[chapter.asset.browser_download_url] = chapter;
             }
             else { // is a media zip
                 let media_ext = audioparts[1];
@@ -346,6 +360,7 @@ class OBS {
                 }
                 my_fmt.name = asset.name;
                 my_fmt.asset = asset;
+                this.downloads[my_fmt.asset.browser_download_url] = my_fmt;
             }
         } else {
             let fmt = new Format();
@@ -381,6 +396,7 @@ class OBS {
                     return downloadable_types;
             }
             downloadable_types[type].push(fmt);
+            this.downloads[fmt.asset.browser_download_url] = fmt;
         }
         return downloadable_types;
     }
@@ -475,7 +491,7 @@ class OBS {
                     let $subject_content = $(`<div class="accordion-content"></div>`);
                     $subject_accordion.append($subject_content);
 
-                    let downloadable_types = OBS.getDownloadableTypes(subject.entries);
+                    let downloadable_types = this.getDownloadableTypes(subject.entries);
 
                     if (downloadable_types.text.length > 0) {
                         $subject_content.append(OBS.downloadable_type_desc.format('Text'));
@@ -547,7 +563,7 @@ class OBS {
             callback();
     }
 
-    static getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes {
+    getDownloadableTypes(entries: CatalogEntry[]): DownloadableTypes {
         let downloadable_types = new DownloadableTypes();
 
         if (entries.length < 1)
@@ -564,6 +580,7 @@ class OBS {
                     || asset.name.toLowerCase().endsWith("assets.json")
                     || asset.name.toLowerCase().endsWith("attachments.json")
                     || asset.name.toLowerCase().endsWith("files.json")) {
+                    let me = this;
                     $.ajax({
                         url: asset.browser_download_url,
                         dataType: "json",
@@ -577,21 +594,21 @@ class OBS {
                                     if (!linkAsset.name) {
                                         linkAsset.name = linkAsset.browser_download_url.substr(linkAsset.browser_download_url.lastIndexOf("/") + 1);
                                     }
-                                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry);
+                                    downloadable_types = me.addAssetToDownloadableTypes(downloadable_types, linkAsset, entry);
                                 }
                             });
                         }
                     });
                 } else {
-                    downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, asset, entry);
+                    downloadable_types = this.addAssetToDownloadableTypes(downloadable_types, asset, entry);
                 }
             }
         }
-        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
+        downloadable_types = this.addAssetToDownloadableTypes(downloadable_types, <Asset>{
             'name': "View on Door43.org",
             'browser_download_url': "https://door43.org/u/" + top_entry.full_name + "/" + top_entry.release.tag_name,
         }, top_entry);
-        downloadable_types = OBS.addAssetToDownloadableTypes(downloadable_types, <Asset>{
+        downloadable_types = this.addAssetToDownloadableTypes(downloadable_types, <Asset>{
             'name': top_entry.name + "-" + top_entry.release.tag_name + ".zip",
             'browser_download_url': top_entry.zipball_url,
         }, top_entry);
@@ -860,16 +877,7 @@ class OBS {
             if (description == null)
                 continue;
 
-            let $li = $(OBS.downloadable_li.format(fmt.asset.browser_download_url, description, 
-                encodeURIComponent(fmt.entry.repo.id),
-                encodeURIComponent(fmt.entry.release.id),
-                encodeURIComponent(fmt.entry.owner),
-                encodeURIComponent(fmt.entry.repo.name),
-                encodeURIComponent(fmt.entry.language),
-                encodeURIComponent(fmt.entry.subject),
-                encodeURIComponent(fmt.version),
-                encodeURIComponent(fmt.asset.browser_download_url),
-                encodeURIComponent(fmt.asset.name)));
+            let $li = $(OBS.downloadable_li.format(fmt.asset.browser_download_url, description));
             if ( ! ('chapters' in fmt) || (fmt.chapters.length < 1) ) {
                 $ul.append
             } else {
@@ -885,16 +893,7 @@ class OBS {
                     if (chap_description == null)
                         continue;
 
-                    let $chapter_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description,
-                        encodeURIComponent(fmt.entry.repo.id),
-                        encodeURIComponent(fmt.entry.release.id),
-                        encodeURIComponent(fmt.entry.owner),
-                        encodeURIComponent(fmt.entry.repo.name),
-                        encodeURIComponent(fmt.entry.language),
-                        encodeURIComponent(fmt.entry.subject),
-                        encodeURIComponent(fmt.version),
-                        encodeURIComponent(fmt.asset.browser_download_url),
-                        encodeURIComponent(fmt.asset.name)));
+                    let $chapter_li = $(OBS.downloadable_li.format(chap.asset.browser_download_url, chap_description));
                     $chapters_ul.append($chapter_li);
                 }
 
@@ -908,8 +907,25 @@ class OBS {
     }
 }
 
-function log_download(repo_id: string, release_id: string, owner: string, repo_name: string, language: string, subject: string, version: string, download_url: string, file: string) {
+function log_download(anchor) {
+    let download_url = anchor.getAttribute("href");
+    let fmt = OBS.obs.downloads[download_url];
+    if (! fmt) {
+        return;
+    }
+    let url = "https://git.door43.org/log/downloads?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}".format(
+        encodeURIComponent(fmt.entry.repo.id),
+        encodeURIComponent(fmt.entry.release.id),
+        encodeURIComponent(fmt.entry.owner),
+        encodeURIComponent(fmt.entry.repo.name),
+        encodeURIComponent(fmt.entry.language),
+        encodeURIComponent(fmt.entry.subject),
+        encodeURIComponent(fmt.version),
+        encodeURIComponent(fmt.format),
+        encodeURIComponent(fmt.asset.name),
+        encodeURIComponent(fmt.asset.browser_download_url),
+    );
     $.ajax({
-        url: `https://git.door43.org/log/downloads?repo_id=${repo_id}&release_id=${release_id}&owner=${owner}&repo=${repo_name}&lang=${language}&subject=${subject}&version=${version}&download_url=${download_url}&file=${file}`,
+        url: url,
     });
 }
