@@ -133,6 +133,7 @@ class OBS {
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
     dcs_domain = "git.door43.org";
+    tracker_domain = "track.door43.org";
     catalog_url: string;
     log_downloads_url: string;
     callback?: Function;
@@ -931,5 +932,8 @@ function log_download(anchor) {
     );
     $.ajax({
         url: url,
+    });
+    $.ajax({
+        url: url.replace(OBS.obs.dcs_domain, OBS.obs.tracker_domain),
     });
 }
