@@ -96,6 +96,7 @@ declare class OBS {
         [key: string]: Format;
     };
     dcs_domain: string;
+    tracker_domain: string;
     catalog_url: string;
     log_downloads_url: string;
     callback?: Function;
