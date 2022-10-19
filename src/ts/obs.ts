@@ -912,6 +912,35 @@ class OBS {
     }
 }
 
+function last_node_from_url(url: string): string {
+    let last_node = url.split('/').pop();
+
+    if (! last_node) {
+        return ''
+    }
+
+    return last_node;
+}
+
+function track_create(anchor: HTMLAnchorElement, mt_id: string) {
+    let href = anchor.getAttribute("href");
+    if (! href) {
+        return;
+    }
+
+    let download_url: string = href;
+    let filename: string = last_node_from_url(download_url)
+
+    let url = `https://${OBS.obs.tracker_domain}/track?mt_id={0}&mt_file={1}`.format(
+        encodeURIComponent(mt_id),
+        encodeURIComponent(filename),
+    )
+
+    $.ajax({
+        url: url,
+    });
+}
+
 function log_download(anchor) {
     let download_url = anchor.getAttribute("href");
     let fmt = OBS.obs.downloads[download_url];
