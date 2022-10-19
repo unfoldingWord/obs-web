@@ -930,8 +930,9 @@ function track_create(anchor: HTMLAnchorElement, mt_id: string) {
 
     let download_url: string = href;
     let filename: string = last_node_from_url(download_url)
+    const tracker_domain = 'track.door43.org'
 
-    let url = `https://${OBS.obs.tracker_domain}/track?mt_id={0}&mt_file={1}`.format(
+    let url = `https://${tracker_domain}/track?mt_id={0}&mt_file={1}`.format(
         encodeURIComponent(mt_id),
         encodeURIComponent(filename),
     )
