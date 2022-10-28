@@ -206,7 +206,7 @@ class OBS {
 
     /**
      * Extracts the languages with OBS entries from the catalog
-     * @param data The catalog from https://git.door43.org/api/catalog/v5/search?includeHistory=1&subject=<all OBS subjects>
+     * @param data The catalog from https://git.door43.org/api/v1/catalog/search?includeHistory=1&subject=<all OBS subjects>
      */
     extractOBS(data: Object[]): void {
         let me = this;
@@ -934,6 +934,6 @@ function log_download(anchor) {
         url: url,
     });
     $.ajax({
-        url: url.replace(OBS.obs.dcs_domain, OBS.obs.tracker_domain),
+        url: url.replace(OBS.obs.dcs_domain, OBS.obs.tracker_domain), 
     });
 }

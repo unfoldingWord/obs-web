@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             dcs_domain = 'qa.door43.org';
         }
     }
-    const catalog_url = `https://${dcs_domain}/api/catalog/v5/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
+    const catalog_url = `https://${dcs_domain}/api/v1/catalog/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
     const log_downloads_url = `https://${dcs_domain}/log/downloads`
     // load OBS now
     const obs = new OBS(dcs_domain, catalog_url, log_downloads_url, function(error: string) {
