@@ -85,7 +85,7 @@ class DownloadableTypes {
 }
 
 class OBS {
-    static obs: OBS;
+    static obs: OBS = new OBS();
 
     /**
      * {0} = language code
@@ -141,12 +141,14 @@ class OBS {
      * @param {string} v5_url
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(dcs_domain: string, tracker_url: string | null, callback?: Function) {
-        OBS.obs = this;
-        this.dcs_domain = dcs_domain;
-        this.tracker_url = tracker_url;
+    constructor(dcs_domain?: string | null, tracker_url?: string | null, callback?: Function) {
+        if (dcs_domain)
+            this.dcs_domain = dcs_domain;
+        if (tracker_url)
+            this.tracker_url = tracker_url;
         this.callback = callback;
 
+        OBS.obs = this;
         this.populateLangnames();
         this.populateCatalog();
     }
