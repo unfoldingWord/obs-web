@@ -30,19 +30,9 @@ function appendStyle(): void {
 
 document.addEventListener("DOMContentLoaded", function() {
     appendStyle();
-    const subjects = [
-        'Open Bible Stories',
-        'OBS Study Notes',
-        'TSV OBS Study Notes',
-        'OBS Study Questions',
-        'TSV OBS Study Questions',
-        'OBS Translation Notes',
-        "TSV OBS Translation Notes",
-        'OBS Translation Questions',
-        "TSV OBS Translation Questions",
-    ]
     const urlParams = new URLSearchParams(window.location.search);
     let dcs_domain = urlParams.get('dcs');
+    let tracker_url = urlParams.get('tracker');
     if (! dcs_domain) {
         if (window.location.hostname.endsWith("openbiblestories.org") || window.location.hostname == "obs-web.netlify.app" || window.location.hostname == "openbiblestories.squarespace.com") {
             dcs_domain = 'git.door43.org';
@@ -50,10 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
             dcs_domain = 'qa.door43.org';
         }
     }
-    const catalog_url = `https://${dcs_domain}/api/v1/catalog/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
-    const log_downloads_url = `https://${dcs_domain}/log/downloads`
+    if (! tracker_url && window.location.hostname.endsWith("openbiblestories.org") {
+        tracker_url = 'https://track.door43.org/track';
+    }
     // load OBS now
-    const obs = new OBS(dcs_domain, catalog_url, log_downloads_url, function(error: string) {
+    const obs = new OBS(dcs_domain, tracker_url, function(error: string) {
         if (error)
             obs.displayError(error);
         else if (typeof initMap === 'function')

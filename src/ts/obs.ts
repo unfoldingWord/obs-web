@@ -108,7 +108,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="log_download(this)" target="_blank">{1}</a></li>\n`;
+    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="track_download(this)" target="_blank">{1}</a></li>\n`;
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
@@ -132,10 +132,8 @@ class OBS {
     languages: { [key: string]: Language; } = {};
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
-    dcs_domain = "git.door43.org";
-    tracker_domain = "track.door43.org";
-    catalog_url: string;
-    log_downloads_url: string;
+    dcs_domain: string = "git.door43.org";
+    tracker_url: string | null = "https://track.door43.org/track";
     callback?: Function;
 
     /**
@@ -143,11 +141,10 @@ class OBS {
      * @param {string} v5_url
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(dcs_domain: string, catalog_url: string, log_downloads_url: string, callback?: Function) {
+    constructor(dcs_domain: string, tracker_url: string | null, callback?: Function) {
         OBS.obs = this;
         this.dcs_domain = dcs_domain;
-        this.catalog_url = catalog_url;
-        this.log_downloads_url = log_downloads_url;
+        this.tracker_url = tracker_url;
         this.callback = callback;
 
         this.populateLangnames();
@@ -187,8 +184,20 @@ class OBS {
 
     populateCatalog() {
         let me = this;
+        const subjects = [
+            'Open Bible Stories',
+            'OBS Study Notes',
+            'TSV OBS Study Notes',
+            'OBS Study Questions',
+            'TSV OBS Study Questions',
+            'OBS Translation Notes',
+            "TSV OBS Translation Notes",
+            'OBS Translation Questions',
+            "TSV OBS Translation Questions",
+        ];
+        const catalog_url = `https://${this.dcs_domain}/api/v1/catalog/search?sort=released&order=desc&includeHistory=1&${subjects.map(arg => `subject=${encodeURIComponent(arg)}`).join('&')}`;
         $.ajax({
-            url: this.catalog_url,
+            url: catalog_url,
             dataType: 'json',
             context: this,
         }).done(resp => {
@@ -197,7 +206,7 @@ class OBS {
             if (typeof me.callback !== 'undefined')
                 me.callback();
         }).fail((jqXHR, textStatus, errorThrown) => {
-            const error = `<div style="color:red">Faile to fetch data from <a href="${me.catalog_url}" target="_blank">${me.catalog_url}</a> on the OBS library page.<br/><br/>Please reload. If the problem persists, please <a href="https://www.unfoldingword.org/contact/" target="_new">contact us</a> with this error message.</div>`;
+            const error = `<div style="color:red">Faile to fetch data from <a href="${catalog_url}" target="_blank">${catalog_url}</a> on the OBS library page.<br/><br/>Please reload. If the problem persists, please <a href="https://www.unfoldingword.org/contact/" target="_new">contact us</a> with this error message.</div>`;
             console.log(error);
             if (typeof me.callback !== 'undefined')
                 me.callback(error);
@@ -930,9 +939,8 @@ function track_create(anchor: HTMLAnchorElement, mt_id: string) {
 
     let download_url: string = href;
     let filename: string = last_node_from_url(download_url)
-    const tracker_domain = 'track.door43.org'
 
-    let url = `https://${tracker_domain}/track?mt_id={0}&mt_file={1}`.format(
+    let url = `${OBS.obs.tracker_url}?mt_id={0}&mt_file={1}`.format(
         encodeURIComponent(mt_id),
         encodeURIComponent(filename),
     )
@@ -942,13 +950,15 @@ function track_create(anchor: HTMLAnchorElement, mt_id: string) {
     });
 }
 
-function log_download(anchor) {
+function track_download(anchor: HTMLAnchorElement) {
     let download_url = anchor.getAttribute("href");
+    if (! download_url)
+        return
     let fmt = OBS.obs.downloads[download_url];
     if (! fmt) {
         return;
     }
-    let url = `https://${OBS.obs.dcs_domain}/log/downloads?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
+    let url = `${OBS.obs.tracker_url}?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
         encodeURIComponent(fmt.entry.repo.id),
         encodeURIComponent(fmt.entry.release.id),
         encodeURIComponent(fmt.entry.owner),
@@ -962,8 +972,5 @@ function log_download(anchor) {
     );
     $.ajax({
         url: url,
-    });
-    $.ajax({
-        url: url.replace(OBS.obs.dcs_domain, OBS.obs.tracker_domain), 
     });
 }
