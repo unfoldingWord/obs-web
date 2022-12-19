@@ -108,7 +108,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="track_download(this)" target="_blank">{1}</a></li>\n`;
+    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="track_create(this, 01zets747yivri19)" target="_blank">{1}</a></li>\n`;
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
@@ -133,7 +133,8 @@ class OBS {
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
     dcs_domain: string = (window.location.hostname.endsWith("openbiblestories.org") ? "git.door43.org" : "qa.door43.org");
-    tracker_url: string | null = (window.location.hostname.endsWith("openbiblestories.org") ? "https://track.door43.org/track" : null);
+    tracker_url: string = "https://track.door43.org/track";
+    mt_id?: string | null;
     callback?: Function;
 
     /**
@@ -141,11 +142,12 @@ class OBS {
      * @param {string} v5_url
      * @param {Function} callback An optional callback function, mainly for unit testing
      */
-    constructor(dcs_domain?: string | null, tracker_url?: string | null, callback?: Function) {
+    constructor(dcs_domain?: string | null, tracker_url?: string | null, mt_id?: string | null, callback?: Function) {
         if (dcs_domain)
             this.dcs_domain = dcs_domain;
         if (tracker_url)
             this.tracker_url = tracker_url;
+        this.mt_id = mt_id;
         this.callback = callback;
 
         OBS.obs = this;
@@ -933,45 +935,39 @@ function last_node_from_url(url: string): string {
     return last_node;
 }
 
-function track_create(anchor: HTMLAnchorElement, mt_id: string) {
+function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
     let href = anchor.getAttribute("href");
     if (! href) {
         return;
+    }
+    if (!mt_id) {
+        if(OBS.obs.mt_id)
+            mt_id = OBS.obs.mt_id;
+        else
+            return
     }
 
     let download_url: string = href;
     let filename: string = last_node_from_url(download_url)
 
-    let url = `${OBS.obs.tracker_url}?mt_id={0}&mt_file={1}`.format(
-        encodeURIComponent(mt_id),
-        encodeURIComponent(filename),
-    )
+    let url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_file=${encodeURIComponent(filename)}`;
 
-    $.ajax({
-        url: url,
-    });
-}
-
-function track_download(anchor: HTMLAnchorElement) {
-    let download_url = anchor.getAttribute("href");
-    if (! download_url)
-        return
     let fmt = OBS.obs.downloads[download_url];
-    if (! fmt) {
-        return;
+    if (fmt) {
+        url += `&repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
+            encodeURIComponent(fmt.entry.repo.id),
+            encodeURIComponent(fmt.entry.release.id),
+            encodeURIComponent(fmt.entry.owner),
+            encodeURIComponent(fmt.entry.repo.name),
+            encodeURIComponent(fmt.entry.language),
+            encodeURIComponent(fmt.entry.subject),
+            encodeURIComponent(fmt.version),
+            encodeURIComponent(fmt.format),
+            encodeURIComponent(fmt.asset.name),
+            encodeURIComponent(fmt.asset.browser_download_url),
+        );
     }
-    let url = `${OBS.obs.tracker_url}?repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
-        encodeURIComponent(fmt.entry.repo.id),
-        encodeURIComponent(fmt.entry.release.id),
-        encodeURIComponent(fmt.entry.owner),
-        encodeURIComponent(fmt.entry.repo.name),
-        encodeURIComponent(fmt.entry.language),
-        encodeURIComponent(fmt.entry.subject),
-        encodeURIComponent(fmt.version),
-        encodeURIComponent(fmt.format),
-        encodeURIComponent(fmt.asset.name),
-        encodeURIComponent(fmt.asset.browser_download_url),
-    );
+
     $.ajax({
         url: url,
     });

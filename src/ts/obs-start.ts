@@ -31,8 +31,8 @@ function appendStyle(): void {
 document.addEventListener("DOMContentLoaded", function() {
     appendStyle();
     const urlParams = new URLSearchParams(window.location.search);
+
     let dcs_domain = urlParams.get('dcs');
-    let tracker_url = urlParams.get('tracker');
     if (! dcs_domain) {
         if (window.location.hostname.endsWith("openbiblestories.org") || window.location.hostname == "obs-web.netlify.app" || window.location.hostname == "openbiblestories.squarespace.com") {
             dcs_domain = 'git.door43.org';
@@ -40,11 +40,19 @@ document.addEventListener("DOMContentLoaded", function() {
             dcs_domain = 'qa.door43.org';
         }
     }
-    if (! tracker_url && window.location.hostname.endsWith("openbiblestories.org")) {
+
+    let tracker_url = urlParams.get('tracker');
+    if (! tracker_url) {
         tracker_url = 'https://track.door43.org/track';
     }
+
+    let my_mt_id = urlParams.get('mt_id');
+    if (! my_mt_id && window.hasOwnProperty('mt_id') && window.mt_id) {
+        my_mt_id = window.mt_id;
+    }
+
     // load OBS now
-    const obs = new OBS(dcs_domain, tracker_url, function(error: string) {
+    const obs = new OBS(dcs_domain, tracker_url, my_mt_id, function(error: string) {
         if (error)
             obs.displayError(error);
         else if (typeof initMap === 'function')
