@@ -132,8 +132,8 @@ class OBS {
     languages: { [key: string]: Language; } = {};
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
-    dcs_domain: string = "git.door43.org";
-    tracker_url: string | null = "https://track.door43.org/track";
+    dcs_domain: string = (window.location.hostname.endsWith("openbiblestories.org") ? "git.door43.org" : "qa.door43.org");
+    tracker_url: string | null = (window.location.hostname.endsWith("openbiblestories.org") ? "https://track.door43.org/track" : null);
     callback?: Function;
 
     /**

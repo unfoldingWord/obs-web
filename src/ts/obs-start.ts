@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
             dcs_domain = 'qa.door43.org';
         }
     }
-    if (! tracker_url && window.location.hostname.endsWith("openbiblestories.org") {
+    if (! tracker_url && window.location.hostname.endsWith("openbiblestories.org")) {
         tracker_url = 'https://track.door43.org/track';
     }
     // load OBS now
