@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function() {
         tracker_url = 'https://track.door43.org/track';
     }
 
-    let mt_id = urlParams.get('mt_id');
-    if (! mt_id && window.location.hostname.endsWith("openbiblestories.org")) {
-        mt_id = "01zets747yivri19";
+    let my_mt_id = urlParams.get('mt_id');
+    if (! my_mt_id && window.hasOwnProperty('mt_id') && window.mt_id) {
+        my_mt_id = window.mt_id;
     }
 
     // load OBS now
-    const obs = new OBS(dcs_domain, tracker_url, mt_id, function(error: string) {
+    const obs = new OBS(dcs_domain, tracker_url, my_mt_id, function(error: string) {
         if (error)
             obs.displayError(error);
         else if (typeof initMap === 'function')
