@@ -108,7 +108,7 @@ class OBS {
      * {1} = Downloadable description
      * @type {string}
      */
-    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;"  onClick="track_create(this, 01zets747yivri19)" target="_blank">{1}</a></li>\n`;
+    static downloadable_li: string = `<li><a href="{0}" style="text-decoration: none;" onClick="track_create(this)" target="_blank">{1}</a></li>\n`;
 
     static chapters_ul: string = '<ul style="margin: 16px 0;  display: none"></ul>';
 
