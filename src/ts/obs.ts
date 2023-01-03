@@ -992,7 +992,13 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
     else if (filename.includes('obs-sq'))
         category = 'sq';
 
-    const url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_lang=${encodeURIComponent(lang)}&mt_category=${encodeURIComponent(category)}`;
+    const url = "{}?mt_id={}&mt_lang={}&mt_file={}&mt_category={}".format(
+        OBS.obs.tracker_url,
+        encodeURIComponent(mt_id),
+        encodeURIComponent(lang),
+        encodeURIComponent(filename),
+        encodeURIComponent(category)
+    )
     console.log("URL: ", url);
 
     $.ajax({
