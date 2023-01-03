@@ -946,15 +946,16 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
         if(OBS.obs.mt_id)
             mt_id = OBS.obs.mt_id;
         else
-            return
+            return;
     }
 
     let download_url: string = href;
     let filename = '';
     let ext = '';
     let lang = 'en';
+    let category = 'stories'
 
-    let fmt = OBS.obs.downloads[download_url];
+    let fmt = OBS.obs.downloads[download_url]; // check if is from the DCS Catalog
     if (fmt) {
         ext = fmt.ext;
         filename = fmt.name;
@@ -964,7 +965,6 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
         ext = filename.slice(filename.lastIndexOf("."));
     }
 
-    let category = 'stories'
     if (['pdf', 'docx', 'epub', 'odt'].includes(ext)) {
         if (filename.includes('obs-tq'))
             category = 'tq';
@@ -993,7 +993,7 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
         category = 'sq';
 
     const url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_lang=${encodeURIComponent(lang)}&mt_category=${encodeURIComponent(category)}`;
-    console.log("URL: ", url, filename, ext, category);
+    console.log("URL: ", url);
 
     $.ajax({
         url: url,
