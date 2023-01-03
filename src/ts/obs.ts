@@ -950,16 +950,18 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
     }
 
     let download_url: string = href;
-    let filename = ''
-    let ext = ''
+    let filename = '';
+    let ext = '';
+    let lang = 'en';
 
     let fmt = OBS.obs.downloads[download_url];
     if (fmt) {
         ext = fmt.ext;
         filename = fmt.name;
+        lang = fmt.entry.language;
     } else {
         filename = last_node_from_url(download_url);
-        ext = filename.slice(filename.lastIndexOf("."))
+        ext = filename.slice(filename.lastIndexOf("."));
     }
 
     let category = 'stories'
@@ -990,7 +992,7 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
     else if (filename.includes('obs-sq'))
         category = 'sq';
 
-    const url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_lang=${encodeURIComponent(fmt.entry.repo.id.split('_')[0])}&mt_category=${encodeURIComponent(category)}`;
+    const url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_lang=${encodeURIComponent(lang)}&mt_category=${encodeURIComponent(category)}`;
     console.log("URL: ", url, filename, ext, category);
 
     $.ajax({
