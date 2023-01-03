@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let tracker_url = urlParams.get('tracker');
     if (! tracker_url) {
-        tracker_url = 'https://track.door43.org/log/downloads';
+        tracker_url = 'https://track.door43.org/track';
     }
 
     let my_mt_id = urlParams.get('mt_id');
