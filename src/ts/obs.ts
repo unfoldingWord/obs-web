@@ -133,7 +133,7 @@ class OBS {
     langnames: { [key: string]: any; } = {};
     downloads: { [key: string]: Format} = {}
     dcs_domain: string = (window.location.hostname.endsWith("openbiblestories.org") ? "git.door43.org" : "qa.door43.org");
-    tracker_url: string = "https://track.door43.org/track";
+    tracker_url: string = "https://track.door43.org/log/downloads";
     mt_id?: string | null;
     callback?: Function;
 
@@ -881,6 +881,8 @@ class OBS {
         if (gb < 1000) {
             return gb.toFixed(1).toLocaleString() + ' GB';
         }
+
+        return 'UNKNOWN';
     }
 
     private static getList(downloadable_type: Format[], title: string): JQuery {
@@ -948,25 +950,48 @@ function track_create(anchor: HTMLAnchorElement, mt_id?: string) {
     }
 
     let download_url: string = href;
-    let filename: string = last_node_from_url(download_url)
-
-    let url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_file=${encodeURIComponent(filename)}`;
+    let filename = ''
+    let ext = ''
 
     let fmt = OBS.obs.downloads[download_url];
     if (fmt) {
-        url += `&repo_id={0}&release_id={1}&owner={2}&repo={3}&lang={4}&subject={5}&version={6}&format={7}&file={8}&download_url={9}`.format(
-            encodeURIComponent(fmt.entry.repo.id),
-            encodeURIComponent(fmt.entry.release.id),
-            encodeURIComponent(fmt.entry.owner),
-            encodeURIComponent(fmt.entry.repo.name),
-            encodeURIComponent(fmt.entry.language),
-            encodeURIComponent(fmt.entry.subject),
-            encodeURIComponent(fmt.version),
-            encodeURIComponent(fmt.format),
-            encodeURIComponent(fmt.asset.name),
-            encodeURIComponent(fmt.asset.browser_download_url),
-        );
+        ext = fmt.ext;
+        filename = fmt.name;
+    } else {
+        filename = last_node_from_url(download_url);
+        ext = filename.slice(filename.lastIndexOf("."))
     }
+
+    let category = 'stories'
+    if (['pdf', 'docx', 'epub', 'odt'].includes(ext)) {
+        if (filename.includes('obs-tq'))
+            category = 'tq';
+        else if (filename.includes('obs-tn'))
+            category = 'tn';
+        else if (filename.includes('obs-sn'))
+            category = 'sn';
+        else if (filename.includes('obs-sq'))
+            category = 'sq';
+    } else if (['mp3', '3gp'].includes(ext))
+        category = 'audio';
+    else if (['mp4'].includes(ext))
+        category = 'video';
+    else if (['zip'].includes(ext)) {
+        if (filename.includes('mp3'))
+            category = 'audio';
+        else if (filename.includes('mp4') || filename.includes('3gp'))
+            category = 'video';
+    } else if (filename.includes('obs-tq'))
+        category = 'tq';
+    else if (filename.includes('obs-tn'))
+        category = 'tn';
+    else if (filename.includes('obs-sn'))
+        category = 'sn';
+    else if (filename.includes('obs-sq'))
+        category = 'sq';
+
+    const url = `${OBS.obs.tracker_url}?mt_id=${encodeURIComponent(mt_id)}&mt_lang=${encodeURIComponent(fmt.entry.repo.id.split('_')[0])}&mt_category=${encodeURIComponent(category)}`;
+    console.log("URL: ", url, filename, ext, category);
 
     $.ajax({
         url: url,
